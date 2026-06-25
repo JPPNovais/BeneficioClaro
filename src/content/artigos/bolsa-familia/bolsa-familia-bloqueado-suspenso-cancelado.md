@@ -33,6 +33,8 @@ faq:
     resposta: "Em muitos casos sim. Se você regularizar dentro do prazo e o governo confirmar que ainda tem direito, os valores dos meses bloqueados costumam ser pagos de forma retroativa. Confirme a sua situação no CRAS ou no app Bolsa Família."
   - pergunta: "Como consulto por que meu benefício foi bloqueado?"
     resposta: "Use o app Bolsa Família ou o app Cadastro Único, ou consulte pelo CPF no portal gov.br fazendo login com a conta gov.br. Lá aparece a situação do benefício, o motivo e as orientações."
+  - pergunta: "Recebo algum aviso antes de o benefício ser bloqueado?"
+    resposta: "Na maioria dos casos, sim. O governo costuma sinalizar a pendência com antecedência pelo aplicativo Bolsa Família, pelo app Cadastro Único e, em algumas situações, por carta enviada ao endereço do cadastro. Por isso vale abrir o aplicativo de vez em quando, mesmo quando está tudo certo: quanto antes você enxerga o aviso de averiguação ou revisão, mais fácil é regularizar dentro do prazo e evitar que o bloqueio vire um cancelamento."
 relacionados:
   - "atualizar-cadastro-unico"
   - "calendario-pagamento-bolsa-familia-2026"
@@ -64,6 +66,22 @@ Repare que quase todos têm a ver com **condicionalidades e cadastro** — coisa
 2. **Atualize o CadÚnico no CRAS.** Se for cadastro desatualizado, agende e vá ao CRAS com os documentos de todos da família. Veja [como atualizar o CadÚnico](/bolsa-familia/atualizar-cadastro-unico).
 3. **Resolva a condicionalidade.** Se for frequência escolar ou vacina, regularize com a escola ou o posto de saúde e leve o comprovante.
 4. **Acompanhe.** Depois de regularizar, acompanhe pelo app. Se a família continuar dentro das regras, o benefício volta — e os meses retidos costumam ser pagos **de forma retroativa**.
+
+## Quanto tempo você tem para regularizar
+
+Bloqueio e suspensão **não são o fim do benefício**: a família recebe um prazo para resolver a pendência, informado no app Bolsa Família ou em carta. Enquanto está bloqueado, o pagamento fica **retido, não perdido**. Se você regularizar dentro do prazo e continuar dentro das regras, o benefício volta — e, em muitos casos, os meses que ficaram retidos são pagos **de forma retroativa**.
+
+Por isso, assim que perceber o bloqueio, corra para entender o motivo: deixar o prazo passar sem resolver é justamente o que transforma um bloqueio temporário em **cancelamento** definitivo.
+
+## Dá para voltar depois de cancelado?
+
+Sim, mas é um recomeço, não um simples "religar". Se o benefício foi **cancelado** e a sua família voltou a se enquadrar nos critérios (renda por pessoa dentro do limite e CadÚnico em dia), é possível **concorrer a uma nova concessão**. O caminho é:
+
+1. **Atualizar o CadÚnico** no CRAS, com todos os dados corretos.
+2. **Acompanhar** a situação pelo app Bolsa Família.
+3. **Aguardar uma nova seleção** — que, como na primeira vez, depende do orçamento do programa.
+
+Não existe atalho pago para voltar mais rápido: qualquer pessoa que cobre para "reativar" o seu benefício está aplicando um golpe.
 
 ## Cuidado com golpes nesse momento
 

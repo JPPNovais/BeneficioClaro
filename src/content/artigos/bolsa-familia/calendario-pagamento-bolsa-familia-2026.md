@@ -31,6 +31,8 @@ faq:
     resposta: "Não. Cada parcela fica disponível por até 120 dias para saque ou uso pelo Caixa Tem. Você não precisa correr no primeiro dia nem enfrentar fila."
   - pergunta: "O pagamento pode ser antecipado?"
     resposta: "Em regra, não. A antecipação só acontece em municípios em situação de emergência ou calamidade reconhecida, quando todas as famílias recebem no primeiro dia do calendário, sem escalonamento por NIS."
+  - pergunta: "O pagamento pode cair no sábado, domingo ou feriado?"
+    resposta: "Não. O calendário do Bolsa Família usa apenas dias úteis. Quando a data escalonada por final de NIS cairia em um fim de semana ou feriado, o pagamento daquele dígito é ajustado para o dia útil seguinte. É por isso que, de um mês para o outro, as datas de cada final de NIS mudam um pouco: o número de dias úteis no fim do mês varia. Por isso, confira sempre a data do mês atual em vez de assumir que é igual à do mês passado."
 relacionados:
   - "quem-tem-direito-bolsa-familia"
   - "bolsa-familia-bloqueado-suspenso-cancelado"
@@ -64,6 +66,31 @@ Em vez de decorar a tabela todo mês, use a nossa ferramenta de [calendário de 
 ## Você tem até 120 dias para usar
 
 O dinheiro **não vence** no dia do pagamento. Cada parcela fica guardada na sua conta por **até 120 dias** — então não precisa sacar tudo de uma vez nem correr para a agência. Pelo Caixa Tem, dá para pagar contas, fazer Pix e compras direto do celular, sem sacar em espécie.
+
+## Como consultar a sua data de pagamento
+
+Em vez de depender de boato ou de mensagem de grupo, confira a sua data nos canais oficiais e gratuitos:
+
+- **App Bolsa Família** (Android e iOS): mostra a data do mês, o valor e a situação do benefício.
+- **App Caixa Tem:** exibe o calendário e o saldo disponível.
+- **Site da Caixa** e o **Disque Social 121** (ligação gratuita) também informam as datas.
+
+E, claro, pela nossa [ferramenta de calendário](/ferramentas/calendario) você vê a data na hora — é só escolher o final do NIS, sem instalar nada.
+
+## Onde encontrar o número do NIS
+
+Para usar o calendário, você precisa do **final do NIS** (o último número antes do dígito verificador). Esse número aparece no **Cartão Cidadão**, na **Carteira de Trabalho**, no app **Caixa Tem** e no app do **Cadastro Único**. Ele também é o mesmo que o **PIS/PASEP** de quem já trabalhou com carteira assinada. Anote o seu e guarde: ele é a sua identificação em quase todos os serviços ligados a benefícios.
+
+## O que dá para fazer com o dinheiro pelo Caixa Tem
+
+Não é preciso sacar tudo em espécie nem enfrentar fila no banco. Com o saldo no Caixa Tem, dá para:
+
+- **fazer Pix** para pessoas e contas;
+- **pagar boletos** de água, luz, telefone e outras contas direto pelo app;
+- **gerar um cartão virtual** para compras pela internet;
+- **pagar em lojas** com o cartão de débito por aproximação.
+
+Usar o dinheiro pelo aplicativo é mais seguro do que andar com a quantia toda em espécie — e você gasta só o que precisa, quando precisa, dentro dos 120 dias.
 
 ## Quando o calendário muda
 

@@ -31,6 +31,8 @@ faq:
     resposta: "O aplicativo do Cadastro Único e o app Bolsa Família mostram avisos de 'averiguação cadastral' ou 'revisão cadastral'. Se aparecer, procure o CRAS para atualizar dentro do prazo informado."
   - pergunta: "O que acontece se eu não atualizar?"
     resposta: "O benefício pode ser bloqueado e, se a situação não for regularizada, cancelado. Famílias com cadastro desatualizado há mais de 2 anos são as mais sujeitas a isso."
+  - pergunta: "Posso atualizar o CadÚnico pela internet ou pelo aplicativo?"
+    resposta: "Pelo aplicativo Cadastro Único você consegue conferir os seus dados e iniciar a atualização de algumas informações simples. Mas mudanças importantes — como renda, endereço ou a entrada e saída de pessoas da família — só passam a valer depois de confirmadas presencialmente no CRAS, com os documentos que comprovam o que mudou. Na dúvida, procure o CRAS: é lá que a atualização realmente vale e evita o bloqueio do benefício."
 relacionados:
   - "como-se-inscrever-cadastro-unico"
   - "bolsa-familia-bloqueado-suspenso-cancelado"
@@ -61,6 +63,33 @@ A atualização é **gratuita** e parecida com a inscrição:
 2. **Agende e vá ao CRAS** (em muitas cidades o agendamento é obrigatório).
 3. Leve documentos de **todos** da família e os comprovantes do que mudou (novo endereço, novo comprovante de renda, certidão de nascimento etc.). O [checklist de documentos](/ferramentas/checklist) ajuda.
 4. O responsável familiar confirma e corrige as informações com o atendente.
+
+## Como saber se você precisa atualizar
+
+Nem sempre chega um aviso por carta. Fique atento a estes sinais:
+
+- já passaram **2 anos** desde a última atualização;
+- **mudou** endereço, renda, emprego, ou alguém entrou ou saiu da família;
+- apareceu **"averiguação cadastral"** ou **"revisão cadastral"** no app Bolsa Família ou no app Cadastro Único;
+- o benefício foi **bloqueado** sem motivo aparente.
+
+Em qualquer um desses casos, não espere o problema crescer: procure o CRAS para regularizar dentro do prazo informado.
+
+## Quais documentos levar para atualizar
+
+Leve os documentos de **todos** os moradores e, principalmente, o que comprova o que mudou:
+
+- identidade e **CPF** de cada pessoa da casa;
+- **comprovante de residência** atualizado (essencial se você mudou de endereço);
+- **comprovante da nova renda**, se a renda mudou;
+- **certidão de nascimento** de crianças que entraram na família;
+- comprovante de **matrícula escolar** das crianças e adolescentes.
+
+O [checklist de documentos](/ferramentas/checklist) ajuda a separar tudo antes de sair de casa e evita uma segunda viagem ao CRAS.
+
+## A biometria no Cadastro Único
+
+A partir do fim de 2026, o Cadastro Único passa a adotar o **cadastramento biométrico** de forma gradual — uma camada a mais de segurança para evitar fraudes e cadastros duplicados. Na prática, algumas famílias serão chamadas para registrar a digital ou a foto no momento da atualização. Se você for convocado para isso, é mais um motivo para não deixar a atualização para depois: comparecer no prazo garante a continuidade do benefício.
 
 ## O que acontece se você não atualizar
 

@@ -77,6 +77,27 @@ Para não esquecer nada, use o nosso [checklist de documentos](/ferramentas/chec
 3. O responsável familiar presta as informações e um atendente registra tudo no Cadastro Único.
 4. Anote o **NIS** gerado e acompanhe a situação pelos aplicativos.
 
+## Quem entra na mesma família no cadastro
+
+Para o CadÚnico, "família" é o grupo de pessoas que **mora na mesma casa e divide a renda e as despesas** — não precisa ser só pai, mãe e filhos. Entram também avós, tios, enteados e qualquer pessoa que vive ali e depende da mesma renda. É essa unidade familiar que o cálculo da renda por pessoa leva em conta.
+
+Por isso, na hora do cadastro, informe **todos** que moram com você, sem deixar ninguém de fora e sem incluir quem não mora na casa. Um cadastro que não bate com a realidade é uma das maiores causas de bloqueio depois.
+
+## Erros comuns que atrasam o cadastro
+
+Alguns deslizes simples fazem a família perder a viagem ao CRAS ou cair em averiguação semanas depois:
+
+- **Faltar documento** de algum integrante — principalmente o CPF, que é obrigatório para todos.
+- **Informar renda diferente da real:** o governo cruza os dados com outras bases (emprego formal, por exemplo), e a divergência gera bloqueio.
+- **Não avisar mudanças** recentes (novo endereço, alguém que entrou ou saiu da família).
+- **Comprovante de residência antigo** ou em nome de terceiros sem explicação.
+
+Levar tudo certo de primeira é o que mais acelera o processo.
+
+## Dá para fazer o cadastro fora do CRAS?
+
+Na maioria das cidades, o atendimento é no **CRAS**, mas algumas têm **postos do Cadastro Único** ou centrais de atendimento da prefeitura que também fazem a inscrição. O importante é que seja um ponto **oficial** e **gratuito**. Para saber qual é o mais perto e se precisa agendar, ligue para a prefeitura ou para o CRAS do seu bairro antes de ir.
+
 ## Inscrição não é o mesmo que aprovação
 
 Este é o ponto que mais gera frustração: **estar no CadÚnico não garante o Bolsa Família**. A inscrição é obrigatória, mas a família entra no programa por **seleção**, conforme o orçamento disponível — e isso pode levar meses. Pelo serviço oficial do gov.br, o processo, do cadastro ao primeiro pagamento, pode chegar a **180 dias**.
