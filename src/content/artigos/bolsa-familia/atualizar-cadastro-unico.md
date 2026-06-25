@@ -2,6 +2,8 @@
 title: "Como atualizar o CadÚnico sem perder o benefício"
 slug: "atualizar-cadastro-unico"
 categoria: "bolsa-familia"
+capa: "../../../assets/covers/atualizar-cadastro-unico.png"
+capaAlt: "Arte do Benefício Claro sobre como atualizar o Cadastro Único"
 description: "Quando e como atualizar o Cadastro Único em 2026: o prazo de 24 meses, as mudanças que exigem atualização imediata, a averiguação cadastral e o que acontece se você não atualizar."
 respostaRapida: "Você deve atualizar o CadÚnico sempre que mudar endereço, renda ou composição da família e, mesmo sem mudanças, pelo menos a cada 24 meses. A atualização é gratuita, feita no CRAS. Ficar mais de 2 anos sem atualizar pode bloquear ou cancelar o Bolsa Família e outros benefícios ligados ao cadastro."
 dataPublicacao: 2026-06-22

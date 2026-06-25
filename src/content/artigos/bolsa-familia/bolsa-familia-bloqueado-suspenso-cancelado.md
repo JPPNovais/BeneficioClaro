@@ -2,6 +2,8 @@
 title: "Bolsa Família bloqueado, suspenso ou cancelado: o que fazer"
 slug: "bolsa-familia-bloqueado-suspenso-cancelado"
 categoria: "bolsa-familia"
+capa: "../../../assets/covers/bolsa-familia-bloqueado-suspenso-cancelado.png"
+capaAlt: "Arte do Benefício Claro sobre o que fazer com o Bolsa Família bloqueado"
 description: "Seu Bolsa Família foi bloqueado, suspenso ou cancelado? Entenda a diferença, os motivos mais comuns em 2026 e o passo a passo para regularizar e voltar a receber."
 respostaRapida: "Bloqueio e suspensão são temporários: o pagamento fica retido por uma pendência, e você tem um prazo para regularizar no CRAS. Cancelamento é definitivo, quando a família não atende mais aos critérios. Na maioria dos casos, o motivo é cadastro desatualizado — atualizando o CadÚnico, é possível voltar a receber, às vezes com os valores atrasados."
 dataPublicacao: 2026-06-24

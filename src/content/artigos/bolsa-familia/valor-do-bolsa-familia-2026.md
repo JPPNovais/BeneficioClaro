@@ -2,6 +2,8 @@
 title: "Qual o valor do Bolsa Família em 2026? Veja quanto você recebe"
 slug: "valor-do-bolsa-familia-2026"
 categoria: "bolsa-familia"
+capa: "../../../assets/covers/valor-do-bolsa-familia-2026.png"
+capaAlt: "Arte do Benefício Claro sobre o valor do Bolsa Família em 2026"
 description: "Quanto o Bolsa Família paga em 2026: o mínimo de R$ 600 por família, os adicionais de R$ 150 e R$ 50 e a Regra de Proteção. Com exemplos de cálculo passo a passo."
 respostaRapida: "Em 2026, o Bolsa Família paga no mínimo R$ 600 por família, mais R$ 150 por criança de até 6 anos e R$ 50 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos. O valor final depende de quem mora na casa; o benefício médio fica em torno de R$ 690 a R$ 700."
 dataPublicacao: 2026-06-08

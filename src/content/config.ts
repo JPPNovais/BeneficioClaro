@@ -20,7 +20,9 @@ const faqItem = z.object({
 
 const artigos = defineCollection({
   type: "content",
-  schema: z.object({
+  // schema como função para usar o helper `image()` (otimização de imagens).
+  schema: ({ image }) =>
+    z.object({
     /** Título visível (vira o H1 e o <title> base). Use a dúvida real. */
     title: z.string(),
     /**
@@ -68,8 +70,15 @@ const artigos = defineCollection({
       .optional(),
     /** Slugs (relativos a /{categoria}/) de artigos relacionados. Vazio = automático. */
     relacionados: z.array(z.string()).default([]),
-    /** Imagem de capa / Open Graph específica (relativa à raiz). Opcional. */
-    image: z.string().optional(),
+    /**
+     * Capa do artigo (imagem em src/, caminho relativo ao arquivo). Otimizada
+     * no build (WebP/AVIF, width/height) pelo <Image> do Astro. Também vira a
+     * imagem de Open Graph/Twitter da página. Opcional — sem capa, o artigo
+     * fica text-first e usa o OG padrão do site.
+     */
+    capa: image().optional(),
+    /** Texto alternativo da capa (acessibilidade). Recomendado se houver capa. */
+    capaAlt: z.string().optional(),
     /** Esconde da listagem e do build de produção. */
     draft: z.boolean().default(false),
   }),

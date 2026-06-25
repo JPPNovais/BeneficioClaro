@@ -66,10 +66,19 @@ referencias:    [{ label, href }]   # imprensa séria/institutos que confirmam
 howTo: { name, steps: [{ name, text }] }   # opcional → schema HowTo
 faq:  [{ pergunta, resposta }]             # → schema FAQPage
 relacionados: ["outro-slug-da-categoria"]  # vazio = automático
+capa: "../../../assets/covers/<slug>.png"  # opcional: imagem em src/, otimizada
+capaAlt: "descrição da capa"               # alt da capa (acessibilidade)
 ---
 ```
 
 Gerado automaticamente: `<title>`, meta description, canonical, OG/Twitter, breadcrumb, índice (dos H2/H3), caixa de resposta rápida, FAQ em acordeão, fontes + referências, relacionados e JSON-LD (`Article` + `FAQPage` + `HowTo` + `BreadcrumbList` + `WebSite` + `Organization`). O schema deve sempre refletir o conteúdo visível.
+
+### Imagens
+
+- **Capa (opcional):** campo `capa` aponta para uma imagem em `src/` (caminho relativo ao arquivo). É otimizada no build pelo `<Image>` do Astro (WebP/AVIF, `width`/`height` → CLS 0, lazy-load) e vira a imagem de OG/Twitter da página. Sem capa, o artigo fica text-first (mais leve, ideal p/ 3G).
+- **Capas on-brand templatizadas:** `node scripts/gen-covers.mjs` gera capas 1200×675 (verde + título + ícone) em `src/assets/covers/`. Edite o array `ARTIGOS` do script para adicionar novas.
+- **Imagens no corpo:** use `<Image>` (em `.mdx`) ou pré-otimize antes de usar `![]()`. Sempre com `width`/`height` e `loading="lazy"`. Use imagem só quando agrega (ex.: print do Caixa Tem) — público em 3G.
+- **Cards de artigo são text-first** (sem thumbnail), fiel ao design. Capas aparecem na página do artigo e no compartilhamento (OG/Discover).
 
 ## Dados das ferramentas (editáveis, client-side)
 

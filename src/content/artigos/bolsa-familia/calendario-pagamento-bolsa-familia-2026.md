@@ -2,6 +2,8 @@
 title: "Calendário do Bolsa Família: quando cai o pagamento?"
 slug: "calendario-pagamento-bolsa-familia-2026"
 categoria: "bolsa-familia"
+capa: "../../../assets/covers/calendario-pagamento-bolsa-familia-2026.png"
+capaAlt: "Arte do Benefício Claro sobre o calendário de pagamento do Bolsa Família"
 description: "Entenda o calendário do Bolsa Família em 2026: o pagamento é escalonado pelo final do NIS, nos últimos dez dias úteis do mês. Veja como descobrir a sua data e por quanto tempo o dinheiro fica disponível."
 respostaRapida: "O Bolsa Família é pago nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS: quem tem final 1 recebe primeiro e final 0 por último. Em junho de 2026, o pagamento vai de 17 a 30. Cada parcela fica disponível por até 120 dias para saque ou uso pelo Caixa Tem."
 dataPublicacao: 2026-06-10
