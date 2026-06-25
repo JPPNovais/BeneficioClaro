@@ -1,0 +1,66 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Icon from "@components/Icon.astro";
+import { SITE } from "@config/site";
+---
+
+<BaseLayout
+  title="Fale com a gente"
+  description={`Dúvidas, sugestões ou correções? Entre em contato com a equipe do ${SITE.nome}.`}
+  canonical="/contato"
+>
+  <div class="max-w-prose mx-auto px-4 pt-8 pb-2">
+    <h1 class="mb-2">Fale com a gente</h1>
+    <p class="text-ink-600 mt-0 mb-5">Dúvidas, sugestões ou correções? Envie sua mensagem.</p>
+
+    <div class="bg-white border border-ink-200 rounded-lg shadow-sm p-6">
+      <form id="contato-form" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label for="nome" class="font-body text-sm font-semibold text-ink-900">Seu nome</label>
+          <div class="flex items-center min-h-control-md px-4 bg-white border-thick border-ink-250 rounded-md focus-within:border-green-500 focus-within:shadow-focus-ring transition-[border-color,box-shadow] duration-fast">
+            <input id="nome" name="nome" type="text" required placeholder="Como podemos te chamar" class="flex-1 min-w-0 border-0 outline-none bg-transparent font-body text-base text-ink-900 py-3" />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="email" class="font-body text-sm font-semibold text-ink-900">E-mail</label>
+          <div class="flex items-center min-h-control-md px-4 bg-white border-thick border-ink-250 rounded-md focus-within:border-green-500 focus-within:shadow-focus-ring transition-[border-color,box-shadow] duration-fast">
+            <input id="email" name="email" type="email" required placeholder="voce@email.com" class="flex-1 min-w-0 border-0 outline-none bg-transparent font-body text-base text-ink-900 py-3" />
+          </div>
+          <span class="font-body text-sm text-ink-600">Para respondermos você.</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="mensagem" class="font-body text-sm font-semibold text-ink-900">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Escreva sua mensagem" class="w-full px-4 py-3 bg-white border-thick border-ink-250 rounded-md font-body text-base text-ink-900 resize-y focus:border-green-500 focus:shadow-focus-ring focus:outline-none transition-[border-color,box-shadow] duration-fast"></textarea>
+        </div>
+
+        <button type="submit" class="inline-flex items-center justify-center gap-2 min-h-control-lg h-control-lg px-7 font-body text-lg font-bold rounded-md border-thick border-transparent bg-cta text-white hover:bg-cta-hover shadow-xs cursor-pointer">
+          Enviar mensagem <Icon name="send" size={18} />
+        </button>
+        <p id="contato-aviso" class="text-sm text-ink-600 m-0" role="status"></p>
+      </form>
+    </div>
+
+    <div class="flex gap-5 mt-5 flex-wrap">
+      <a href={`mailto:${SITE.email}`} class="inline-flex items-center gap-2 text-ink-600 no-underline hover:text-green-700">
+        <Icon name="mail" size={20} color="#0A5446" /> {SITE.email}
+      </a>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ email: SITE.email }}>
+    // Sem backend: o formulário compõe um e-mail (mailto). Para receber as
+    // mensagens em um servidor, troque por Formspree, Netlify Forms ou similar
+    // (veja o README). Validação nativa do HTML cuida dos campos obrigatórios.
+    const form = document.getElementById("contato-form");
+    const aviso = document.getElementById("contato-aviso");
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = encodeURIComponent(form.nome.value);
+      const corpo = encodeURIComponent(`${form.mensagem.value}\n\n— ${form.nome.value} (${form.email.value})`);
+      window.location.href = `mailto:${email}?subject=Contato%20de%20${nome}&body=${corpo}`;
+      if (aviso) aviso.textContent = "Abrimos seu aplicativo de e-mail para enviar a mensagem.";
+    });
+  </script>
+</BaseLayout>

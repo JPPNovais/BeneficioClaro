@@ -1,0 +1,66 @@
+---
+/**
+ * SiteFooter — rodapé verde escuro com colunas de navegação, disclaimer de
+ * confiança e os links de páginas estáticas exigidas pelo AdSense (Sobre,
+ * Contato, Política de Privacidade). Fiel ao SiteFooter do design.
+ */
+import Logo from "@components/Logo.astro";
+import { SITE } from "@config/site";
+
+const colunas = [
+  {
+    titulo: "Benefícios",
+    links: [
+      { label: "Bolsa Família", href: "/bolsa-familia" },
+      { label: "CadÚnico", href: "/cadunico" },
+      { label: "Auxílio Gás", href: "/auxilio-gas" },
+      { label: "Tarifa Social", href: "/tarifa-social" },
+    ],
+  },
+  {
+    titulo: "Institucional",
+    links: [
+      { label: "Sobre nós", href: "/sobre" },
+      { label: "Contato", href: "/contato" },
+      { label: "Política de Privacidade", href: "/politica-de-privacidade" },
+    ],
+  },
+];
+const ano = new Date().getFullYear();
+---
+
+<footer class="bg-green-900 text-green-100 mt-12">
+  <div class="max-w-container mx-auto px-4 pt-10 pb-7">
+    <div class="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-2.5 mb-3">
+          <Logo variant="light" size={40} />
+          <span class="font-heading font-extrabold text-[19px] text-white">{SITE.nome}</span>
+        </div>
+        <p class="m-0 text-[15px] leading-relaxed text-green-200 max-w-[320px]">
+          Explicamos seus direitos e benefícios em linguagem simples. Conteúdo gratuito, sempre com fontes oficiais.
+        </p>
+      </div>
+
+      {
+        colunas.map((c) => (
+          <div>
+            <div class="font-heading font-bold text-[15px] text-white mb-1.5 tracking-wide">{c.titulo}</div>
+            {c.links.map((l) => (
+              <a href={l.href} class="block py-[7px] min-h-9 text-green-100 no-underline font-body text-[15px] hover:underline">
+                {l.label}
+              </a>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="border-t border-white/10 mt-7 pt-[18px] flex flex-wrap gap-2 justify-between items-center">
+      <span class="text-[13px] text-green-200">© {ano} {SITE.nome} · {SITE.dominio}</span>
+      <span class="text-[13px] text-[#7FB8A6] max-w-[420px] sm:text-right">
+        Site independente. Não temos vínculo com o Governo Federal, a Caixa ou o gov.br.
+      </span>
+    </div>
+  </div>
+</footer>

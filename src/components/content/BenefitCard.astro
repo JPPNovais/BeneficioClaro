@@ -1,0 +1,42 @@
+---
+/**
+ * BenefitCard — tile tocável para um benefício do governo ou ferramenta, na
+ * home e no pilar. Ícone + título + descrição de uma linha + seta.
+ */
+import Icon from "@components/Icon.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  icon: string;
+  href: string;
+  tone?: "primary" | "cta" | "info";
+}
+const { title, description, icon, href, tone = "primary" } = Astro.props;
+
+const tones = {
+  primary: "bg-green-100 text-green-700",
+  cta: "bg-orange-100 text-orange-700",
+  info: "bg-info-100 text-info-700",
+};
+---
+
+<a
+  href={href}
+  class="group flex items-start gap-3 p-4 min-h-control-lg bg-white border border-ink-200 rounded-lg no-underline text-inherit shadow-sm transition-[box-shadow,transform] duration-base hover:shadow-md hover:-translate-y-0.5"
+>
+  <span aria-hidden="true" class={`flex-none w-12 h-12 rounded-md flex items-center justify-center ${tones[tone]}`}>
+    <Icon name={icon} size={26} />
+  </span>
+  <span class="flex-1 min-w-0">
+    <span class="flex items-center justify-between gap-2">
+      <span class="font-heading text-lg font-bold text-ink-900">{title}</span>
+      <Icon name="arrow-right" size={20} class="flex-none text-green-600 transition-transform duration-base group-hover:translate-x-0.5" />
+    </span>
+    {
+      description && (
+        <span class="block mt-0.5 font-body text-base text-ink-600 leading-normal">{description}</span>
+      )
+    }
+  </span>
+</a>

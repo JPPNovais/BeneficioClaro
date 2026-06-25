@@ -1,0 +1,34 @@
+---
+/**
+ * IconButton — botão quadrado só com ícone (menu, fechar, busca). Sempre 44px+
+ * para toque. `label` é obrigatório para leitores de tela.
+ */
+interface Props {
+  label: string;
+  variant?: "ghost" | "soft" | "solid";
+  size?: "sm" | "md" | "lg";
+  id?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const { label, variant = "ghost", size = "md", class: className = "", ...rest } = Astro.props;
+
+const dims = { sm: "w-control-min h-control-min", md: "w-control-md h-control-md", lg: "w-control-lg h-control-lg" };
+const palettes = {
+  ghost: "bg-transparent text-ink-900 hover:bg-ink-100",
+  soft: "bg-green-50 text-green-700 hover:bg-green-100",
+  solid: "bg-primary text-white hover:bg-primary-strong",
+};
+
+const cls = [
+  "inline-flex items-center justify-center min-w-control-min min-h-control-min border-0 rounded-md cursor-pointer transition-colors duration-fast ease-standard",
+  dims[size],
+  palettes[variant],
+  className,
+].join(" ");
+---
+
+<button type="button" aria-label={label} title={label} class={cls} {...rest}>
+  <slot />
+</button>

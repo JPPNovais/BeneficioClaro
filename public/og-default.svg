@@ -1,0 +1,16 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Benefício Claro — Seus direitos, sem complicação">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0D6B57"></stop>
+      <stop offset="1" stop-color="#052A24"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"></rect>
+  <rect x="80" y="84" width="120" height="120" rx="32" fill="#FFFFFF"></rect>
+  <circle cx="140" cy="144" r="34" stroke="#9FDAC6" stroke-width="5"></circle>
+  <path d="M120 154L134 140L146 150L168 126" stroke="#0D6B57" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M168 138V126H156" stroke="#E5731F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></path>
+  <text x="80" y="320" font-family="Libre Franklin, Segoe UI, sans-serif" font-size="84" font-weight="800" fill="#FFFFFF">Benefício Claro</text>
+  <text x="80" y="400" font-family="Public Sans, Segoe UI, sans-serif" font-size="40" font-weight="600" fill="#9FDAC6">Seus direitos, sem complicação</text>
+  <text x="80" y="560" font-family="Public Sans, Segoe UI, sans-serif" font-size="32" fill="#CCECE0">Bolsa Família · CadÚnico · Benefícios sociais · Ferramentas gratuitas</text>
+</svg>

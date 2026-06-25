@@ -1,0 +1,67 @@
+---
+/**
+ * SlotAnuncio (AdSlot) — espaço de anúncio (AdSense) sempre rotulado como
+ * "Publicidade", para nunca confundir com conteúdo editorial (exigência de
+ * confiança YMYL + política do AdSense).
+ *
+ * Comportamento controlado por src/config/site.ts (ADSENSE):
+ *  - ADSENSE.ativo = false → placeholder rotulado (igual ao design), sem script.
+ *  - ADSENSE.ativo = true  → bloco <ins class="adsbygoogle"> responsivo.
+ *
+ * A altura é reservada em ambos os casos para manter o CLS ~0.
+ */
+import { ADSENSE, type AdPlacement } from "@config/site";
+
+interface Props {
+  size?: "leaderboard" | "rectangle" | "mobile";
+  /** Texto exibido após "Publicidade ·" (ex.: "após a introdução"). */
+  placement?: string;
+  /** Chave em ADSENSE.slots para escolher o data-ad-slot. */
+  placementKey?: AdPlacement;
+  class?: string;
+}
+
+const { size = "rectangle", placement, placementKey, class: className = "" } = Astro.props;
+
+const sizes = {
+  leaderboard: { minHeight: 90, maxWidth: 728, hint: "728 × 90" },
+  rectangle: { minHeight: 250, maxWidth: 336, hint: "336 × 280" },
+  mobile: { minHeight: 100, maxWidth: 360, hint: "320 × 100" },
+};
+const s = sizes[size];
+
+const slotId = placementKey ? ADSENSE.slots[placementKey] : "";
+const mostrarAnuncio = ADSENSE.ativo && ADSENSE.publisherId.startsWith("ca-pub-");
+---
+
+<div
+  class={`mx-auto w-full flex flex-col items-center gap-1.5 ${className}`}
+  style={`max-width:${s.maxWidth}px`}
+>
+  <span class="self-stretch text-left font-body text-[11px] font-semibold tracking-wide uppercase text-ink-400">
+    Publicidade{placement ? ` · ${placement}` : ""}
+  </span>
+
+  {
+    mostrarAnuncio ? (
+      <ins
+        class="adsbygoogle block w-full"
+        style={`display:block;min-height:${s.minHeight}px`}
+        data-ad-client={ADSENSE.publisherId}
+        data-ad-slot={slotId || undefined}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+      <script is:inline>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    ) : (
+      <div
+        class="w-full flex items-center justify-center bg-ink-100 border border-dashed border-ink-300 rounded-sm text-ink-400 font-mono text-sm"
+        style={`min-height:${s.minHeight}px`}
+      >
+        Espaço de anúncio · {s.hint}
+      </div>
+    )
+  }
+</div>

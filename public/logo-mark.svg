@@ -1,0 +1,6 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Benefício Claro">
+  <rect width="56" height="56" rx="16" fill="#0D6B57"></rect>
+  <circle cx="28" cy="28" r="15" stroke="#9FDAC6" stroke-width="2.5" opacity="0.55"></circle>
+  <path d="M19 31.5L25.5 24.5L30.5 29L37.5 20.5" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M37.5 26V20.5H32" stroke="#E5731F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

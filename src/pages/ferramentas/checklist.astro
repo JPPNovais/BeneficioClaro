@@ -1,0 +1,121 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Icon from "@components/Icon.astro";
+import { LISTAS } from "@data/checklist";
+---
+
+<BaseLayout
+  title="Checklist de documentos por benefício"
+  description="Monte o seu checklist de documentos para o Bolsa Família, Auxílio Gás e Tarifa Social. Escolha o benefício e marque o que você já tem."
+  canonical="/ferramentas/checklist"
+>
+  <div class="max-w-[680px] mx-auto px-4 pt-7">
+    <div class="text-center mb-2">
+      <span class="inline-flex items-center gap-1.5 px-3 py-[5px] rounded-pill bg-green-100 text-green-800 text-sm font-bold">
+        <Icon name="check-square" size={16} /> Checklist de documentos
+      </span>
+      <h1 class="mt-3 mb-1">O que levar para se inscrever</h1>
+      <p class="text-ink-600 m-0">Escolha o benefício e marque o que você já tem.</p>
+    </div>
+
+    <div class="bg-white border border-ink-200 rounded-lg shadow-sm p-6 mt-5">
+      <!-- Seletor de benefício -->
+      <div class="flex flex-col gap-2 w-full">
+        <label for="beneficio" class="font-body text-sm font-semibold text-ink-900">Benefício</label>
+        <div class="relative flex">
+          <select
+            id="beneficio"
+            class="w-full min-h-control-md pl-4 pr-11 bg-white border-thick border-ink-250 rounded-md font-body text-base text-ink-900 appearance-none cursor-pointer focus:border-green-500 focus:shadow-focus-ring transition-[border-color,box-shadow] duration-fast"
+          >
+            {LISTAS.map((l) => <option value={l.key}>{l.label}</option>)}
+          </select>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-ink-600">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Progresso -->
+      <div class="mt-[18px] mb-1.5 flex items-center justify-between">
+        <span class="font-bold text-ink-900" id="chk-count">0 de 0 prontos</span>
+        <span class="text-sm text-ink-600" id="chk-pct">0%</span>
+      </div>
+      <div class="h-2.5 rounded-pill bg-ink-200 overflow-hidden mb-2">
+        <div id="chk-bar" class="h-full bg-green-500 rounded-pill transition-[width] duration-base ease-standard" style="width:0%"></div>
+      </div>
+
+      <!-- Listas (uma visível por vez) -->
+      {
+        LISTAS.map((l, idx) => (
+          <div class="chk-list border-t border-ink-200" data-list={l.key} hidden={idx !== 0}>
+            {l.docs.map((doc, i) => (
+              <label class="flex items-center gap-3 min-h-control-min py-2 cursor-pointer font-body text-base text-ink-800 border-b border-ink-200">
+                <input type="checkbox" class="chk-item flex-none w-[26px] h-[26px] cursor-pointer" style="accent-color: var(--color-primary)" data-list={l.key} data-i={i} />
+                <span class="[text-wrap:pretty]">{doc}</span>
+              </label>
+            ))}
+          </div>
+        ))
+      }
+
+      <!-- Sucesso (100%) -->
+      <div id="chk-sucesso" class="hidden mt-4">
+        <div role="note" class="flex gap-3 px-5 py-4 rounded-md border-l-4 bg-success-50 border-l-success-600 font-body">
+          <span class="flex-none flex mt-0.5 text-success-600"><Icon name="shield-check" size={22} /></span>
+          <div>
+            <div class="text-base font-bold mb-0.5 text-green-800">Tudo pronto!</div>
+            <div class="text-base text-ink-800 leading-normal">Você tem todos os documentos. Agora é só procurar o CRAS mais próximo.</div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        id="chk-pdf"
+        class="mt-4 w-full inline-flex items-center justify-center gap-2 min-h-control-md h-control-md px-5 font-body text-base font-bold rounded-md border-thick border-green-600 bg-transparent text-primary-strong hover:bg-green-50 cursor-pointer"
+      >
+        <Icon name="download" size={18} /> Baixar checklist em PDF
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const sel = document.getElementById("beneficio") as HTMLSelectElement | null;
+    const listas = Array.from(document.querySelectorAll<HTMLElement>(".chk-list"));
+    const countEl = document.getElementById("chk-count");
+    const pctEl = document.getElementById("chk-pct");
+    const bar = document.getElementById("chk-bar");
+    const sucesso = document.getElementById("chk-sucesso");
+
+    function ativa(): HTMLElement | undefined {
+      const key = sel?.value;
+      return listas.find((l) => l.dataset.list === key);
+    }
+
+    function atualizar() {
+      const lista = ativa();
+      if (!lista) return;
+      const itens = lista.querySelectorAll<HTMLInputElement>(".chk-item");
+      const total = itens.length;
+      const marcados = Array.from(itens).filter((i) => i.checked).length;
+      const pct = total ? Math.round((marcados / total) * 100) : 0;
+      if (countEl) countEl.textContent = `${marcados} de ${total} prontos`;
+      if (pctEl) pctEl.textContent = `${pct}%`;
+      if (bar) bar.style.width = `${pct}%`;
+      sucesso?.classList.toggle("hidden", pct !== 100);
+    }
+
+    function trocar() {
+      listas.forEach((l) => (l.hidden = l.dataset.list !== sel?.value));
+      atualizar();
+    }
+
+    sel?.addEventListener("change", trocar);
+    listas.forEach((l) =>
+      l.querySelectorAll<HTMLInputElement>(".chk-item").forEach((i) => i.addEventListener("change", atualizar))
+    );
+    document.getElementById("chk-pdf")?.addEventListener("click", () => window.print());
+
+    trocar();
+  </script>
+</BaseLayout>

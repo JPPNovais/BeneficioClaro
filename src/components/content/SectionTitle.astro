@@ -1,0 +1,20 @@
+---
+/**
+ * SectionTitle — título de seção com "eyebrow" (rótulo pequeno em caixa alta)
+ * + H2. Usado na home e no pilar. Fiel ao SectionTitle do design.
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  class?: string;
+  /** Nível do heading (2 por padrão). Use 2 só uma vez por página no H1. */
+  as?: "h2" | "h3";
+}
+const { eyebrow, title, class: className = "", as = "h2" } = Astro.props;
+const Heading = as;
+---
+
+<div class={`mb-4 ${className}`}>
+  {eyebrow && <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-0.5">{eyebrow}</div>}
+  <Heading class="m-0">{title}</Heading>
+</div>

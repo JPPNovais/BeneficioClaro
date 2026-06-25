@@ -1,0 +1,67 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Alert from "@components/feedback/Alert.astro";
+import { SITE } from "@config/site";
+import { AUTORES } from "@config/autores";
+
+const equipe = Object.values(AUTORES);
+---
+
+<BaseLayout
+  title={`Sobre o ${SITE.nome}`}
+  description={`Quem somos: o ${SITE.nome} é um site independente que explica benefícios sociais e finanças do dia a dia em linguagem simples, com base em fontes oficiais.`}
+  canonical="/sobre"
+>
+  <div class="max-w-prose mx-auto px-4 pt-8 pb-2">
+    <div class="prose-artigo">
+      <h1>Sobre o {SITE.nome}</h1>
+      <p>
+        O {SITE.nome} é um site independente que explica, em linguagem simples, os benefícios sociais do
+        governo e as finanças do dia a dia. Nosso objetivo é ajudar você a entender seus direitos sem juridiquês.
+      </p>
+
+      <Alert tone="info" title="Não somos o governo">
+        Somos um site de informação independente. Não temos vínculo com o Governo Federal, a Caixa ou o gov.br.
+        Para serviços oficiais, use sempre os canais do governo.
+      </Alert>
+
+      <h2>Como produzimos o conteúdo</h2>
+      <p>
+        Todo artigo é escrito em linguagem simples, revisado e baseado em <strong>fontes oficiais</strong>
+        (gov.br, Caixa, Ministério do Desenvolvimento). Sempre indicamos a data de atualização e os links das fontes.
+      </p>
+
+      <h2>Como nos mantemos</h2>
+      <p>
+        O conteúdo é <strong>100% gratuito</strong>. Para manter o site no ar, exibimos anúncios, sempre
+        identificados com a palavra "Publicidade" e separados do conteúdo. Nunca cobramos para você acessar
+        informações ou usar nossas ferramentas.
+      </p>
+    </div>
+
+    <!-- Equipe (E-E-A-T) -->
+    <section id="equipe" class="scroll-mt-24 mt-10">
+      <h2>Quem escreve para você</h2>
+      <div class="grid gap-3 mt-3">
+        {
+          equipe.map((a) => (
+            <div class="flex gap-4 items-start p-5 bg-white border border-ink-200 rounded-lg shadow-sm">
+              {a.foto ? (
+                <img src={a.foto} width="56" height="56" alt={`Foto de ${a.nome}`} class="w-14 h-14 flex-none rounded-pill object-cover" loading="lazy" />
+              ) : (
+                <div aria-hidden="true" class="w-14 h-14 flex-none rounded-pill bg-green-100 text-green-800 flex items-center justify-center font-bold text-lg">
+                  {a.nome.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
+                </div>
+              )}
+              <div>
+                <div class="font-heading font-bold text-lg text-ink-900">{a.nome}</div>
+                <div class="text-sm text-green-700 font-semibold mb-1">{a.cargo}</div>
+                <p class="m-0 text-base text-ink-700 leading-normal">{a.bio}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>

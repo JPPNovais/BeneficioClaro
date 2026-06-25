@@ -1,0 +1,186 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Badge from "@components/core/Badge.astro";
+import Icon from "@components/Icon.astro";
+import ArticleMeta from "@components/content/ArticleMeta.astro";
+import QuickAnswerBox from "@components/content/QuickAnswerBox.astro";
+import TableOfContents from "@components/content/TableOfContents.astro";
+import AdSlot from "@components/content/AdSlot.astro";
+import SourceBox from "@components/content/SourceBox.astro";
+import FAQAccordion from "@components/feedback/FAQAccordion.astro";
+import ArtigosRelacionados from "@components/content/ArtigosRelacionados.astro";
+import { SITE } from "@config/site";
+import { getCategoria, getCategoriaNome } from "@config/categorias";
+import { getAutor } from "@config/autores";
+import { formatarData, formatarDataCurta, tempoLeitura, dataISO, urlArtigo, urlAbsoluta } from "@lib/utils";
+import { breadcrumbSchema, articleSchema, faqSchema, howToSchema } from "@lib/seo";
+
+export async function getStaticPaths() {
+  const artigos = await getCollection("artigos", ({ data }) => !data.draft);
+  return artigos.map((entry) => ({
+    params: { categoria: entry.data.categoria, slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"artigos">;
+}
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+const d = entry.data;
+
+const categoriaNome = getCategoriaNome(d.categoria);
+const autor = getAutor(d.autor);
+const leitura = tempoLeitura(entry.body);
+const tocItems = headings
+  .filter((h) => h.depth === 2 || h.depth === 3)
+  .map((h) => ({ slug: h.slug, text: h.text, depth: h.depth }));
+
+const urlPagina = urlArtigo(d.categoria, entry.slug);
+const urlAbs = urlAbsoluta(Astro.site ?? SITE.url, urlPagina);
+
+// Artigos relacionados: usa os slugs do frontmatter; se vazio, pega 2 da mesma categoria.
+const todos = await getCollection("artigos", ({ data }) => !data.draft);
+let relacionadosEntries = d.relacionados
+  .map((slug) => todos.find((e) => e.data.categoria === d.categoria && e.slug === slug))
+  .filter((e): e is CollectionEntry<"artigos"> => Boolean(e));
+if (relacionadosEntries.length === 0) {
+  relacionadosEntries = todos
+    .filter((e) => e.data.categoria === d.categoria && e.slug !== entry.slug)
+    .slice(0, 2);
+}
+const relacionados = relacionadosEntries.map((e) => ({
+  title: e.data.title,
+  href: urlArtigo(e.data.categoria, e.slug),
+  category: getCategoriaNome(e.data.categoria),
+  readingTime: tempoLeitura(e.body),
+  date: formatarDataCurta(e.data.dataAtualizacao),
+}));
+
+// --- Schema JSON-LD (reflete o conteúdo visível) ---
+const schema: object[] = [
+  breadcrumbSchema([
+    { name: "Início", url: urlAbsoluta(Astro.site ?? SITE.url, "/") },
+    { name: categoriaNome, url: urlAbsoluta(Astro.site ?? SITE.url, `/${d.categoria}`) },
+    { name: d.title, url: urlAbs },
+  ]),
+  articleSchema({
+    url: urlAbs,
+    title: d.title,
+    description: d.description,
+    datePublished: dataISO(d.dataPublicacao),
+    dateModified: dataISO(d.dataAtualizacao),
+    authorName: autor.nome,
+    authorUrl: urlAbsoluta(Astro.site ?? SITE.url, autor.perfilUrl),
+    image: d.image ? urlAbsoluta(Astro.site ?? SITE.url, d.image) : undefined,
+  }),
+];
+if (d.faq.length > 0) schema.push(faqSchema(d.faq));
+if (d.howTo) schema.push(howToSchema(d.howTo));
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.description}
+  canonical={urlPagina}
+  type="article"
+  image={d.image}
+  publishedTime={d.dataPublicacao.toISOString()}
+  modifiedTime={d.dataAtualizacao.toISOString()}
+  schema={schema}
+>
+  <div class="max-w-container mx-auto px-4 pt-5">
+    <!-- Trilha (breadcrumb) -->
+    <nav aria-label="Trilha" class="flex flex-wrap items-center gap-1.5 text-sm text-ink-600 mb-4">
+      <a href="/" class="text-green-700 no-underline hover:underline">Início</a>
+      <Icon name="chevron-right" size={14} color="#9A9D8D" />
+      <a href={`/${d.categoria}`} class="text-green-700 no-underline hover:underline">{categoriaNome}</a>
+      <Icon name="chevron-right" size={14} color="#9A9D8D" />
+      <span aria-current="page">{d.title}</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,720px)_300px] gap-10 justify-center items-start">
+      <!-- Coluna principal -->
+      <article class="min-w-0">
+        <Badge tone="primary">{categoriaNome}</Badge>
+        <h1 id="topo" class="mt-3 mb-4">{d.title}</h1>
+
+        <div class="mb-5">
+          <ArticleMeta autorId={d.autor} date={formatarData(d.dataAtualizacao)} readingTime={leitura} reviewed={d.revisado} />
+        </div>
+
+        <QuickAnswerBox set:html={d.respostaRapida} />
+
+        <!-- Índice (mobile: recolhido e no fluxo; desktop: na lateral) -->
+        <div class="my-5 lg:hidden">
+          <TableOfContents items={tocItems} />
+        </div>
+
+        <!-- Anúncio 1 — após a introdução -->
+        <div class="my-7">
+          <AdSlot size="leaderboard" placement="após a introdução" placementKey="apos-introducao" />
+        </div>
+
+        <!-- Corpo do artigo (Markdown/MDX) -->
+        <div class="prose-artigo">
+          <Content />
+        </div>
+
+        <!-- Anúncio 2 — meio do artigo (realocado para o meio da prosa via JS, com altura reservada) -->
+        <div id="ad-meio" class="my-7">
+          <AdSlot size="rectangle" placement="meio do artigo" placementKey="meio-do-artigo" />
+        </div>
+
+        <!-- Fontes oficiais -->
+        {d.fontesOficiais.length > 0 && (
+          <div class="my-7">
+            <SourceBox sources={d.fontesOficiais} />
+          </div>
+        )}
+
+        <!-- FAQ -->
+        {
+          d.faq.length > 0 && (
+            <section>
+              <h2 class="mt-9">Perguntas frequentes</h2>
+              <div class="mt-3">
+                <FAQAccordion items={d.faq} />
+              </div>
+            </section>
+          )
+        }
+
+        <!-- Anúncio 3 — final do artigo -->
+        <div class="my-7">
+          <AdSlot size="leaderboard" placement="final do artigo" placementKey="final-do-artigo" />
+        </div>
+
+        <!-- Relacionados -->
+        <ArtigosRelacionados artigos={relacionados} />
+      </article>
+
+      <!-- Barra lateral (desktop) -->
+      <aside class="hidden lg:flex flex-col gap-5 sticky top-24">
+        <TableOfContents items={tocItems} title="Neste artigo" open={true} />
+        <AdSlot size="rectangle" placement="lateral" placementKey="lateral" />
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Realoca o anúncio do "meio do artigo" para depois do H2 central da prosa.
+  // Progressivo: sem JS, o anúncio fica no limite corpo↔fontes (posição válida).
+  // A altura já é reservada pelo AdSlot, minimizando deslocamento (CLS).
+  const ad = document.getElementById("ad-meio");
+  const prosa = document.querySelector(".prose-artigo");
+  if (ad && prosa) {
+    const h2s = prosa.querySelectorAll("h2");
+    if (h2s.length >= 2) {
+      const alvo = h2s[Math.floor(h2s.length / 2)];
+      alvo.parentNode?.insertBefore(ad, alvo);
+    }
+  }
+</script>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Icon from "@components/Icon.astro";
+import Alert from "@components/feedback/Alert.astro";
+import { CALENDARIO } from "@data/calendario";
+import { formatarData } from "@lib/utils";
+---
+
+<BaseLayout
+  title={`Calendário de pagamento do Bolsa Família — ${CALENDARIO.mesReferencia}`}
+  description={`Veja quando cai o Bolsa Família de ${CALENDARIO.mesReferencia}. Filtre pelo final do seu NIS e descubra a data exata do seu pagamento.`}
+  canonical="/ferramentas/calendario"
+>
+  <div class="max-w-[680px] mx-auto px-4 pt-7">
+    <div class="text-center mb-2">
+      <span class="inline-flex items-center gap-1.5 px-3 py-[5px] rounded-pill bg-green-100 text-green-800 text-sm font-bold">
+        <Icon name="calendar" size={16} /> Calendário de pagamento
+      </span>
+      <h1 class="mt-3 mb-1">Quando cai o seu Bolsa Família?</h1>
+      <p class="text-ink-600 m-0">Pagamento de {CALENDARIO.mesReferencia}. Filtre pelo final do seu NIS.</p>
+    </div>
+
+    <div class="bg-white border border-ink-200 rounded-lg shadow-sm p-6 mt-5">
+      <!-- Seletor de NIS -->
+      <div class="flex flex-col gap-2 w-full">
+        <label for="nis" class="font-body text-sm font-semibold text-ink-900">Final do seu NIS</label>
+        <div class="relative flex">
+          <select
+            id="nis"
+            class="w-full min-h-control-md pl-4 pr-11 bg-white border-thick border-ink-250 rounded-md font-body text-base text-ink-900 appearance-none cursor-pointer focus:border-green-500 focus:shadow-focus-ring transition-[border-color,box-shadow] duration-fast"
+          >
+            <option value="">Mostrar todos</option>
+            {CALENDARIO.datas.map((s) => <option value={s.nis}>Final {s.nis}</option>)}
+          </select>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-ink-600">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <span class="font-body text-sm text-ink-600">É o último número do seu NIS, antes do dígito.</span>
+      </div>
+
+      <!-- Destaque (aparece ao selecionar) -->
+      <div id="nis-destaque" class="hidden mt-4 p-5 rounded-lg bg-green-600 text-white text-center">
+        <div class="text-sm opacity-85 font-semibold">NIS com final <span id="nis-destaque-num"></span> recebe em</div>
+        <div id="nis-destaque-dia" class="font-heading font-extrabold text-3xl my-1"></div>
+      </div>
+
+      <!-- Lista -->
+      <div class="mt-[18px]" id="nis-lista">
+        {
+          CALENDARIO.datas.map((s, i) => (
+            <div
+              class={`nis-row flex items-center justify-between py-3.5 px-1 ${i === 0 ? "" : "border-t border-ink-200"}`}
+              data-nis={s.nis}
+            >
+              <span class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-pill bg-green-100 text-green-800 flex items-center justify-center font-extrabold">{s.nis}</span>
+                <span class="text-base text-ink-800">Final de NIS {s.nis}</span>
+              </span>
+              <span class="font-bold text-ink-900 text-base">{s.dia}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <Alert tone="info" title="Onde encontro meu NIS?">
+        O NIS está no seu Cartão Cidadão, na carteira de trabalho ou no app Caixa Tem. Também é chamado de PIS/PASEP.
+      </Alert>
+    </div>
+
+    <p class="text-sm text-ink-600 mt-4 pb-2">
+      Atualizado em {formatarData(new Date(CALENDARIO.atualizadoEm))} ·
+      <a href={CALENDARIO.fonte.href} target="_blank" rel="noopener noreferrer" class="font-semibold">{CALENDARIO.fonte.label}</a>
+    </p>
+  </div>
+
+  <script type="application/json" id="cal-data" set:html={JSON.stringify(CALENDARIO.datas)} is:inline></script>
+  <script>
+    const sel = document.getElementById("nis") as HTMLSelectElement | null;
+    const destaque = document.getElementById("nis-destaque");
+    const destNum = document.getElementById("nis-destaque-num");
+    const destDia = document.getElementById("nis-destaque-dia");
+    const dataEl = document.getElementById("cal-data");
+    const datas: { nis: string; dia: string }[] = dataEl ? JSON.parse(dataEl.textContent || "[]") : [];
+
+    sel?.addEventListener("change", () => {
+      const v = sel.value;
+      document.querySelectorAll<HTMLElement>(".nis-row").forEach((row) => {
+        const mostra = !v || row.dataset.nis === v;
+        row.classList.toggle("hidden", !mostra);
+        // Mantém só a primeira linha visível sem borda superior
+      });
+      // Reaplica borda: primeira visível sem border-top
+      const visiveis = Array.from(document.querySelectorAll<HTMLElement>(".nis-row")).filter((r) => !r.classList.contains("hidden"));
+      visiveis.forEach((r, i) => r.classList.toggle("border-t", i !== 0));
+
+      if (v) {
+        const d = datas.find((x) => x.nis === v);
+        if (d && destaque && destNum && destDia) {
+          destNum.textContent = v;
+          destDia.textContent = d.dia;
+          destaque.classList.remove("hidden");
+        }
+      } else {
+        destaque?.classList.add("hidden");
+      }
+    });
+  </script>
+</BaseLayout>

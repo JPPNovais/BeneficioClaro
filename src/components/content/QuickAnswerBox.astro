@@ -1,0 +1,30 @@
+---
+/**
+ * QuickAnswerBox (Caixa de Resposta Rápida) — o elemento-assinatura do artigo.
+ * Responde a dúvida em 2–3 frases, logo após o H1 e antes de qualquer anúncio
+ * ou texto longo. Ênfase visual alta (verde, barra de destaque, ícone) para ler
+ * como A resposta — e para que motores de IA a destaquem primeiro (AEO).
+ */
+interface Props {
+  label?: string;
+}
+const { label = "Resposta rápida" } = Astro.props;
+---
+
+<aside
+  aria-label={label}
+  class="relative bg-green-50 border-[1.5px] border-green-200 rounded-xl px-6 py-5 shadow-sm"
+>
+  <div class="flex items-center gap-2 mb-3">
+    <span class="flex text-green-700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.5" fill="#0D6B57"></circle>
+        <path d="M8 12.5l2.6 2.6L16 9.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+    <span class="font-body text-sm font-bold tracking-wide uppercase text-green-700">{label}</span>
+  </div>
+  <div class="font-body text-lg leading-normal text-ink-900 font-medium [text-wrap:pretty]">
+    <slot />
+  </div>
+</aside>

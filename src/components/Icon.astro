@@ -1,0 +1,33 @@
+---
+/**
+ * Icon — conjunto de ícones inline (geometria espelha o Lucide, traço 2px,
+ * pontas arredondadas). Igual ao icons.jsx do design. As geometrias vivem em
+ * src/lib/icons.ts (fonte única, compartilhada com as ferramentas client-side).
+ */
+import { ICON_PATHS } from "@lib/icons";
+
+interface Props {
+  name: string;
+  size?: number;
+  strokeWidth?: number;
+  color?: string;
+  class?: string;
+}
+
+const { name, size = 24, strokeWidth = 2, color = "currentColor", class: className } = Astro.props;
+const path = ICON_PATHS[name] ?? "";
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke={color}
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  class={className}
+  set:html={path}
+/>

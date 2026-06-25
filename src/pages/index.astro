@@ -1,0 +1,150 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SearchBar from "@components/content/SearchBar.astro";
+import SectionTitle from "@components/content/SectionTitle.astro";
+import BenefitCard from "@components/content/BenefitCard.astro";
+import ArticleCard from "@components/content/ArticleCard.astro";
+import Card from "@components/core/Card.astro";
+import Button from "@components/core/Button.astro";
+import Icon from "@components/Icon.astro";
+import { SITE } from "@config/site";
+import { getCategoriaNome } from "@config/categorias";
+import { CALENDARIO } from "@data/calendario";
+import { formatarDataCurta, tempoLeitura, urlArtigo } from "@lib/utils";
+
+const beneficios = [
+  { title: "Bolsa Família", description: "Quem tem direito e quanto recebe", icon: "hand-coins", href: "/bolsa-familia" },
+  { title: "CadÚnico", description: "Como se inscrever e atualizar", icon: "file-text", href: "/cadunico" },
+  { title: "Auxílio Gás", description: "Vale-gás de R$ 108 a cada 2 meses", icon: "flame", href: "/auxilio-gas" },
+  { title: "Tarifa Social", description: "Desconto na conta de luz", icon: "droplet", href: "/tarifa-social" },
+  { title: "Pé-de-Meia", description: "Poupança para estudantes", icon: "graduation-cap", href: "/financas" },
+  { title: "Conta sem tarifa", description: "Conta digital gratuita", icon: "wallet", href: "/financas", tone: "info" as const },
+];
+
+const ferramentas = [
+  { title: "Simulador de benefícios", description: "Responda 4 perguntas e veja a quais você pode ter direito", icon: "calculator", href: "/ferramentas/simulador", tone: "cta" as const },
+  { title: "Calendário de pagamento", description: "Filtre pelo final do seu NIS", icon: "calendar", href: "/ferramentas/calendario" },
+  { title: "Checklist de documentos", description: "O que levar para cada benefício", icon: "check-square", href: "/ferramentas/checklist" },
+];
+
+const todos = await getCollection("artigos", ({ data }) => !data.draft);
+const ultimos = todos
+  .sort((a, b) => b.data.dataAtualizacao.valueOf() - a.data.dataAtualizacao.valueOf())
+  .slice(0, 3);
+
+const prevCalendario = CALENDARIO.datas.slice(0, 3);
+---
+
+<BaseLayout title={SITE.nome} description={SITE.descricao} canonical="/">
+  <!-- Hero -->
+  <section class="bg-hero-fade border-b border-ink-200">
+    <div class="max-w-prose mx-auto px-4 pt-10 pb-9 text-center">
+      <span class="inline-flex items-center gap-1.5 px-3 py-[5px] rounded-pill bg-green-100 text-green-800 text-sm font-bold mb-4">
+        <Icon name="shield-check" size={16} /> Informação confiável e gratuita
+      </span>
+      <h1 class="m-0 mb-3" style="font-size:clamp(2rem,6vw,2.75rem)">
+        Entenda seus direitos e benefícios, sem complicação
+      </h1>
+      <p class="text-lg text-ink-600 mx-auto mb-6 max-w-[520px]">
+        Explicamos o Bolsa Família, o CadÚnico e outros benefícios em linguagem simples — com ferramentas gratuitas para te ajudar.
+      </p>
+      <SearchBar />
+      <div class="flex flex-wrap gap-2 justify-center mt-4">
+        <span class="text-sm text-ink-600 self-center">Mais buscados:</span>
+        {
+          [
+            { t: "Bolsa Família", href: "/bolsa-familia" },
+            { t: "Calendário", href: "/ferramentas/calendario" },
+            { t: "CadÚnico", href: "/cadunico" },
+            { t: "Auxílio Gás", href: "/auxilio-gas" },
+          ].map((c) => (
+            <a
+              href={c.href}
+              class="px-3.5 py-1.5 bg-white border border-ink-250 rounded-pill text-sm font-semibold text-green-700 no-underline hover:border-green-300"
+            >
+              {c.t}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-container mx-auto px-4 pt-9">
+    <!-- Benefícios -->
+    <SectionTitle eyebrow="Benefícios" title="Os mais buscados" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {beneficios.map((b) => <BenefitCard {...b} />)}
+    </div>
+
+    <!-- Ferramentas -->
+    <SectionTitle eyebrow="Grátis" title="Ferramentas que ajudam você" class="mt-10" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {
+        ferramentas.map((t) => (
+          <Card interactive href={t.href} padding="md">
+            <div class="flex flex-col gap-2 h-full">
+              <span class={`w-12 h-12 rounded-md flex items-center justify-center ${t.tone === "cta" ? "bg-orange-100 text-orange-700" : "bg-green-100 text-green-700"}`}>
+                <Icon name={t.icon} size={26} />
+              </span>
+              <h3 class="mt-1 mb-0 text-lg">{t.title}</h3>
+              <p class="m-0 text-[15px] text-ink-600">{t.description}</p>
+              <span class="mt-auto pt-2.5 inline-flex items-center gap-1.5 text-green-700 font-bold text-[15px]">
+                Abrir ferramenta <Icon name="arrow-right" size={18} />
+              </span>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+
+    <!-- Últimos artigos + prévia do calendário -->
+    <div class="grid lg:grid-cols-[1.6fr_1fr] gap-7 mt-10 items-start pb-2">
+      <div>
+        <SectionTitle eyebrow="Atualizações" title="Últimos artigos" />
+        <div class="grid gap-3">
+          {
+            ultimos.map((a) => (
+              <ArticleCard
+                title={a.data.title}
+                href={urlArtigo(a.data.categoria, a.slug)}
+                category={getCategoriaNome(a.data.categoria)}
+                date={formatarDataCurta(a.data.dataAtualizacao)}
+                readingTime={tempoLeitura(a.body)}
+              />
+            ))
+          }
+        </div>
+      </div>
+      <div>
+        <SectionTitle eyebrow="Calendário" title={`Pagamento de ${CALENDARIO.mesReferencia.split(" de ")[0]}`} />
+        <Card padding="md">
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-11 h-11 rounded-md bg-green-100 text-green-700 flex items-center justify-center">
+              <Icon name="calendar" />
+            </span>
+            <div>
+              <div class="font-bold text-ink-900">Bolsa Família</div>
+              <div class="text-sm text-ink-600">{CALENDARIO.periodo}</div>
+            </div>
+          </div>
+          {
+            prevCalendario.map((r) => (
+              <div class="flex justify-between py-2.5 border-t border-ink-200 text-base">
+                <span class="text-ink-800">NIS Final {r.nis}</span>
+                <span class="font-bold text-ink-900 tabular-nums">{r.dia.replace(" de junho", "/06")}</span>
+              </div>
+            ))
+          }
+          <div class="mt-4">
+            <Button variant="secondary" href="/ferramentas/calendario" fullWidth>
+              Ver calendário completo
+              <Icon name="arrow-right" size={18} slot="trailing" />
+            </Button>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+/**
+ * SearchBar — busca principal da home. Grande (56px), alto contraste, com botão
+ * claro. Form GET para /buscar (busca on-site, filtragem client-side, sem
+ * backend). Ponto de entrada mais importante para achar um benefício.
+ */
+interface Props {
+  placeholder?: string;
+  buttonLabel?: string;
+  action?: string;
+  value?: string;
+}
+const {
+  placeholder = "Buscar benefício, ferramenta ou dúvida…",
+  buttonLabel = "Buscar",
+  action = "/buscar",
+  value = "",
+} = Astro.props;
+---
+
+<form method="get" action={action} role="search" class="flex gap-2 w-full">
+  <div
+    class="flex items-center gap-2 flex-1 min-w-0 h-control-lg px-4 bg-white border-thick border-ink-250 rounded-md focus-within:border-green-500 focus-within:shadow-focus-ring transition-[border-color,box-shadow] duration-fast"
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="flex-none text-ink-600">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.2"></circle>
+      <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+    </svg>
+    <input
+      type="search"
+      name="q"
+      value={value}
+      aria-label={placeholder}
+      placeholder={placeholder}
+      class="flex-1 min-w-0 border-0 outline-none bg-transparent font-body text-base text-ink-900"
+    />
+  </div>
+  <button
+    type="submit"
+    class="flex-none h-control-lg px-6 bg-cta text-white border-0 rounded-md font-body text-base font-bold cursor-pointer hover:bg-cta-hover transition-colors duration-fast"
+  >
+    {buttonLabel}
+  </button>
+</form>

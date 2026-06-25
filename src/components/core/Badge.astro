@@ -1,0 +1,28 @@
+---
+/**
+ * Badge — pílula de status/rótulo. Tons mapeiam cores semânticas.
+ */
+interface Props {
+  tone?: "neutral" | "primary" | "info" | "success" | "warning" | "error";
+  class?: string;
+}
+
+const { tone = "neutral", class: className = "" } = Astro.props;
+
+const tones = {
+  neutral: "bg-ink-100 text-ink-700",
+  primary: "bg-green-100 text-green-800",
+  info: "bg-info-100 text-info-700",
+  success: "bg-success-100 text-green-800",
+  warning: "bg-warning-100 text-warning-700",
+  error: "bg-error-100 text-error-700",
+};
+
+const cls = [
+  "inline-flex items-center gap-1 px-[10px] py-[3px] font-body text-xs font-bold leading-[1.4] rounded-pill whitespace-nowrap",
+  tones[tone],
+  className,
+].join(" ");
+---
+
+<span class={cls}><slot /></span>

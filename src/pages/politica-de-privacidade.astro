@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { SITE } from "@config/site";
+
+const atualizadoEm = "12 de junho de 2026";
+---
+
+<BaseLayout
+  title="Política de Privacidade"
+  description={`Como o ${SITE.nome} trata seus dados: cookies, anúncios (Google AdSense) e seus direitos pela LGPD.`}
+  canonical="/politica-de-privacidade"
+>
+  <div class="max-w-prose mx-auto px-4 pt-8 pb-2">
+    <div class="prose-artigo">
+      <h1>Política de Privacidade</h1>
+      <p class="text-ink-600">Última atualização: {atualizadoEm}</p>
+
+      <h2>Quais dados coletamos</h2>
+      <p>
+        Não pedimos CPF, NIS ou senhas. Nossas ferramentas (como o simulador e o checklist) funcionam no seu
+        próprio aparelho e <strong>não salvam</strong> suas respostas em nossos servidores.
+      </p>
+
+      <h2>Cookies e anúncios</h2>
+      <p>
+        Usamos cookies para entender o uso do site e exibir anúncios por meio do <strong>Google AdSense</strong>.
+        O Google e seus parceiros podem usar cookies para personalizar anúncios com base em visitas anteriores a
+        este e a outros sites. Você pode desativar a publicidade personalizada nas
+        <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">configurações de anúncios do Google</a>
+        ou gerenciar cookies nas configurações do seu navegador.
+      </p>
+
+      <h2>Seus direitos (LGPD)</h2>
+      <p>
+        De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você pode solicitar acesso, correção
+        ou exclusão dos seus dados a qualquer momento pelo nosso e-mail de contato:
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+
+      <h2>Links para sites externos</h2>
+      <p>
+        Indicamos links para canais oficiais (gov.br, Caixa, Ministério do Desenvolvimento). Não nos
+        responsabilizamos pelas práticas de privacidade desses sites — leia as políticas de cada um.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

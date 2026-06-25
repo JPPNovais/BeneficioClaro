@@ -1,0 +1,110 @@
+---
+/**
+ * SiteHeader — barra de marca fixa no topo. Responsivo: navegação completa no
+ * desktop; logo + menu no mobile. Inclui o aviso "site independente" e o estado
+ * ativo da navegação. Fiel ao SiteHeader do design.
+ */
+import Logo from "@components/Logo.astro";
+import Icon from "@components/Icon.astro";
+import { SITE, NAV_PRINCIPAL } from "@config/site";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+function isActive(href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+}
+---
+
+<header class="sticky top-0 z-20 bg-white border-b border-ink-200 shadow-xs">
+  <div class="bg-green-900 text-green-200 text-[13px] text-center px-3 py-[5px] font-body">
+    Site independente de informação · Não é um site oficial do governo
+  </div>
+
+  <div class="max-w-container mx-auto px-4 py-3 flex items-center gap-3">
+    <a href="/" class="flex items-center gap-2.5 no-underline flex-none">
+      <Logo size={40} />
+      <span class="flex flex-col leading-none">
+        <span class="font-heading font-extrabold text-[20px] tracking-tight text-ink-900">{SITE.nome}</span>
+        <span class="font-body text-[12px] font-semibold text-ink-600 max-[480px]:hidden">{SITE.slogan}</span>
+      </span>
+    </a>
+
+    <!-- Navegação desktop -->
+    <nav aria-label="Principal" class="ml-auto hidden md:flex items-center gap-1">
+      {
+        NAV_PRINCIPAL.map((n) => (
+          <a
+            href={n.href}
+            aria-current={isActive(n.href) ? "page" : undefined}
+            class={`px-3.5 py-2 rounded-md no-underline font-body text-base font-semibold ${
+              isActive(n.href) ? "text-green-700 bg-green-50" : "text-ink-800 hover:bg-ink-100"
+            }`}
+          >
+            {n.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Ações mobile -->
+    <div class="ml-auto flex md:hidden gap-1">
+      <a
+        href="/buscar"
+        aria-label="Buscar"
+        title="Buscar"
+        class="inline-flex items-center justify-center w-control-md h-control-md min-w-control-min min-h-control-min rounded-md text-ink-900 hover:bg-ink-100"
+      >
+        <Icon name="search" />
+      </a>
+      <button
+        type="button"
+        id="menu-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="inline-flex items-center justify-center w-control-md h-control-md min-w-control-min min-h-control-min rounded-md text-ink-900 hover:bg-ink-100"
+      >
+        <Icon name="menu" class="menu-icon-open" />
+        <Icon name="x" class="menu-icon-close hidden" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu mobile -->
+  <nav
+    id="mobile-menu"
+    aria-label="Menu"
+    class="hidden md:hidden border-t border-ink-200 px-3 pt-2 pb-3.5 flex-col gap-0.5"
+  >
+    {
+      NAV_PRINCIPAL.map((n) => (
+        <a
+          href={n.href}
+          aria-current={isActive(n.href) ? "page" : undefined}
+          class={`flex items-center justify-between min-h-control-md px-3 rounded-md no-underline font-body text-[17px] font-semibold ${
+            isActive(n.href) ? "text-green-700 bg-green-50" : "text-ink-800"
+          }`}
+        >
+          {n.label}
+          <Icon name="chevron-right" size={20} color="#9A9D8D" />
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  // Toggle do menu mobile — JS mínimo, progressivo (links funcionam sem ele).
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = toggle?.querySelector(".menu-icon-open");
+  const iconClose = toggle?.querySelector(".menu-icon-close");
+  toggle?.addEventListener("click", () => {
+    const aberto = menu?.classList.toggle("hidden") === false;
+    menu?.classList.toggle("flex", aberto);
+    toggle.setAttribute("aria-expanded", String(aberto));
+    toggle.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+    iconOpen?.classList.toggle("hidden", aberto);
+    iconClose?.classList.toggle("hidden", !aberto);
+  });
+</script>

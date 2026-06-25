@@ -1,0 +1,39 @@
+---
+/**
+ * Card — superfície base. `interactive` adiciona elevação no hover e cursor
+ * (cards-link inteiros). Padding generoso para toque e leitura. Fiel ao design.
+ */
+interface Props {
+  interactive?: boolean;
+  padding?: "none" | "sm" | "md" | "lg";
+  href?: string;
+  as?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  interactive = false,
+  padding = "md",
+  href,
+  as = "div",
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const pads = { none: "p-0", sm: "p-4", md: "p-5", lg: "p-6" };
+
+const base =
+  "block bg-white border border-ink-200 rounded-lg shadow-sm transition-[box-shadow,transform] duration-base ease-standard text-inherit no-underline";
+const interactiveCls = interactive
+  ? "cursor-pointer hover:shadow-md hover:-translate-y-0.5"
+  : "";
+
+const cls = [base, pads[padding], interactiveCls, className].join(" ");
+
+const Tag = href ? "a" : as;
+---
+
+<Tag class={cls} href={href} {...rest}>
+  <slot />
+</Tag>

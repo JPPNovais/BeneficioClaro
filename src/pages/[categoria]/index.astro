@@ -1,0 +1,146 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Card from "@components/core/Card.astro";
+import Button from "@components/core/Button.astro";
+import ArticleCard from "@components/content/ArticleCard.astro";
+import Icon from "@components/Icon.astro";
+import { SITE } from "@config/site";
+import { CATEGORIAS, getCategoria } from "@config/categorias";
+import { formatarDataCurta, tempoLeitura, urlArtigo, urlAbsoluta } from "@lib/utils";
+import { breadcrumbSchema } from "@lib/seo";
+
+export async function getStaticPaths() {
+  const artigos = await getCollection("artigos", ({ data }) => !data.draft);
+  return CATEGORIAS.map((cat) => ({
+    params: { categoria: cat.slug },
+    props: { cat, artigos: artigos.filter((a) => a.data.categoria === cat.slug) },
+  }));
+}
+
+interface Props {
+  cat: (typeof CATEGORIAS)[number];
+  artigos: CollectionEntry<"artigos">[];
+}
+const { cat, artigos } = Astro.props;
+
+const cardOf = (e: CollectionEntry<"artigos">) => ({
+  title: e.data.title,
+  href: urlArtigo(e.data.categoria, e.slug),
+  category: cat.rotulo,
+  readingTime: tempoLeitura(e.body),
+  date: formatarDataCurta(e.data.dataAtualizacao),
+});
+
+// Agrupa artigos por subtópico (para a página-pilar)
+const porSubtopico = (key: string) => artigos.filter((a) => a.data.subtopico === key);
+
+const ehPilar = cat.pilar && !!cat.subtopicos;
+const semConteudo = artigos.length === 0;
+
+const schema = [
+  breadcrumbSchema([
+    { name: "Início", url: urlAbsoluta(Astro.site ?? SITE.url, "/") },
+    { name: cat.nome, url: urlAbsoluta(Astro.site ?? SITE.url, `/${cat.slug}`) },
+  ]),
+];
+
+const descricao = cat.heroDescricao ?? `Artigos e guias sobre ${cat.nome} em linguagem simples, com fontes oficiais.`;
+---
+
+<BaseLayout
+  title={cat.heroTitulo ?? cat.nome}
+  description={descricao}
+  canonical={`/${cat.slug}`}
+  noindex={semConteudo}
+  schema={schema}
+>
+  {
+    ehPilar ? (
+      <!-- ===== Página-pilar ===== -->
+      <section class="bg-green-900 text-white">
+        <div class="max-w-prose mx-auto px-4 pt-11 pb-10">
+          <span class="inline-flex items-center gap-1.5 px-3 py-[5px] rounded-pill bg-white/10 text-green-200 text-sm font-bold mb-4">
+            <Icon name="book-open" size={16} /> {cat.heroEyebrow}
+          </span>
+          <h1 class="text-white m-0 mb-3" style="font-size:clamp(2rem,6vw,2.75rem)">{cat.heroTitulo}</h1>
+          <p class="text-green-100 text-lg m-0 max-w-[560px]">{cat.heroDescricao}</p>
+        </div>
+      </section>
+
+      <div class="max-w-container mx-auto px-4 pt-8">
+        <!-- Índice navegável -->
+        <Card padding="md" class="mb-8">
+          <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-2.5">Conteúdo deste guia</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            {cat.subtopicos!.map((s) => (
+              <a
+                href={`#${s.key}`}
+                class="flex items-center gap-2 p-3 rounded-md bg-green-50 no-underline text-green-800 font-semibold min-h-control-min hover:bg-green-100"
+              >
+                <Icon name={s.icon} size={20} color="#0A5446" />
+                {s.title}
+              </a>
+            ))}
+          </div>
+        </Card>
+
+        <!-- Blocos de subtópico -->
+        {cat.subtopicos!.map((s) => {
+          const lista = porSubtopico(s.key);
+          return (
+            <section id={s.key} class="mb-9 scroll-mt-24">
+              <div class="flex items-center gap-3 mb-3.5">
+                <span class="w-12 h-12 rounded-md bg-green-100 text-green-700 flex items-center justify-center flex-none">
+                  <Icon name={s.icon} size={26} />
+                </span>
+                <div>
+                  <h2 class="m-0">{s.title}</h2>
+                  <p class="mt-0.5 mb-0 text-ink-600 text-base">{s.desc}</p>
+                </div>
+              </div>
+              {lista.length > 0 ? (
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {lista.map((e) => <ArticleCard {...cardOf(e)} />)}
+                </div>
+              ) : (
+                <p class="text-ink-500 text-base m-0">Conteúdo em breve para esta seção.</p>
+              )}
+            </section>
+          );
+        })}
+
+        <Card padding="lg" class="bg-green-50 border border-green-200 text-center mb-2">
+          <h3 class="mt-0 mb-1.5">Não sabe por onde começar?</h3>
+          <p class="mt-0 mb-4 text-ink-600">Use o simulador e descubra a quais benefícios você pode ter direito.</p>
+          <Button variant="cta" size="lg" href="/ferramentas/simulador">
+            Abrir o simulador
+            <Icon name="arrow-right" size={20} slot="trailing" />
+          </Button>
+        </Card>
+      </div>
+    ) : (
+      <!-- ===== Listagem de categoria (não-pilar) ===== -->
+      <div class="max-w-container mx-auto px-4 pt-8">
+        <div class="max-w-prose mb-7">
+          <h1 class="mb-2">{cat.nome}</h1>
+          <p class="text-lg text-ink-600 m-0">{descricao}</p>
+        </div>
+        {semConteudo ? (
+          <Card padding="lg" class="text-center">
+            <span class="inline-flex w-14 h-14 rounded-pill bg-green-100 text-green-700 items-center justify-center mb-2">
+              <Icon name="book-open" size={28} />
+            </span>
+            <h3 class="mt-1 mb-1.5">Conteúdo em breve</h3>
+            <p class="m-0 mb-4 text-ink-600">Ainda estamos preparando os artigos sobre {cat.nome}.</p>
+            <Button variant="secondary" href="/">Voltar para a página inicial</Button>
+          </Card>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {artigos.map((e) => <ArticleCard {...cardOf(e)} />)}
+          </div>
+        )}
+      </div>
+    )
+  }
+</BaseLayout>

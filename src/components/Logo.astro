@@ -1,0 +1,30 @@
+---
+/**
+ * Logo — marca gráfica do Benefício Claro (mesmo símbolo do design: quadrado
+ * arredondado com um gráfico de crescimento + acento laranja). SVG inline para
+ * evitar requisição. `variant="light"` para fundos escuros (rodapé).
+ */
+interface Props {
+  variant?: "default" | "light";
+  size?: number;
+}
+const { variant = "default", size = 40 } = Astro.props;
+const boxFill = variant === "light" ? "#FFFFFF" : "#0D6B57";
+const ringOpacity = variant === "light" ? "1" : "0.55";
+const chartStroke = variant === "light" ? "#0D6B57" : "#FFFFFF";
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 56 56"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Benefício Claro"
+>
+  <rect width="56" height="56" rx="16" fill={boxFill}></rect>
+  <circle cx="28" cy="28" r="15" stroke="#9FDAC6" stroke-width="2.5" opacity={ringOpacity}></circle>
+  <path d="M19 31.5L25.5 24.5L30.5 29L37.5 20.5" stroke={chartStroke} stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M37.5 26V20.5H32" stroke="#E5731F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

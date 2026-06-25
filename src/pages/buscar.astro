@@ -1,0 +1,85 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SearchBar from "@components/content/SearchBar.astro";
+import { getCategoriaNome } from "@config/categorias";
+import { formatarDataCurta, tempoLeitura, urlArtigo } from "@lib/utils";
+
+// Índice de busca gerado no build (busca client-side, sem backend).
+const artigos = await getCollection("artigos", ({ data }) => !data.draft);
+const indice = artigos.map((e) => ({
+  title: e.data.title,
+  description: e.data.description,
+  href: urlArtigo(e.data.categoria, e.slug),
+  category: getCategoriaNome(e.data.categoria),
+  tags: e.data.tags,
+  date: formatarDataCurta(e.data.dataAtualizacao),
+  readingTime: tempoLeitura(e.body),
+}));
+---
+
+<BaseLayout
+  title="Buscar"
+  description="Busque por benefícios, ferramentas e dúvidas no Benefício Claro."
+  canonical="/buscar"
+  noindex={true}
+>
+  <div class="max-w-prose mx-auto px-4 pt-8 pb-2">
+    <h1 class="mb-4">Buscar</h1>
+    <SearchBar />
+    <p id="busca-resumo" class="text-ink-600 mt-4" role="status"></p>
+    <div id="busca-resultados" class="grid gap-3 mt-2"></div>
+  </div>
+
+  <script type="application/json" id="busca-indice" set:html={JSON.stringify(indice)} is:inline></script>
+  <script>
+    type Item = {
+      title: string;
+      description: string;
+      href: string;
+      category: string;
+      tags: string[];
+      date: string;
+      readingTime: string;
+    };
+
+    const idxEl = document.getElementById("busca-indice");
+    const indice: Item[] = idxEl ? JSON.parse(idxEl.textContent || "[]") : [];
+    const resumo = document.getElementById("busca-resumo");
+    const lista = document.getElementById("busca-resultados");
+
+    const norm = (s: string) =>
+      s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+
+    const params = new URLSearchParams(window.location.search);
+    const q = (params.get("q") || "").trim();
+    const input = document.querySelector<HTMLInputElement>('input[name="q"]');
+    if (input) input.value = q;
+
+    function card(it: Item) {
+      return `
+        <a href="${it.href}" class="group flex flex-col gap-2 p-5 bg-white border border-ink-200 rounded-lg no-underline text-inherit shadow-sm transition-[box-shadow,transform] duration-base hover:shadow-md hover:-translate-y-0.5">
+          <span class="self-start px-[10px] py-[3px] rounded-pill bg-green-100 text-green-800 font-body text-xs font-bold">${it.category}</span>
+          <span class="font-heading text-xl font-bold text-ink-900 leading-snug group-hover:underline underline-offset-2">${it.title}</span>
+          <span class="text-base text-ink-600">${it.description}</span>
+          <span class="mt-1 flex gap-3 items-center font-body text-sm text-ink-600"><span>${it.date}</span><span>· ${it.readingTime} de leitura</span></span>
+        </a>`;
+    }
+
+    if (!q) {
+      if (resumo) resumo.textContent = "Digite acima o que você procura — por exemplo, “Bolsa Família” ou “calendário”.";
+    } else {
+      const nq = norm(q);
+      const termos = nq.split(/\s+/).filter(Boolean);
+      const hits = indice.filter((it) => {
+        const alvo = norm([it.title, it.description, it.category, it.tags.join(" ")].join(" "));
+        return termos.every((t) => alvo.includes(t));
+      });
+      if (resumo)
+        resumo.textContent = hits.length
+          ? `${hits.length} resultado${hits.length !== 1 ? "s" : ""} para “${q}”.`
+          : `Nenhum resultado para “${q}”. Tente outras palavras ou veja o guia do Bolsa Família.`;
+      if (lista) lista.innerHTML = hits.map(card).join("");
+    }
+  </script>
+</BaseLayout>

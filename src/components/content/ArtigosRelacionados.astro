@@ -1,0 +1,39 @@
+---
+/**
+ * ArtigosRelacionados — grade de artigos relacionados ao final do artigo.
+ * Recebe uma lista já resolvida (título, url, categoria, etc.).
+ */
+import ArticleCard from "@components/content/ArticleCard.astro";
+
+interface Relacionado {
+  title: string;
+  href: string;
+  category?: string;
+  readingTime?: string;
+  date?: string;
+}
+interface Props {
+  artigos: Relacionado[];
+  title?: string;
+}
+const { artigos, title = "Artigos relacionados" } = Astro.props;
+---
+
+{
+  artigos.length > 0 && (
+    <section>
+      <h2 class="mt-2">{title}</h2>
+      <div class="grid sm:grid-cols-2 gap-3 mt-3">
+        {artigos.map((a) => (
+          <ArticleCard
+            title={a.title}
+            href={a.href}
+            category={a.category}
+            readingTime={a.readingTime}
+            date={a.date}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}

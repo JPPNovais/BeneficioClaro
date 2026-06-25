@@ -1,0 +1,35 @@
+---
+/**
+ * Alert — destaque inline para contexto importante. Tons mapeiam cores
+ * semânticas: `info` para notas de fonte oficial; `warning` para prazos/golpes;
+ * `error` para problemas. Barra de destaque à esquerda + fundo tingido suave.
+ * Usável dentro de artigos .mdx.
+ */
+import Icon from "@components/Icon.astro";
+
+interface Props {
+  tone?: "info" | "success" | "warning" | "error";
+  title?: string;
+  icon?: string;
+}
+const { tone = "info", title, icon } = Astro.props;
+
+const tones = {
+  info: { bg: "bg-info-50", bar: "border-l-info-600", fg: "text-info-700", iconColor: "text-info-600" },
+  success: { bg: "bg-success-50", bar: "border-l-success-600", fg: "text-green-800", iconColor: "text-success-600" },
+  warning: { bg: "bg-warning-50", bar: "border-l-warning-600", fg: "text-warning-700", iconColor: "text-warning-600" },
+  error: { bg: "bg-error-50", bar: "border-l-error-600", fg: "text-error-700", iconColor: "text-error-600" },
+};
+const t = tones[tone];
+const defaultIcon = { info: "info", success: "shield-check", warning: "alert-triangle", error: "alert-triangle" }[tone];
+---
+
+<div role="note" class={`flex gap-3 px-5 py-4 rounded-md border-l-4 ${t.bg} ${t.bar} font-body`}>
+  <span class={`flex-none flex mt-0.5 ${t.iconColor}`}>
+    <Icon name={icon ?? defaultIcon} size={22} />
+  </span>
+  <div class="min-w-0">
+    {title && <div class={`text-base font-bold mb-0.5 ${t.fg}`}>{title}</div>}
+    <div class="text-base text-ink-800 leading-normal"><slot /></div>
+  </div>
+</div>

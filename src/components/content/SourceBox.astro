@@ -1,0 +1,47 @@
+---
+/**
+ * SourceBox (Fontes oficiais) — bloco ao pé do artigo. Lista links para
+ * gov.br / Caixa / MDS com afordância de link externo. Sinal-chave de
+ * confiança YMYL. Renderizado a partir de fontesOficiais[] do frontmatter.
+ */
+interface Fonte {
+  label: string;
+  href: string;
+}
+interface Props {
+  title?: string;
+  sources: Fonte[];
+}
+const { title = "Fontes oficiais", sources } = Astro.props;
+---
+
+{
+  sources.length > 0 && (
+    <section aria-label={title} class="bg-info-50 border border-info-100 rounded-lg px-6 py-5">
+      <h3 class="flex items-center gap-2 m-0 mb-3 font-heading text-lg font-bold text-info-700">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l8 4v5c0 4.4-3 7.6-8 9-5-1.4-8-4.6-8-9V7l8-4z" fill="#DCEAF8" stroke="#1D5FA8" stroke-width="1.6" stroke-linejoin="round" />
+          <path d="M9 12l2 2 4-4" stroke="#154C86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        {title}
+      </h3>
+      <ul class="list-none m-0 p-0 flex flex-col gap-1">
+        {sources.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 min-h-control-min py-1 font-body text-base text-info-700 font-semibold"
+            >
+              {s.label}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="flex-none">
+                <path d="M14 4h6v6M20 4l-9 9M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

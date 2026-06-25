@@ -1,0 +1,62 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Card from "@components/core/Card.astro";
+import SectionTitle from "@components/content/SectionTitle.astro";
+import Icon from "@components/Icon.astro";
+
+const ferramentas = [
+  {
+    title: "Simulador de benefícios",
+    description: "Responda 4 perguntas simples e veja a quais benefícios você pode ter direito. Não pedimos nome, CPF nem senha.",
+    icon: "calculator",
+    href: "/ferramentas/simulador",
+    tone: "cta" as const,
+  },
+  {
+    title: "Calendário de pagamento",
+    description: "Descubra quando cai o seu Bolsa Família filtrando pelo final do seu NIS.",
+    icon: "calendar",
+    href: "/ferramentas/calendario",
+  },
+  {
+    title: "Checklist de documentos",
+    description: "Escolha o benefício e marque, um a um, os documentos que você já tem.",
+    icon: "check-square",
+    href: "/ferramentas/checklist",
+  },
+];
+---
+
+<BaseLayout
+  title="Ferramentas gratuitas"
+  description="Ferramentas gratuitas para benefícios sociais: simulador de elegibilidade, calendário de pagamento por NIS e checklist de documentos. Tudo no seu aparelho."
+  canonical="/ferramentas"
+>
+  <div class="max-w-container mx-auto px-4 pt-9">
+    <div class="max-w-prose mb-7">
+      <SectionTitle eyebrow="Grátis" title="Ferramentas que ajudam você" />
+      <p class="text-lg text-ink-600 m-0">
+        Tudo funciona direto no seu celular, de graça e sem cadastro. Nada do que você digita é salvo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-2">
+      {
+        ferramentas.map((t) => (
+          <Card interactive href={t.href} padding="lg">
+            <div class="flex flex-col gap-2 h-full">
+              <span class={`w-14 h-14 rounded-md flex items-center justify-center ${t.tone === "cta" ? "bg-orange-100 text-orange-700" : "bg-green-100 text-green-700"}`}>
+                <Icon name={t.icon} size={30} />
+              </span>
+              <h2 class="mt-2 mb-0 text-xl">{t.title}</h2>
+              <p class="m-0 text-base text-ink-600">{t.description}</p>
+              <span class="mt-auto pt-3 inline-flex items-center gap-1.5 text-green-700 font-bold">
+                Abrir ferramenta <Icon name="arrow-right" size={18} />
+              </span>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

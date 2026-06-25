@@ -1,0 +1,13 @@
+---
+/**
+ * JsonLd — injeta um bloco de dados estruturados (schema.org) no <head>.
+ * Recebe um objeto já montado (ver src/lib/seo.ts) e serializa.
+ */
+interface Props {
+  data: object;
+}
+const { data } = Astro.props;
+const json = JSON.stringify(data);
+---
+
+<script type="application/ld+json" set:html={json} is:inline />
