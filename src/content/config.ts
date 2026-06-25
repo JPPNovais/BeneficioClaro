@@ -46,7 +46,13 @@ const artigos = defineCollection({
     tags: z.array(z.string()).default([]),
     /** Subtópico do pilar (chave em categorias.ts) para agrupamento. */
     subtopico: z.string().optional(),
+    /** Fontes oficiais (gov.br, Caixa, MDS, leis). Primárias. */
     fontesOficiais: z.array(fonteOficial).default([]),
+    /**
+     * Referências corroboradoras (imprensa séria, institutos). Aumentam a
+     * credibilidade ao confirmar a informação em mais de uma fonte confiável.
+     */
+    referencias: z.array(fonteOficial).default([]),
     faq: z.array(faqItem).default([]),
     /**
      * Passos para schema HowTo (quando o artigo é um passo a passo).

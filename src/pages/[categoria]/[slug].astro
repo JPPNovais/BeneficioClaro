@@ -118,10 +118,8 @@ if (d.howTo) schema.push(howToSchema(d.howTo));
           <TableOfContents items={tocItems} />
         </div>
 
-        <!-- Anúncio 1 — após a introdução -->
-        <div class="my-7">
-          <AdSlot size="leaderboard" placement="após a introdução" placementKey="apos-introducao" />
-        </div>
+        <!-- Anúncio 1 — após a introdução (não renderiza nada enquanto AdSense inativo) -->
+        <AdSlot class="my-7" size="leaderboard" placement="após a introdução" placementKey="apos-introducao" />
 
         <!-- Corpo do artigo (Markdown/MDX) -->
         <div class="prose-artigo">
@@ -129,14 +127,12 @@ if (d.howTo) schema.push(howToSchema(d.howTo));
         </div>
 
         <!-- Anúncio 2 — meio do artigo (realocado para o meio da prosa via JS, com altura reservada) -->
-        <div id="ad-meio" class="my-7">
-          <AdSlot size="rectangle" placement="meio do artigo" placementKey="meio-do-artigo" />
-        </div>
+        <AdSlot id="ad-meio" class="my-7" size="rectangle" placement="meio do artigo" placementKey="meio-do-artigo" />
 
-        <!-- Fontes oficiais -->
-        {d.fontesOficiais.length > 0 && (
+        <!-- Fontes oficiais + referências corroboradoras -->
+        {(d.fontesOficiais.length > 0 || d.referencias.length > 0) && (
           <div class="my-7">
-            <SourceBox sources={d.fontesOficiais} />
+            <SourceBox sources={d.fontesOficiais} referencias={d.referencias} />
           </div>
         )}
 
@@ -153,9 +149,7 @@ if (d.howTo) schema.push(howToSchema(d.howTo));
         }
 
         <!-- Anúncio 3 — final do artigo -->
-        <div class="my-7">
-          <AdSlot size="leaderboard" placement="final do artigo" placementKey="final-do-artigo" />
-        </div>
+        <AdSlot class="my-7" size="leaderboard" placement="final do artigo" placementKey="final-do-artigo" />
 
         <!-- Relacionados -->
         <ArtigosRelacionados artigos={relacionados} />

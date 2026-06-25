@@ -32,12 +32,17 @@ export const SITE = {
  *   2. ativo: true
  *   3. (opcional) defina os slotIds reais de cada posição.
  *
- * Enquanto `ativo` for false, os SlotAnuncio renderizam um placeholder
- * rotulado "Publicidade" (igual ao design), sem carregar script externo —
- * ótimo para desenvolvimento e para não pesar antes da aprovação.
+ * Enquanto `ativo` for false, NENHUM espaço de anúncio aparece no site (nem
+ * placeholder) — comportamento correto durante a análise do AdSense, que
+ * reprova páginas com blocos de anúncio vazios.
+ *
+ * `previewPlaceholders` (apenas para trabalho de design) força a exibição dos
+ * placeholders rotulados "Publicidade" mesmo com `ativo: false`. Mantenha
+ * false em produção e durante a análise do AdSense.
  */
 export const ADSENSE = {
   ativo: false,
+  previewPlaceholders: false,
   publisherId: "ca-pub-0000000000000000",
   /**
    * IDs de slot por posição. Crie os blocos no painel do AdSense e cole aqui.

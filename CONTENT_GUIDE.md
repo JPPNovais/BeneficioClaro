@@ -4,6 +4,22 @@ Este guia define **como escrever** os artigos do site. O objetivo é conteúdo g
 
 ---
 
+## ⚠ Padrão para aprovação no Google AdSense (leia primeiro)
+
+O AdSense reprova sites com **"conteúdo de baixo valor"**: textos rasos, genéricos, copiados, sem autor, sem fontes, ou que só repetem o que já existe. Para ser aprovado (e para ranquear), todo artigo precisa cumprir, sem exceção:
+
+1. **Originalidade.** Escreva do zero, com as suas palavras e a sua organização. **Nunca** copie/cole trechos de outros sites ou do gov.br — parafraseie, explique e acrescente. Conteúdo duplicado é a principal causa de reprovação.
+2. **Profundidade e completude.** Responda a dúvida **de verdade**, do começo ao fim. Em geral isso pede **800+ palavras** de conteúdo real (não enchimento): regras, valores, exemplos, exceções, próximos passos. Um artigo que "fala sobre" o tema sem resolver nada é raso.
+3. **Verificação em fontes oficiais — e mais de uma.** Todo número, prazo, regra ou data tem que ser conferido na **fonte oficial** (gov.br/MDS, Caixa, leis) **antes de publicar**. Sempre que possível, **confirme em uma segunda fonte confiável** (imprensa séria, instituto) — preencha `fontesOficiais[]` (oficiais) e `referencias[]` (corroboradoras). Dado sem fonte = não publica.
+4. **Exatidão (YMYL).** Este é um tema de "dinheiro/vida": informação errada prejudica gente vulnerável e derruba a confiança. Se não tem certeza, **não afirme** — escreva "depende", explique a regra e mande para o canal oficial.
+5. **Autoria e frescor (E-E-A-T).** Todo artigo tem autor real (`autor`), data de atualização e fontes. Revise a cada trimestre e atualize `dataAtualizacao`.
+6. **Sem promessas falsas.** Nunca diga "garanta seu benefício", "saque liberado", "dinheiro extra". Isso é tom de golpe e o AdSense pune. Seja honesto sobre prazos, exigências e o que **não** depende da pessoa.
+7. **Volume do site.** O AdSense avalia o site como um todo. Tenha um conjunto de artigos substanciais (não 2 ou 3) + as páginas institucionais (Sobre, Contato, Privacidade — já existem) antes de pedir revisão.
+
+**Temas que ajudam na aprovação e atraem tráfego** (alta busca, dúvida real, dá para responder com autoridade): "quem tem direito", "qual o valor / quanto vou receber", "como me inscrever no CadÚnico", "calendário de pagamento / quando cai", "como consultar se fui aprovado", "regra de proteção", "o que fazer se o benefício foi bloqueado/cancelado", "como atualizar o cadastro". Fuja de tema vago, opinativo ou que você não consiga embasar em fonte oficial.
+
+---
+
 ## Princípios
 
 ### 1. Comece respondendo (answer-first)

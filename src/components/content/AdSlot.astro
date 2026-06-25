@@ -1,14 +1,17 @@
 ---
 /**
- * SlotAnuncio (AdSlot) — espaço de anúncio (AdSense) sempre rotulado como
- * "Publicidade", para nunca confundir com conteúdo editorial (exigência de
- * confiança YMYL + política do AdSense).
+ * SlotAnuncio (AdSlot) — espaço de anúncio (AdSense), sempre rotulado como
+ * "Publicidade" para nunca confundir com conteúdo editorial (confiança YMYL +
+ * política do AdSense).
  *
  * Comportamento controlado por src/config/site.ts (ADSENSE):
- *  - ADSENSE.ativo = false → placeholder rotulado (igual ao design), sem script.
- *  - ADSENSE.ativo = true  → bloco <ins class="adsbygoogle"> responsivo.
+ *  - ativo = false (padrão)              → NÃO renderiza nada (nem placeholder).
+ *    Importante durante a análise do AdSense: páginas com blocos de anúncio
+ *    vazios são reprovadas.
+ *  - ativo = false + previewPlaceholders → placeholder rotulado (só p/ design).
+ *  - ativo = true                        → bloco <ins class="adsbygoogle">.
  *
- * A altura é reservada em ambos os casos para manter o CLS ~0.
+ * Quando renderiza, reserva a altura para manter o CLS ~0.
  */
 import { ADSENSE, type AdPlacement } from "@config/site";
 
@@ -18,10 +21,11 @@ interface Props {
   placement?: string;
   /** Chave em ADSENSE.slots para escolher o data-ad-slot. */
   placementKey?: AdPlacement;
+  id?: string;
   class?: string;
 }
 
-const { size = "rectangle", placement, placementKey, class: className = "" } = Astro.props;
+const { size = "rectangle", placement, placementKey, id, class: className = "" } = Astro.props;
 
 const sizes = {
   leaderboard: { minHeight: 90, maxWidth: 728, hint: "728 × 90" },
@@ -32,36 +36,41 @@ const s = sizes[size];
 
 const slotId = placementKey ? ADSENSE.slots[placementKey] : "";
 const mostrarAnuncio = ADSENSE.ativo && ADSENSE.publisherId.startsWith("ca-pub-");
+const mostrarPlaceholder = !mostrarAnuncio && ADSENSE.previewPlaceholders;
+const renderizar = mostrarAnuncio || mostrarPlaceholder;
 ---
 
-<div
-  class={`mx-auto w-full flex flex-col items-center gap-1.5 ${className}`}
-  style={`max-width:${s.maxWidth}px`}
->
-  <span class="self-stretch text-left font-body text-[11px] font-semibold tracking-wide uppercase text-ink-400">
-    Publicidade{placement ? ` · ${placement}` : ""}
-  </span>
+{
+  renderizar && (
+    <div
+      id={id}
+      class={`mx-auto w-full flex flex-col items-center gap-1.5 ${className}`}
+      style={`max-width:${s.maxWidth}px`}
+    >
+      <span class="self-stretch text-left font-body text-[11px] font-semibold tracking-wide uppercase text-ink-400">
+        Publicidade{placement ? ` · ${placement}` : ""}
+      </span>
 
-  {
-    mostrarAnuncio ? (
-      <ins
-        class="adsbygoogle block w-full"
-        style={`display:block;min-height:${s.minHeight}px`}
-        data-ad-client={ADSENSE.publisherId}
-        data-ad-slot={slotId || undefined}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
-      <script is:inline>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    ) : (
-      <div
-        class="w-full flex items-center justify-center bg-ink-100 border border-dashed border-ink-300 rounded-sm text-ink-400 font-mono text-sm"
-        style={`min-height:${s.minHeight}px`}
-      >
-        Espaço de anúncio · {s.hint}
-      </div>
-    )
-  }
-</div>
+      {mostrarAnuncio ? (
+        <Fragment>
+          <ins
+            class="adsbygoogle block w-full"
+            style={`display:block;min-height:${s.minHeight}px`}
+            data-ad-client={ADSENSE.publisherId}
+            data-ad-slot={slotId || undefined}
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          />
+          <script is:inline>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </Fragment>
+      ) : (
+        <div
+          class="w-full flex items-center justify-center bg-ink-100 border border-dashed border-ink-300 rounded-sm text-ink-400 font-mono text-sm"
+          style={`min-height:${s.minHeight}px`}
+        >
+          Espaço de anúncio · {s.hint}
+        </div>
+      )}
+    </div>
+  )
+}

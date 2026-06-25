@@ -1,11 +1,11 @@
 ---
-title: "Como se inscrever no Bolsa Família pelo CadÚnico"
+title: "Como se inscrever no Bolsa Família pelo CadÚnico (passo a passo)"
 slug: "como-se-inscrever-cadastro-unico"
 categoria: "bolsa-familia"
-description: "Passo a passo para se inscrever no Bolsa Família pelo CadÚnico: onde ir, quais documentos levar e quanto tempo demora a análise. Tudo gratuito."
-respostaRapida: "Para entrar no Bolsa Família, você precisa se inscrever no CadÚnico no CRAS da sua cidade. Leve documento e CPF de todos da família e um comprovante de residência. O cadastro é gratuito e a análise leva de 30 a 45 dias."
+description: "Passo a passo para se inscrever no Bolsa Família pelo CadÚnico em 2026: onde ir, quais documentos levar, quem pode fazer o cadastro e por que a inscrição não garante entrada imediata."
+respostaRapida: "Para entrar no Bolsa Família, a família precisa se inscrever no CadÚnico, de graça, no CRAS da sua cidade. Leve identidade e CPF de todos e um comprovante de residência. Atenção: a inscrição é obrigatória, mas não garante o benefício na hora — a entrada depende de seleção e do orçamento do programa."
 dataPublicacao: 2026-06-05
-dataAtualizacao: 2026-06-09
+dataAtualizacao: 2026-06-25
 autor: "ana_ribeiro"
 revisado: true
 subtopico: "inscricao"
@@ -13,49 +13,72 @@ tags:
   - "cadúnico"
   - "inscrição"
   - "cras"
+  - "responsável familiar"
 fontesOficiais:
-  - label: "CadÚnico — como se inscrever (gov.br)"
+  - label: "Cadastro Único — Ministério do Desenvolvimento (gov.br)"
     href: "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico"
-  - label: "Encontre o CRAS mais próximo (gov.br)"
-    href: "https://www.gov.br/mds/pt-br"
+  - label: "Receber o Bolsa Família — serviço oficial (gov.br)"
+    href: "https://www.gov.br/pt-br/servicos/receber-o-bolsa-familia"
+referencias:
+  - label: "Serasa — como funciona o Cadastro Único e o Bolsa Família"
+    href: "https://www.serasa.com.br/blog/calendario-bolsa-familia-junho-2026/"
 howTo:
   name: "Como se inscrever no CadÚnico"
   steps:
-    - name: "Junte os documentos"
-      text: "Reúna identidade e CPF de todos da família e um comprovante de residência atualizado."
-    - name: "Vá ao CRAS"
-      text: "Procure o CRAS mais próximo da sua casa. Em algumas cidades é preciso agendar antes."
-    - name: "Faça o cadastro"
-      text: "Um atendente registra os dados da família no CadÚnico, sem cobrar nada."
-    - name: "Acompanhe a análise"
-      text: "Guarde o número do NIS e acompanhe pelo app Bolsa Família ou voltando ao CRAS."
+    - name: "Junte os documentos da família"
+      text: "Reúna identidade e CPF de cada pessoa da casa e um comprovante de residência atualizado."
+    - name: "Encontre e procure o CRAS"
+      text: "Localize o CRAS mais próximo da sua casa. Em muitas cidades é preciso agendar o atendimento antes."
+    - name: "Faça o cadastro com o responsável familiar"
+      text: "Quem responde pela família (de preferência uma mulher, com 16 anos ou mais) presta as informações de todos, sem custo."
+    - name: "Guarde o NIS e acompanhe"
+      text: "Anote o número do NIS gerado e acompanhe a situação pelo aplicativo do Cadastro Único e pelo app Bolsa Família."
 faq:
-  - pergunta: "Posso fazer o CadÚnico pela internet?"
-    resposta: "A primeira inscrição é feita presencialmente no CRAS. Pela internet e pelo app, você consegue consultar e iniciar a pré-inscrição, mas precisa confirmar os dados no CRAS."
+  - pergunta: "Posso fazer o CadÚnico totalmente pela internet?"
+    resposta: "A primeira inscrição é presencial, no CRAS. Pelo aplicativo Cadastro Único você consegue iniciar uma pré-inscrição e consultar dados, mas precisa confirmar as informações presencialmente para o cadastro valer."
+  - pergunta: "Quem deve ser o responsável pela família no cadastro?"
+    resposta: "É o responsável familiar — uma pessoa da casa com 16 anos ou mais, preferencialmente uma mulher. É essa pessoa que presta as informações e responde pelo cadastro."
+  - pergunta: "Me inscrevi. Já vou receber no mês que vem?"
+    resposta: "Não necessariamente. A inscrição no CadÚnico é obrigatória, mas a entrada no Bolsa Família depende de seleção e do orçamento do programa. Pode levar meses. Mantenha o cadastro atualizado e acompanhe pelo app."
   - pergunta: "Preciso agendar para ser atendido no CRAS?"
-    resposta: "Depende da cidade. Muitas prefeituras pedem agendamento. Ligue para o CRAS do seu bairro antes de ir para confirmar."
+    resposta: "Depende da cidade. Muitas prefeituras pedem agendamento por telefone ou site. Ligue para o CRAS do seu bairro antes de ir, para não perder a viagem."
 relacionados:
   - "quem-tem-direito-bolsa-familia"
-  - "valor-do-bolsa-familia-2026"
+  - "atualizar-cadastro-unico"
 ---
 
-O CadÚnico (Cadastro Único) é a porta de entrada não só do Bolsa Família, mas de vários benefícios. Sem ele, não dá para receber. A boa notícia: é de graça e o processo é simples.
+O **CadÚnico** (Cadastro Único) é a porta de entrada não só do Bolsa Família, mas de vários outros benefícios, como Tarifa Social de Energia e Auxílio Gás. Sem ele, não dá para receber. A boa notícia: o cadastro é gratuito e o processo é simples — só exige atenção a alguns detalhes.
 
 ## O que é o CadÚnico
 
-É um cadastro do governo que reúne informações das famílias de baixa renda. A partir dele, o governo identifica quem pode receber cada benefício. Por isso, manter os dados certos e atualizados é tão importante.
+É o cadastro do governo que reúne as informações das famílias de baixa renda do país. A partir dele, os programas sociais identificam quem pode receber cada benefício. Por isso, ter os dados certos e atualizados é tão importante quanto se inscrever.
+
+## Quem faz o cadastro: o responsável familiar
+
+O cadastro é feito por um **responsável familiar** — uma pessoa da casa com **16 anos ou mais**, de preferência uma mulher. É essa pessoa que presta as informações de todos os moradores e responde pelo cadastro junto ao CRAS.
 
 ## O que levar ao CRAS
 
 Antes de sair de casa, separe os documentos de **todos** que moram com você:
 
-- Documento de identidade (RG ou CNH) e CPF de cada pessoa
-- Comprovante de residência atualizado
-- Certidão de nascimento das crianças e comprovante de matrícula escolar
-- Carteira de trabalho, se tiver
+- Documento de identidade (RG ou CNH) e **CPF de cada pessoa**;
+- **Comprovante de residência** atualizado;
+- Certidão de nascimento das crianças e comprovante de matrícula escolar;
+- Carteira de trabalho, se tiver.
 
-Use o nosso [checklist de documentos](/ferramentas/checklist) para não esquecer nada.
+Para não esquecer nada, use o nosso [checklist de documentos](/ferramentas/checklist).
 
-## Quanto tempo demora
+## O passo a passo
 
-Depois do cadastro, a análise leva, em média, de **30 a 45 dias**. Se a sua família for selecionada, o pagamento entra no calendário do mês seguinte, conforme o final do seu NIS. Veja [quando cai o pagamento](/ferramentas/calendario).
+1. Localize o **CRAS** mais próximo da sua casa (em muitas cidades é preciso **agendar** o atendimento).
+2. Vá com os documentos de toda a família.
+3. O responsável familiar presta as informações e um atendente registra tudo no Cadastro Único.
+4. Anote o **NIS** gerado e acompanhe a situação pelos aplicativos.
+
+## Inscrição não é o mesmo que aprovação
+
+Este é o ponto que mais gera frustração: **estar no CadÚnico não garante o Bolsa Família**. A inscrição é obrigatória, mas a família entra no programa por **seleção**, conforme o orçamento disponível — e isso pode levar meses. Pelo serviço oficial do gov.br, o processo, do cadastro ao primeiro pagamento, pode chegar a **180 dias**.
+
+Por isso, desconfie de qualquer pessoa que prometa "liberar o benefício na hora" ou cobre uma taxa: a inscrição é **gratuita** e ninguém deve pedir a senha do seu Caixa Tem.
+
+Depois de cadastrado, mantenha tudo em dia — veja [como atualizar o CadÚnico sem perder o benefício](/bolsa-familia/atualizar-cadastro-unico) — e confira [quem tem direito ao Bolsa Família](/bolsa-familia/quem-tem-direito-bolsa-familia) para confirmar se a sua família se enquadra.
