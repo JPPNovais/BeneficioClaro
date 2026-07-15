@@ -58,6 +58,8 @@ const relacionados = relacionadosEntries.map((e) => ({
   category: getCategoriaNome(e.data.categoria),
   readingTime: tempoLeitura(e.body),
   date: formatarDataCurta(e.data.dataAtualizacao),
+  cover: e.data.capa,
+  coverAlt: e.data.capaAlt,
 }));
 
 // --- Schema JSON-LD (reflete o conteúdo visível) ---

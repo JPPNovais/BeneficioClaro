@@ -1,21 +1,26 @@
 ---
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SearchBar from "@components/content/SearchBar.astro";
 import { getCategoriaNome } from "@config/categorias";
 import { formatarDataCurta, tempoLeitura, urlArtigo } from "@lib/utils";
 
 // Índice de busca gerado no build (busca client-side, sem backend).
+// A capa é otimizada no build (WebP) e a URL entra no índice para a miniatura.
 const artigos = await getCollection("artigos", ({ data }) => !data.draft);
-const indice = artigos.map((e) => ({
-  title: e.data.title,
-  description: e.data.description,
-  href: urlArtigo(e.data.categoria, e.slug),
-  category: getCategoriaNome(e.data.categoria),
-  tags: e.data.tags,
-  date: formatarDataCurta(e.data.dataAtualizacao),
-  readingTime: tempoLeitura(e.body),
-}));
+const indice = await Promise.all(
+  artigos.map(async (e) => ({
+    title: e.data.title,
+    description: e.data.description,
+    href: urlArtigo(e.data.categoria, e.slug),
+    category: getCategoriaNome(e.data.categoria),
+    tags: e.data.tags,
+    date: formatarDataCurta(e.data.dataAtualizacao),
+    readingTime: tempoLeitura(e.body),
+    image: e.data.capa ? (await getImage({ src: e.data.capa, width: 800, format: "webp" })).src : "",
+  }))
+);
 ---
 
 <BaseLayout
@@ -41,6 +46,7 @@ const indice = artigos.map((e) => ({
       tags: string[];
       date: string;
       readingTime: string;
+      image: string;
     };
 
     const idxEl = document.getElementById("busca-indice");
@@ -57,9 +63,13 @@ const indice = artigos.map((e) => ({
     if (input) input.value = q;
 
     function card(it: Item) {
+      const capa = it.image
+        ? `<div class="w-full aspect-[16/9] overflow-hidden bg-green-900 -m-5 mb-0 rounded-t-lg"><img src="${it.image}" alt="${it.title}" loading="lazy" decoding="async" class="w-full h-full object-cover" /></div>`
+        : "";
       return `
-        <a href="${it.href}" class="group flex flex-col gap-2 p-5 bg-white border border-ink-200 rounded-lg no-underline text-inherit shadow-sm transition-[box-shadow,transform] duration-base hover:shadow-md hover:-translate-y-0.5">
-          <span class="self-start px-[10px] py-[3px] rounded-pill bg-green-100 text-green-800 font-body text-xs font-bold">${it.category}</span>
+        <a href="${it.href}" class="group flex flex-col gap-2 p-5 bg-white border border-ink-200 rounded-lg no-underline text-inherit shadow-sm overflow-hidden transition-[box-shadow,transform] duration-base hover:shadow-md hover:-translate-y-0.5">
+          ${capa}
+          <span class="self-start px-[10px] py-[3px] rounded-pill bg-green-100 text-green-800 font-body text-xs font-bold ${it.image ? "mt-3" : ""}">${it.category}</span>
           <span class="font-heading text-xl font-bold text-ink-900 leading-snug group-hover:underline underline-offset-2">${it.title}</span>
           <span class="text-base text-ink-600">${it.description}</span>
           <span class="mt-1 flex gap-3 items-center font-body text-sm text-ink-600"><span>${it.date}</span><span>· ${it.readingTime} de leitura</span></span>

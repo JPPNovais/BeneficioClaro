@@ -30,6 +30,8 @@ const cardOf = (e: CollectionEntry<"artigos">) => ({
   category: cat.rotulo,
   readingTime: tempoLeitura(e.body),
   date: formatarDataCurta(e.data.dataAtualizacao),
+  cover: e.data.capa,
+  coverAlt: e.data.capaAlt,
 });
 
 // Agrupa artigos por subtópico (para a página-pilar)

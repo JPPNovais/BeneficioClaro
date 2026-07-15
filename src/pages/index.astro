@@ -145,6 +145,8 @@ const schema = [faqSchema(faqHome)];
                 category={getCategoriaNome(a.data.categoria)}
                 date={formatarDataCurta(a.data.dataAtualizacao)}
                 readingTime={tempoLeitura(a.body)}
+                cover={a.data.capa}
+                coverAlt={a.data.capaAlt}
               />
             ))
           }

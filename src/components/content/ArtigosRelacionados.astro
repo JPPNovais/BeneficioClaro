@@ -1,9 +1,10 @@
 ---
 /**
  * ArtigosRelacionados — grade de artigos relacionados ao final do artigo.
- * Recebe uma lista já resolvida (título, url, categoria, etc.).
+ * Recebe uma lista já resolvida (título, url, categoria, capa, etc.).
  */
 import ArticleCard from "@components/content/ArticleCard.astro";
+import type { ImageMetadata } from "astro";
 
 interface Relacionado {
   title: string;
@@ -11,6 +12,8 @@ interface Relacionado {
   category?: string;
   readingTime?: string;
   date?: string;
+  cover?: ImageMetadata;
+  coverAlt?: string;
 }
 interface Props {
   artigos: Relacionado[];
@@ -31,6 +34,8 @@ const { artigos, title = "Artigos relacionados" } = Astro.props;
             category={a.category}
             readingTime={a.readingTime}
             date={a.date}
+            cover={a.cover}
+            coverAlt={a.coverAlt}
           />
         ))}
       </div>
