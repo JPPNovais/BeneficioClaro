@@ -1,9 +1,17 @@
 /**
  * Gera capas on-brand (1200×675) para os artigos, renderizando um template SVG
- * para PNG com as fontes da marca (resvg). Rode na raiz: `node scripts/gen-covers.mjs`.
+ * para PNG com as fontes da marca (resvg).
  *
- * Edite o array ARTIGOS para adicionar/alterar capas. As imagens vão para
- * src/assets/covers/<slug>.png e são referenciadas no frontmatter (campo `capa`).
+ * Dois modos:
+ *  - Uma capa só (usado pela rotina diária):
+ *      node scripts/gen-covers.mjs <slug> "<título>" <icon> "<EYEBROW>"
+ *    Ex.: node scripts/gen-covers.mjs auxilio-gas-quem-tem-direito-valor \
+ *         "Auxílio Gás: quem tem direito?" flame "AUXÍLIO GÁS"
+ *  - Todas as capas do array ARTIGOS (regenera o lote):
+ *      node scripts/gen-covers.mjs
+ *
+ * As imagens vão para src/assets/covers/<slug>.png e são referenciadas no
+ * frontmatter (campo `capa`). Ícones disponíveis abaixo em ICONS.
  */
 import { Resvg } from "@resvg/resvg-js";
 import { mkdirSync, writeFileSync } from "node:fs";
@@ -26,15 +34,26 @@ const ICONS = {
   calendar: '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/>',
   "check-square": '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/>',
   "alert-triangle": '<path d="M12 4l9 16H3l9-16z"/><path d="M12 10v4M12 17h.01"/>',
+  "hand-coins":
+    '<ellipse cx="9" cy="6.5" rx="6" ry="3"/><path d="M3 6.5v4c0 1.7 2.7 3 6 3"/><circle cx="16.5" cy="15" r="5.5"/><path d="M16.5 13v4M15 14.5h2"/>',
+  flame:
+    '<path d="M12 3c1 3-2 4-2 7a4 4 0 008 0c0-2-1-3-1-3 .5 4-2 5-2 5 .5-3-1.5-4-1-6-2 1-2 3-2 4a5 5 0 0010 0c0-5-5-7-8-11z"/>',
+  droplet: '<path d="M12 3c4 5 7 8 7 12a7 7 0 01-14 0c0-4 3-7 7-12z"/>',
+  "graduation-cap":
+    '<path d="M3 9l9-4 9 4-9 4-9-4z"/><path d="M7 11v5c0 1 2 2.5 5 2.5s5-1.5 5-2.5v-5M21 9v5"/>',
+  calculator:
+    '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h3"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
 };
 
+// Lote padrão (regenera todas quando roda sem argumentos).
 const ARTIGOS = [
-  { slug: "quem-tem-direito-bolsa-familia", titulo: "Quem tem direito ao Bolsa Família?", icon: "user" },
-  { slug: "valor-do-bolsa-familia-2026", titulo: "Qual o valor do Bolsa Família em 2026?", icon: "wallet" },
-  { slug: "como-se-inscrever-cadastro-unico", titulo: "Como se inscrever pelo CadÚnico", icon: "file-text" },
-  { slug: "calendario-pagamento-bolsa-familia-2026", titulo: "Quando cai o Bolsa Família?", icon: "calendar" },
-  { slug: "atualizar-cadastro-unico", titulo: "Como atualizar o CadÚnico", icon: "check-square" },
-  { slug: "bolsa-familia-bloqueado-suspenso-cancelado", titulo: "Bolsa Família bloqueado: o que fazer", icon: "alert-triangle" },
+  { slug: "quem-tem-direito-bolsa-familia", titulo: "Quem tem direito ao Bolsa Família?", icon: "user", eyebrow: "BOLSA FAMÍLIA" },
+  { slug: "valor-do-bolsa-familia-2026", titulo: "Qual o valor do Bolsa Família em 2026?", icon: "wallet", eyebrow: "BOLSA FAMÍLIA" },
+  { slug: "como-se-inscrever-cadastro-unico", titulo: "Como se inscrever pelo CadÚnico", icon: "file-text", eyebrow: "BOLSA FAMÍLIA" },
+  { slug: "calendario-pagamento-bolsa-familia-2026", titulo: "Quando cai o Bolsa Família?", icon: "calendar", eyebrow: "BOLSA FAMÍLIA" },
+  { slug: "atualizar-cadastro-unico", titulo: "Como atualizar o CadÚnico", icon: "check-square", eyebrow: "BOLSA FAMÍLIA" },
+  { slug: "bolsa-familia-bloqueado-suspenso-cancelado", titulo: "Bolsa Família bloqueado: o que fazer", icon: "alert-triangle", eyebrow: "BOLSA FAMÍLIA" },
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -56,7 +75,7 @@ function wrap(text, maxChars = 24) {
   return lines;
 }
 
-function svgFor({ titulo, icon }) {
+function svgFor({ titulo, icon, eyebrow = "BOLSA FAMÍLIA" }) {
   const lines = wrap(titulo);
   const lh = 80;
   const startY = 430 - ((lines.length - 1) * lh) / 2;
@@ -72,7 +91,7 @@ function svgFor({ titulo, icon }) {
     </linearGradient>
   </defs>
   <rect width="1200" height="675" fill="url(#bg)"/>
-  <g transform="translate(815,150) scale(18)" fill="none" stroke="#FFFFFF" stroke-width="0.13" stroke-linecap="round" stroke-linejoin="round" opacity="0.10">${ICONS[icon] || ""}</g>
+  <g transform="translate(815,150) scale(18)" fill="none" stroke="#FFFFFF" stroke-width="0.13" stroke-linecap="round" stroke-linejoin="round" opacity="0.10">${ICONS[icon] || ICONS["file-text"]}</g>
   <svg x="64" y="56" width="56" height="56" viewBox="0 0 56 56">
     <rect width="56" height="56" rx="16" fill="#FFFFFF"/>
     <circle cx="28" cy="28" r="15" stroke="#9FDAC6" stroke-width="2.5"/>
@@ -80,14 +99,13 @@ function svgFor({ titulo, icon }) {
     <path d="M37.5 26V20.5H32" stroke="#E5731F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   <text x="132" y="92" font-family="Libre Franklin" font-weight="800" font-size="27" letter-spacing="0.5" fill="#FFFFFF">BENEFÍCIO CLARO</text>
-  <text x="64" y="320" font-family="Public Sans" font-weight="700" font-size="26" letter-spacing="2" fill="#9FDAC6">BOLSA FAMÍLIA</text>
+  <text x="64" y="320" font-family="Public Sans" font-weight="700" font-size="26" letter-spacing="2" fill="#9FDAC6">${esc(eyebrow)}</text>
   <text font-family="Libre Franklin" font-weight="800" font-size="62" fill="#FFFFFF">${tspans}</text>
   <rect x="64" y="600" width="120" height="8" rx="4" fill="#E5731F"/>
 </svg>`;
 }
 
-mkdirSync(OUT, { recursive: true });
-for (const a of ARTIGOS) {
+function gerar(a) {
   const resvg = new Resvg(svgFor(a), {
     fitTo: { mode: "width", value: 1200 },
     font: { loadSystemFonts: true, defaultFontFamily: "Public Sans", fontFiles: FONTS },
@@ -96,4 +114,15 @@ for (const a of ARTIGOS) {
   writeFileSync(`${OUT}/${a.slug}.png`, png);
   console.log(`capa ${a.slug}.png — ${(png.length / 1024).toFixed(1)} KB`);
 }
-console.log(`\n${ARTIGOS.length} capas geradas em ${OUT}`);
+
+mkdirSync(OUT, { recursive: true });
+
+// Modo "uma capa só": node scripts/gen-covers.mjs <slug> "<título>" <icon> "<EYEBROW>"
+const [, , slug, titulo, icon = "file-text", eyebrow = "BOLSA FAMÍLIA"] = process.argv;
+if (slug && titulo) {
+  gerar({ slug, titulo, icon, eyebrow });
+  console.log("\nCapa única gerada. Referencie no frontmatter: capa: \"../../../assets/covers/" + slug + '.png"');
+} else {
+  for (const a of ARTIGOS) gerar(a);
+  console.log(`\n${ARTIGOS.length} capas geradas em ${OUT}`);
+}
