@@ -30,8 +30,11 @@ const {
   modifiedTime,
 } = Astro.props;
 
-// Título: páginas internas ganham o sufixo da marca; a home não duplica.
-const tituloCompleto = title === SITE.nome ? title : `${title} | ${SITE.nome}`;
+// Título: páginas internas ganham o sufixo da marca — mas só se não passar de
+// ~60 caracteres (senão o Google trunca no resultado da busca).
+const sufixo = ` | ${SITE.nome}`;
+const tituloCompleto =
+  title === SITE.nome ? title : title.length + sufixo.length <= 60 ? `${title}${sufixo}` : title;
 
 const pathnameLimpo = Astro.url.pathname.replace(/\/$/, "") || "/";
 const canonicalUrl = urlAbsoluta(Astro.site ?? SITE.url, canonical ?? pathnameLimpo);
@@ -70,6 +73,9 @@ const adsenseLoader = ADSENSE.ativo && ADSENSE.publisherId.startsWith("ca-pub-")
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/logo-mark.svg" />
+
+<!-- Feed RSS (descoberta e frescor) -->
+<link rel="alternate" type="application/rss+xml" title={`${SITE.nome} — Artigos`} href="/rss.xml" />
 
 <!-- Fontes auto-hospedadas: preload dos 2 pesos mais usados (corpo + títulos) -->
 <link rel="preload" href="/fonts/public-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />

@@ -1,10 +1,10 @@
 ---
-title: "Como se inscrever no Bolsa Família pelo CadÚnico (passo a passo)"
+title: "Como se inscrever no Bolsa Família pelo CadÚnico"
 slug: "como-se-inscrever-cadastro-unico"
 categoria: "bolsa-familia"
 capa: "../../../assets/covers/como-se-inscrever-cadastro-unico.png"
 capaAlt: "Arte do Benefício Claro sobre como se inscrever no Bolsa Família pelo CadÚnico"
-description: "Passo a passo para se inscrever no Bolsa Família pelo CadÚnico em 2026: onde ir, quais documentos levar, quem pode fazer o cadastro e por que a inscrição não garante entrada imediata."
+description: "Passo a passo para se inscrever no Bolsa Família pelo CadÚnico em 2026: onde ir, quais documentos levar e por que a inscrição não garante entrada imediata."
 respostaRapida: "Para entrar no Bolsa Família, a família precisa se inscrever no CadÚnico, de graça, no CRAS da sua cidade. Leve identidade e CPF de todos e um comprovante de residência. Atenção: a inscrição é obrigatória, mas não garante o benefício na hora — a entrada depende de seleção e do orçamento do programa."
 dataPublicacao: 2026-06-05
 dataAtualizacao: 2026-06-25

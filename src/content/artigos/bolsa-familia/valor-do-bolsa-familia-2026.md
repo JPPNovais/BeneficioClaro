@@ -1,5 +1,5 @@
 ---
-title: "Qual o valor do Bolsa Família em 2026? Veja quanto você recebe"
+title: "Qual o valor do Bolsa Família em 2026?"
 slug: "valor-do-bolsa-familia-2026"
 categoria: "bolsa-familia"
 capa: "../../../assets/covers/valor-do-bolsa-familia-2026.png"

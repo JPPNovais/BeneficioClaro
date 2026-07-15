@@ -8,10 +8,12 @@ import ArticleCard from "@components/content/ArticleCard.astro";
 import Card from "@components/core/Card.astro";
 import Button from "@components/core/Button.astro";
 import Icon from "@components/Icon.astro";
+import FAQAccordion from "@components/feedback/FAQAccordion.astro";
 import { SITE } from "@config/site";
 import { getCategoriaNome } from "@config/categorias";
 import { CALENDARIO } from "@data/calendario";
 import { formatarDataCurta, tempoLeitura, urlArtigo } from "@lib/utils";
+import { faqSchema } from "@lib/seo";
 
 const beneficios = [
   { title: "Bolsa Família", description: "Quem tem direito e quanto recebe", icon: "hand-coins", href: "/bolsa-familia" },
@@ -34,9 +36,40 @@ const ultimos = todos
   .slice(0, 3);
 
 const prevCalendario = CALENDARIO.datas.slice(0, 3);
+
+// FAQ da home — respostas curtas e verificadas (alimenta o schema FAQPage).
+const faqHome = [
+  {
+    pergunta: "O que é o Bolsa Família?",
+    resposta:
+      "É o principal programa de transferência de renda do Brasil. Ele paga um valor mensal a famílias de baixa renda inscritas no CadÚnico que cumprem compromissos de saúde e educação.",
+  },
+  {
+    pergunta: "Quem tem direito ao Bolsa Família em 2026?",
+    resposta:
+      "Famílias com renda de até R$ 218 por pessoa por mês, inscritas e com os dados atualizados no CadÚnico. Quem passa desse limite mas fica até R$ 706 por pessoa pode continuar recebendo metade do valor pela Regra de Proteção.",
+  },
+  {
+    pergunta: "Qual é o valor do Bolsa Família?",
+    resposta:
+      "No mínimo R$ 600 por família, mais R$ 150 por criança de até 6 anos e R$ 50 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos. O valor final depende de quem mora na casa.",
+  },
+  {
+    pergunta: "Como faço para me inscrever?",
+    resposta:
+      "A inscrição é gratuita e feita no CRAS da sua cidade, pelo Cadastro Único. Leve identidade e CPF de todos da família e um comprovante de residência. Estar no CadÚnico não garante entrada imediata: a família entra por seleção.",
+  },
+  {
+    pergunta: "Quando o dinheiro é pago?",
+    resposta:
+      "Nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS. Use a nossa ferramenta de calendário para ver a data exata do seu pagamento.",
+  },
+];
+
+const schema = [faqSchema(faqHome)];
 ---
 
-<BaseLayout title={SITE.nome} description={SITE.descricao} canonical="/">
+<BaseLayout title={SITE.nome} description={SITE.descricao} canonical="/" schema={schema}>
   <!-- Hero -->
   <section class="bg-hero-fade border-b border-ink-200">
     <div class="max-w-prose mx-auto px-4 pt-10 pb-9 text-center">
@@ -146,5 +179,11 @@ const prevCalendario = CALENDARIO.datas.slice(0, 3);
         </Card>
       </div>
     </div>
+
+    <!-- FAQ (answer-first + schema FAQPage) -->
+    <section class="max-w-prose mx-auto mt-12 pb-2">
+      <SectionTitle eyebrow="Perguntas frequentes" title="Dúvidas rápidas sobre benefícios" />
+      <FAQAccordion items={faqHome} />
+    </section>
   </div>
 </BaseLayout>

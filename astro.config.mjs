@@ -27,10 +27,13 @@ export default defineConfig({
     }),
     mdx(),
     sitemap({
-      i18n: undefined,
       changefreq: "weekly",
       priority: 0.7,
       lastmod: new Date(),
+      // Não lista no sitemap as páginas noindex: a busca e as categorias ainda
+      // sem conteúdo. Ao publicar artigos numa categoria, remova-a desta lista.
+      filter: (page) =>
+        !/\/(buscar|auxilio-gas|cadunico|financas|tarifa-social)\/?$/.test(page),
     }),
   ],
   markdown: {

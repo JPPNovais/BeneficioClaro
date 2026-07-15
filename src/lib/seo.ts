@@ -66,7 +66,14 @@ export interface ArticleSchemaInput {
   dateModified: string;
   authorName: string;
   authorUrl: string;
+  authorJobTitle?: string;
   image?: string;
+  /** Categoria/seção do artigo (articleSection). */
+  section?: string;
+  /** Palavras-chave (tags). */
+  keywords?: string[];
+  /** Número de palavras do corpo (sinal de profundidade). */
+  wordCount?: number;
 }
 export function articleSchema(a: ArticleSchemaInput) {
   return {
@@ -81,9 +88,55 @@ export function articleSchema(a: ArticleSchemaInput) {
       "@type": "Person",
       name: a.authorName,
       url: a.authorUrl,
+      ...(a.authorJobTitle ? { jobTitle: a.authorJobTitle } : {}),
     },
     publisher: { "@id": ORG_ID },
     image: a.image ? [a.image] : [urlAbsoluta(SITE.url, SITE.ogImage)],
+    ...(a.section ? { articleSection: a.section } : {}),
+    ...(a.keywords && a.keywords.length ? { keywords: a.keywords.join(", ") } : {}),
+    ...(a.wordCount ? { wordCount: a.wordCount } : {}),
+  };
+}
+
+/** WebPage — nó por página, ligado ao WebSite. Incluído em toda página. */
+export function webPageSchema(opts: { url: string; name: string; description: string }) {
+  return {
+    "@type": "WebPage",
+    "@id": opts.url,
+    url: opts.url,
+    name: opts.name,
+    description: opts.description,
+    inLanguage: SITE.locale,
+    isPartOf: { "@id": SITE_ID },
+  };
+}
+
+/** WebApplication gratuito (ferramentas). Bom para rich results de "app grátis". */
+export function softwareAppSchema(opts: { name: string; description: string; url: string }) {
+  return {
+    "@type": "WebApplication",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Web",
+    inLanguage: SITE.locale,
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
+    publisher: { "@id": ORG_ID },
+  };
+}
+
+/** ItemList — usado no hub de ferramentas. */
+export function itemListSchema(items: { name: string; url: string }[]) {
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      url: it.url,
+    })),
   };
 }
 

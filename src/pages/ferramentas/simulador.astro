@@ -3,6 +3,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Icon from "@components/Icon.astro";
 import { PERGUNTAS, BENEFICIOS, FALLBACK } from "@data/simulador";
 import { ICON_PATHS } from "@lib/icons";
+import { SITE } from "@config/site";
+import { urlAbsoluta } from "@lib/utils";
+import { softwareAppSchema } from "@lib/seo";
+
+const schema = [
+  softwareAppSchema({
+    name: "Simulador de benefícios sociais",
+    description:
+      "Responda 4 perguntas e descubra a quais benefícios sociais você pode ter direito. Gratuito, no seu aparelho, sem pedir nome, CPF ou senha.",
+    url: urlAbsoluta(Astro.site ?? SITE.url, "/ferramentas/simulador"),
+  }),
+];
 
 // Ícones necessários no cliente (resultado + benefícios).
 const nomesIcones = new Set<string>(["shield-check", "arrow-right", "arrow-left"]);
@@ -17,6 +29,7 @@ const config = { perguntas: PERGUNTAS, beneficios: BENEFICIOS, fallback: FALLBAC
   title="Simulador de benefícios"
   description="Responda 4 perguntas simples e descubra a quais benefícios sociais você pode ter direito. Gratuito, no seu aparelho, sem pedir nome, CPF ou senha."
   canonical="/ferramentas/simulador"
+  schema={schema}
 >
   <div class="max-w-[680px] mx-auto px-4 pt-7">
     <div class="text-center mb-2">

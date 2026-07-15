@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Card from "@components/core/Card.astro";
-import SectionTitle from "@components/content/SectionTitle.astro";
 import Icon from "@components/Icon.astro";
+import { SITE } from "@config/site";
+import { urlAbsoluta } from "@lib/utils";
+import { itemListSchema } from "@lib/seo";
 
 const ferramentas = [
   {
@@ -25,16 +27,24 @@ const ferramentas = [
     href: "/ferramentas/checklist",
   },
 ];
+
+const schema = [
+  itemListSchema(
+    ferramentas.map((t) => ({ name: t.title, url: urlAbsoluta(Astro.site ?? SITE.url, t.href) }))
+  ),
+];
 ---
 
 <BaseLayout
   title="Ferramentas gratuitas"
   description="Ferramentas gratuitas para benefícios sociais: simulador de elegibilidade, calendário de pagamento por NIS e checklist de documentos. Tudo no seu aparelho."
   canonical="/ferramentas"
+  schema={schema}
 >
   <div class="max-w-container mx-auto px-4 pt-9">
     <div class="max-w-prose mb-7">
-      <SectionTitle eyebrow="Grátis" title="Ferramentas que ajudam você" />
+      <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-0.5">Grátis</div>
+      <h1 class="mt-0 mb-2">Ferramentas que ajudam você</h1>
       <p class="text-lg text-ink-600 m-0">
         Tudo funciona direto no seu celular, de graça e sem cadastro. Nada do que você digita é salvo.
       </p>

@@ -3,13 +3,25 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Icon from "@components/Icon.astro";
 import Alert from "@components/feedback/Alert.astro";
 import { CALENDARIO } from "@data/calendario";
-import { formatarData } from "@lib/utils";
+import { formatarData, urlAbsoluta } from "@lib/utils";
+import { SITE } from "@config/site";
+import { softwareAppSchema } from "@lib/seo";
+
+const schema = [
+  softwareAppSchema({
+    name: "Calendário de pagamento do Bolsa Família",
+    description:
+      "Descubra quando cai o seu Bolsa Família filtrando pelo final do NIS. Gratuito e no seu aparelho.",
+    url: urlAbsoluta(Astro.site ?? SITE.url, "/ferramentas/calendario"),
+  }),
+];
 ---
 
 <BaseLayout
   title={`Calendário de pagamento do Bolsa Família — ${CALENDARIO.mesReferencia}`}
   description={`Veja quando cai o Bolsa Família de ${CALENDARIO.mesReferencia}. Filtre pelo final do seu NIS e descubra a data exata do seu pagamento.`}
   canonical="/ferramentas/calendario"
+  schema={schema}
 >
   <div class="max-w-[680px] mx-auto px-4 pt-7">
     <div class="text-center mb-2">

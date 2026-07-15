@@ -75,7 +75,11 @@ const schema: object[] = [
     dateModified: dataISO(d.dataAtualizacao),
     authorName: autor.nome,
     authorUrl: urlAbsoluta(Astro.site ?? SITE.url, autor.perfilUrl),
+    authorJobTitle: autor.cargo,
     image: d.capa ? urlAbsoluta(Astro.site ?? SITE.url, d.capa.src) : undefined,
+    section: categoriaNome,
+    keywords: d.tags,
+    wordCount: entry.body.trim().split(/\s+/).filter(Boolean).length,
   }),
 ];
 if (d.faq.length > 0) schema.push(faqSchema(d.faq));

@@ -10,7 +10,8 @@ import JsonLd from "@components/seo/JsonLd.astro";
 import SiteHeader from "@components/SiteHeader.astro";
 import SiteFooter from "@components/SiteFooter.astro";
 import { SITE } from "@config/site";
-import { websiteSchema, organizationSchema, graph } from "@lib/seo";
+import { urlAbsoluta } from "@lib/utils";
+import { websiteSchema, organizationSchema, webPageSchema, graph } from "@lib/seo";
 
 interface Props {
   title: string;
@@ -26,7 +27,17 @@ interface Props {
 }
 
 const { schema = [], ...head } = Astro.props;
-const baseGraph = graph([websiteSchema(), organizationSchema(), ...schema]);
+
+// WebPage por página, ligado ao WebSite (canonical como @id).
+const pathnameLimpo = Astro.url.pathname.replace(/\/$/, "") || "/";
+const canonicalUrl = urlAbsoluta(Astro.site ?? SITE.url, head.canonical ?? pathnameLimpo);
+const webPage = webPageSchema({
+  url: canonicalUrl,
+  name: head.title ?? SITE.nome,
+  description: head.description ?? SITE.descricao,
+});
+
+const baseGraph = graph([websiteSchema(), organizationSchema(), webPage, ...schema]);
 ---
 
 <!doctype html>

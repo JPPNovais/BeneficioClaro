@@ -125,12 +125,19 @@ export const ADSENSE = {
 
 ## Deploy
 
-Build estático (`npm run build` → `dist/`). Antes de publicar, ajuste `SITE.url` em `src/config/site.ts`.
+Build estático (`npm run build` → `dist/`). Antes de publicar, confira `SITE.url` em `src/config/site.ts`.
 
-- **Cloudflare Pages**: build command `npm run build`, output `dist`.
-- **Netlify**: build command `npm run build`, publish `dist`. O formulário de contato pode usar [Netlify Forms](https://docs.netlify.com/forms/setup/) — hoje ele compõe um e-mail via `mailto:` (sem backend).
+- **Vercel** (usado): detecta Astro automaticamente (build `npm run build`, output `dist`). Deploy a cada push.
+- **Cloudflare Pages / Netlify**: build `npm run build`, output/publish `dist`. Em Netlify, o formulário de contato pode usar [Netlify Forms](https://docs.netlify.com/forms/setup/) — hoje ele compõe um e-mail via `mailto:` (sem backend).
 
-O `sitemap-index.xml` e o `robots.txt` são gerados no build a partir de `SITE.url`.
+### Domínio e `www` (importante para ranqueamento)
+
+O `SITE.url` é `https://beneficioclaro.com.br` (**sem `www`**), e é assim que saem os canonicals. Para não dividir a autoridade entre `www` e apex:
+
+1. Registre `beneficioclaro.com.br` no **Registro.br** e adicione o domínio no projeto da Vercel (o painel indica os registros DNS — em geral um **A** no apex e um **CNAME** `www`).
+2. Defina o **apex** (`beneficioclaro.com.br`) como o domínio primário e configure o **redirect 301 de `www` → apex** na Vercel. Assim o Google consolida tudo numa versão só.
+
+Gerados automaticamente no build a partir de `SITE.url`: `sitemap-index.xml`, `robots.txt` (com crawlers de IA liberados), **`llms.txt`** (índice para assistentes de IA) e **`rss.xml`** (feed dos artigos).
 
 ## Performance, acessibilidade e qualidade
 

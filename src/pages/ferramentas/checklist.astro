@@ -2,12 +2,25 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Icon from "@components/Icon.astro";
 import { LISTAS } from "@data/checklist";
+import { SITE } from "@config/site";
+import { urlAbsoluta } from "@lib/utils";
+import { softwareAppSchema } from "@lib/seo";
+
+const schema = [
+  softwareAppSchema({
+    name: "Checklist de documentos por benefício",
+    description:
+      "Escolha o benefício e marque os documentos que você já tem para se inscrever. Gratuito e no seu aparelho.",
+    url: urlAbsoluta(Astro.site ?? SITE.url, "/ferramentas/checklist"),
+  }),
+];
 ---
 
 <BaseLayout
   title="Checklist de documentos por benefício"
   description="Monte o seu checklist de documentos para o Bolsa Família, Auxílio Gás e Tarifa Social. Escolha o benefício e marque o que você já tem."
   canonical="/ferramentas/checklist"
+  schema={schema}
 >
   <div class="max-w-[680px] mx-auto px-4 pt-7">
     <div class="text-center mb-2">

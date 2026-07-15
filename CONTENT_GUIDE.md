@@ -89,5 +89,26 @@ Conteúdo atualizado é fator de confiança e de citação por IA. **Revise cada
 
 ---
 
+## Checklist de AEO (ser citado por IA e ranquear no Google)
+
+Além da qualidade, cada artigo deve cumprir os sinais que fazem um conteúdo ser
+escolhido por buscadores e por assistentes de IA. Antes de publicar, confira:
+
+- [ ] **Resposta rápida** (`respostaRapida`) logo após o H1, em 2–3 frases diretas.
+- [ ] **Um único H1**; estrutura com **pelo menos 3 H2/H3**, de preferência em forma de pergunta.
+- [ ] **FAQ** (`faq[]`) com 3–6 perguntas reais → vira schema `FAQPage`.
+- [ ] **800+ palavras** de conteúdo real (corpo + resposta rápida + FAQ).
+- [ ] **Título de 15 a 60 caracteres** (o sistema encurta o sufixo da marca se precisar).
+- [ ] **Meta description de 120 a 160 caracteres**.
+- [ ] **Listas e/ou tabelas** onde ajudam a escanear (valores, passos, datas).
+- [ ] **Fontes oficiais + referências** (`fontesOficiais[]`/`referencias[]`) — dado sem fonte não entra.
+- [ ] **E-E-A-T**: autor real, "Atualizado em [data]" e revisão trimestral (`dataAtualizacao`).
+- [ ] **Imagens com `alt`** (campo `capaAlt` para a capa).
+- [ ] **Linkagem interna**: aponta para o pilar e 2–3 satélites vizinhos.
+
+O JSON-LD (`Article`, `FAQPage`, `HowTo`, `BreadcrumbList`), o `llms.txt`, o `rss.xml`,
+o sitemap e o robots (com crawlers de IA liberados) são gerados automaticamente — você
+só precisa entregar o conteúdo e o frontmatter no padrão acima.
+
 ## O diferencial humano
 Vem de **clareza, exemplos reais, dados atualizados e empatia** com a situação de quem lê — **não** de enrolação, não de palavras difíceis, não de repetir fórmulas. Se em dúvida entre soar "profissional" e soar "claro", escolha **claro**.
