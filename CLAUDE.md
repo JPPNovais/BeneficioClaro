@@ -44,6 +44,8 @@ O AdSense reprova **"conteúdo de baixo valor"**. Todo artigo precisa, sem exce�
 
 Temas que aprovam e atraem tráfego: "quem tem direito", "qual o valor / quanto vou receber", "como me inscrever no CadÚnico", "calendário / quando cai", "como consultar se fui aprovado", "regra de proteção", "benefício bloqueado/cancelado, o que fazer", "como atualizar o cadastro".
 
+**Frescor e não-duplicação:** além do evergreen, publicar **notícias/atualidades** datadas e verificáveis (novos valores, mudanças de regra, calendário do mês, portarias) na categoria `noticias` ou na do benefício. **Nunca repetir um tema já publicado** — atualizar o artigo existente (e a `dataAtualizacao`) em vez de criar um quase igual; conteúdo duplicado prejudica SEO e AdSense. Detalhes em [CONTENT_GUIDE.md](CONTENT_GUIDE.md).
+
 ## SEO/AEO (gerado automaticamente — não duplicar à mão)
 
 Cada página recebe: `<title>` (encurta o sufixo da marca se passar de 60 chars), meta description, canonical, Open Graph/Twitter e JSON-LD (`WebSite` + `Organization` + `WebPage` em todas; `Article`+`FAQPage`+`HowTo`+`BreadcrumbList` nos artigos; `WebApplication` nas ferramentas; `ItemList` no hub; `FAQPage` na home). Gerados no build: `sitemap-index.xml` (exclui `noindex` via filtro no `astro.config.mjs`), `robots.txt` (libera crawlers de IA), `llms.txt` (índice p/ IA) e `rss.xml`. Fontes: `src/lib/seo.ts` (builders), `src/components/seo/*`, `src/pages/{robots.txt,llms.txt,rss.xml}.ts`. Checklist de AEO por artigo em [CONTENT_GUIDE.md](CONTENT_GUIDE.md).

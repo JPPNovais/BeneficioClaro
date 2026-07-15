@@ -92,6 +92,12 @@ export const CATEGORIAS: Categoria[] = [
     rotulo: "Finanças",
     pilar: false,
   },
+  {
+    slug: "noticias",
+    nome: "Notícias",
+    rotulo: "Notícias",
+    pilar: false,
+  },
 ];
 
 export function getCategoria(slug: string): Categoria | undefined {

@@ -1,17 +1,37 @@
 # Plano editorial — Benefício Claro
 
-Backlog priorizado de artigos. A rotina diária (agendamento) usa este arquivo para
-escolher **o próximo artigo a escrever**: pega o **primeiro item não concluído**
-(cujo arquivo ainda **não existe** em `src/content/artigos/<categoria>/<slug>.(md|mdx)`),
-escreve seguindo o [CONTENT_GUIDE.md](../CONTENT_GUIDE.md) e o [CLAUDE.md](../CLAUDE.md),
-publica e marca o item como concluído (`- [x]`).
+Backlog priorizado de artigos. A rotina diária (agendamento) escolhe **o próximo
+artigo a escrever** seguindo o [CONTENT_GUIDE.md](../CONTENT_GUIDE.md) e o
+[CLAUDE.md](../CLAUDE.md), publica e marca o item como concluído (`- [x]`).
+
+**Ordem de escolha do tema (importante):**
+1. **Notícia primeiro.** Faça uma busca rápida por novidades importantes e datadas
+   dos benefícios (novo valor anunciado, mudança de regra, calendário do mês,
+   portaria, revisão cadastral). Se houver algo **relevante, atual e verificável em
+   fonte oficial que ainda não está no site**, escreva essa NOTÍCIA (categoria
+   `noticias`, ou a categoria do benefício quando for específico).
+2. **Senão, evergreen.** Pegue o primeiro item `- [ ]` do backlog cujo arquivo ainda
+   **não existe** em `src/content/artigos/<categoria>/<slug>.(md|mdx)`.
+
+**Nunca repita.** Antes de escrever, confira os artigos existentes. Se o tema já foi
+publicado, **atualize o artigo antigo** (e a `dataAtualizacao`) em vez de criar um
+quase igual — conteúdo duplicado prejudica SEO e AdSense.
 
 Regras ao publicar:
 - Datas do frontmatter = data da execução (`dataPublicacao` e `dataAtualizacao`).
-- Ao publicar o **primeiro** artigo de uma categoria que ainda estava vazia
-  (`cadunico`, `auxilio-gas`, `tarifa-social`, `financas`), **remova essa categoria**
-  da lista de exclusão do sitemap em `astro.config.mjs` (para passar a ser indexada).
+- Gerar a **capa** (`node scripts/gen-covers.mjs <slug> "<título>" <icon> "<EYEBROW>"`)
+  e referenciar em `capa`/`capaAlt` no frontmatter.
+- Ao publicar o **primeiro** artigo de uma categoria ainda vazia (`cadunico`,
+  `auxilio-gas`, `tarifa-social`, `financas`, `noticias`), **remova essa categoria**
+  da lista de exclusão do sitemap em `astro.config.mjs`.
 - Um artigo por execução. `npm run build` tem que passar.
+
+## Notícias (atualidades)
+
+Não é um backlog fixo — vem dos acontecimentos. A cada execução, priorize se houver
+novidade importante e verificável. Exemplos recorrentes de boa notícia datada:
+calendário e valores do mês corrente, reajustes anunciados, novas portarias do MDS,
+mudanças no CadÚnico/biometria, prazos de revisão cadastral, novos programas.
 
 ## Bolsa Família (aprofundar o pilar)
 

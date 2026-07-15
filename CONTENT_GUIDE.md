@@ -89,6 +89,20 @@ Conteúdo atualizado é fator de confiança e de citação por IA. **Revise cada
 
 ---
 
+## Notícias e frescor — e nunca repetir conteúdo
+
+Um site que só repete os mesmos temas evergreen estagna e pode ser visto como **conteúdo duplicado/raso** (ruim para SEO e para o AdSense). Por isso, o mix ideal combina dois tipos de artigo:
+
+- **Evergreen** (o backlog do `docs/plano-editorial.md`): "quem tem direito", "qual o valor", "como se inscrever". Respondem dúvidas perenes.
+- **Notícias/atualidades** (categoria `noticias` ou dentro da categoria do benefício): o que **está saindo agora** e interessa ao leitor — novos valores anunciados, mudança de regra, calendário do mês, portarias, prazos de revisão cadastral, novidades de programas. É o que traz frescor, atrai tráfego novo e sinaliza um site vivo.
+
+Regras de ouro:
+
+1. **Nunca repita um tema já publicado.** Antes de escrever, confira os artigos existentes. Se o assunto já existe, **atualize o artigo antigo** (e a `dataAtualizacao`) em vez de criar um quase igual — dois textos parecidos competem entre si e cheiram a conteúdo duplicado.
+2. **Traga um ângulo ou fato novo.** Uma notícia tem que ter uma novidade real e datada (um anúncio, um número que mudou, um prazo). Sem novidade verificável, não é notícia — é repetição.
+3. **Notícia também precisa de fonte oficial.** Vale a mesma régua: confirme em gov.br/MDS/Caixa e cite. Se a "novidade" não se confirma em fonte oficial, não publique.
+4. **Data importa.** Deixe claro a que mês/ano a informação se refere; revise ou aposente notícias que envelhecem.
+
 ## Checklist de AEO (ser citado por IA e ranquear no Google)
 
 Além da qualidade, cada artigo deve cumprir os sinais que fazem um conteúdo ser
