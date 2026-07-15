@@ -5,34 +5,9 @@ import Icon from "@components/Icon.astro";
 import { SITE } from "@config/site";
 import { urlAbsoluta } from "@lib/utils";
 import { itemListSchema } from "@lib/seo";
+import { FERRAMENTAS } from "@config/ferramentas";
 
-const ferramentas = [
-  {
-    title: "Simulador de benefícios",
-    description: "Responda 4 perguntas simples e veja a quais benefícios você pode ter direito. Não pedimos nome, CPF nem senha.",
-    icon: "calculator",
-    href: "/ferramentas/simulador",
-    tone: "cta" as const,
-  },
-  {
-    title: "Calendário de pagamento",
-    description: "Descubra quando cai o seu Bolsa Família filtrando pelo final do seu NIS.",
-    icon: "calendar",
-    href: "/ferramentas/calendario",
-  },
-  {
-    title: "Checklist de documentos",
-    description: "Escolha o benefício e marque, um a um, os documentos que você já tem.",
-    icon: "check-square",
-    href: "/ferramentas/checklist",
-  },
-  {
-    title: "Simulador do Saque-Aniversário do FGTS",
-    description: "Digite o saldo do seu FGTS e veja quanto poderia sacar no saque-aniversário.",
-    icon: "wallet",
-    href: "/ferramentas/saque-aniversario-fgts",
-  },
-];
+const ferramentas = FERRAMENTAS;
 
 const schema = [
   itemListSchema(
