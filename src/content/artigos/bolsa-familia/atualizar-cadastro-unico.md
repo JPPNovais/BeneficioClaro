@@ -24,6 +24,8 @@ fontesOficiais:
 referencias:
   - label: "AMUNES — novas regras do CadÚnico e Bolsa Família a partir de 2026"
     href: "https://www.amunes.org.br/noticias/3930/cadunico-e-bolsa-familia-tem-novas-regras-a-partir-de-2026"
+  - label: "É o Dinheiro — atualização do CadÚnico em 2026: quando é obrigatória e prazo"
+    href: "https://www.iadodinheiro.com.br/beneficios-sociais/atualizacao-do-cadunico-em-2026-quando-e-obrigatoria-qual-o-prazo-e-o/"
 faq:
   - pergunta: "De quanto em quanto tempo preciso atualizar o CadÚnico?"
     resposta: "No máximo a cada 24 meses (2 anos), mesmo que nada tenha mudado. Mas qualquer mudança de endereço, renda, emprego, nascimento ou óbito exige atualização na hora, sem esperar o prazo."
@@ -90,6 +92,10 @@ O [checklist de documentos](/ferramentas/checklist) ajuda a separar tudo antes d
 ## A biometria no Cadastro Único
 
 A partir do fim de 2026, o Cadastro Único passa a adotar o **cadastramento biométrico** de forma gradual — uma camada a mais de segurança para evitar fraudes e cadastros duplicados. Na prática, algumas famílias serão chamadas para registrar a digital ou a foto no momento da atualização. Se você for convocado para isso, é mais um motivo para não deixar a atualização para depois: comparecer no prazo garante a continuidade do benefício.
+
+## Passar de 2 anos bloqueia o benefício na hora?
+
+Não automaticamente. O governo reforça que completar 24 meses sem atualizar **não bloqueia o benefício sozinho** — o que dispara o bloqueio é a família ser incluída em uma **averiguação ou revisão cadastral** e não responder dentro do prazo. Ou seja: o risco existe e é real, mas costuma haver um aviso e um tempo para regularizar. Se você não ignorar a convocação e mantiver os dados em dia, não corre esse risco.
 
 ## O que acontece se você não atualizar
 

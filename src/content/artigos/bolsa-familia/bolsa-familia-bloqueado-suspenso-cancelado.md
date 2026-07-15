@@ -4,7 +4,7 @@ slug: "bolsa-familia-bloqueado-suspenso-cancelado"
 categoria: "bolsa-familia"
 capa: "../../../assets/covers/bolsa-familia-bloqueado-suspenso-cancelado.png"
 capaAlt: "Arte do Benefício Claro sobre o que fazer com o Bolsa Família bloqueado"
-description: "Seu Bolsa Família foi bloqueado, suspenso ou cancelado? Entenda a diferença, os motivos mais comuns em 2026 e o passo a passo para regularizar e voltar a receber."
+description: "Seu Bolsa Família foi bloqueado, suspenso ou cancelado? Entenda a diferença, os motivos mais comuns em 2026 e o passo a passo para regularizar."
 respostaRapida: "Bloqueio e suspensão são temporários: o pagamento fica retido por uma pendência, e você tem um prazo para regularizar no CRAS. Cancelamento é definitivo, quando a família não atende mais aos critérios. Na maioria dos casos, o motivo é cadastro desatualizado — atualizando o CadÚnico, é possível voltar a receber, às vezes com os valores atrasados."
 dataPublicacao: 2026-06-24
 dataAtualizacao: 2026-06-25
@@ -26,6 +26,8 @@ fontesOficiais:
 referencias:
   - label: "Banco Mercantil — Bolsa Família bloqueado, suspenso ou cancelado: o que fazer"
     href: "https://blog.bancomercantil.com.br/para-voce/bolsa-familia-bloqueado-o-que-fazer/"
+  - label: "Terra — beneficiários podem ser bloqueados por falta de atualização do cadastro"
+    href: "https://www.terra.com.br/noticias/bolsa-familia-milhoes-de-beneficiarios-podem-ser-bloqueados-por-falta-de-atualizacao,dc1c7dbb77bec5b3663b46d161b23380uo2ka90u.html"
 faq:
   - pergunta: "Qual a diferença entre bloqueado, suspenso e cancelado?"
     resposta: "Bloqueio e suspensão são temporários: o pagamento fica retido por uma pendência (em geral no cadastro) e a família tem um prazo para regularizar. Cancelamento é definitivo e acontece quando o governo confirma que a família não se enquadra mais nas regras."
@@ -82,6 +84,10 @@ Sim, mas é um recomeço, não um simples "religar". Se o benefício foi **cance
 3. **Aguardar uma nova seleção** — que, como na primeira vez, depende do orçamento do programa.
 
 Não existe atalho pago para voltar mais rápido: qualquer pessoa que cobre para "reativar" o seu benefício está aplicando um golpe.
+
+## Foi bloqueio ou só o pagamento que ainda não caiu?
+
+Antes de se preocupar, confirme se não é apenas uma questão de **data**. Cada família recebe em um dia diferente, conforme o final do NIS — o seu pagamento pode simplesmente ainda não ter chegado. Confira a data no [calendário de pagamento](/bolsa-familia/calendario-pagamento-bolsa-familia-2026) e veja a **situação** no app Bolsa Família: se aparecer "liberado" com uma data futura, é só aguardar; se aparecer "bloqueado" ou "em revisão", aí sim existe uma pendência a resolver. Essa checagem rápida evita fila e susto à toa.
 
 ## Cuidado com golpes nesse momento
 

@@ -4,7 +4,7 @@ slug: "valor-do-bolsa-familia-2026"
 categoria: "bolsa-familia"
 capa: "../../../assets/covers/valor-do-bolsa-familia-2026.png"
 capaAlt: "Arte do Benefício Claro sobre o valor do Bolsa Família em 2026"
-description: "Quanto o Bolsa Família paga em 2026: o mínimo de R$ 600 por família, os adicionais de R$ 150 e R$ 50 e a Regra de Proteção. Com exemplos de cálculo passo a passo."
+description: "Quanto o Bolsa Família paga em 2026: o mínimo de R$ 600 por família, os adicionais de R$ 150 e R$ 50 e a Regra de Proteção. Com exemplos de cálculo."
 respostaRapida: "Em 2026, o Bolsa Família paga no mínimo R$ 600 por família, mais R$ 150 por criança de até 6 anos e R$ 50 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos. O valor final depende de quem mora na casa; o benefício médio fica em torno de R$ 690 a R$ 700."
 dataPublicacao: 2026-06-08
 dataAtualizacao: 2026-06-25
@@ -35,6 +35,8 @@ faq:
     resposta: "O pagamento é por família: junta-se o mínimo de R$ 600 com os adicionais de cada integrante que se enquadra (crianças, gestantes, nutrizes e adolescentes). Não é um valor para cada pessoa."
   - pergunta: "Por que recebi menos do que esperava?"
     resposta: "Pode ser a Regra de Proteção (quem está com renda entre R$ 218 e R$ 706 por pessoa recebe 50% do valor), um desconto por descumprir condicionalidades, ou um cadastro que precisa de atualização. Procure o CRAS ou consulte o app Bolsa Família para entender o motivo."
+  - pergunta: "O valor aumenta se nascer um filho?"
+    resposta: "Sim. Ao registrar o nascimento e atualizar o CadÚnico, a família passa a receber o adicional de R$ 150 do Benefício Primeira Infância por aquela criança de até 6 anos. Por isso avise a mudança no CRAS assim que puder — o valor só é ajustado depois que o cadastro reflete a nova composição da família."
 relacionados:
   - "quem-tem-direito-bolsa-familia"
   - "como-se-inscrever-cadastro-unico"
@@ -89,6 +91,10 @@ Você não precisa adivinhar o valor nem esperar o dia do pagamento para saber. 
 - **Portal gov.br:** consulta pelo CPF, com login na conta gov.br.
 
 Ver a composição ajuda a entender, por exemplo, por que a família vizinha recebe um valor diferente do seu: quase sempre é por causa do número de crianças, gestantes e adolescentes em cada casa.
+
+## Quando o valor pode mudar
+
+O valor não fica congelado: ele é recalculado quando a **composição da família muda**. Se nasce um bebê, entra o adicional de R$ 150; quando uma criança completa 7 anos, o adicional dela cai de R$ 150 para R$ 50; e quando um filho faz 18 anos, aquele adicional deixa de contar. Mudanças de renda também podem acionar a Regra de Proteção. Por isso é tão importante manter o [CadÚnico atualizado](/bolsa-familia/atualizar-cadastro-unico) sempre que algo muda em casa — é a atualização que garante o valor certo, para mais ou para menos.
 
 ## Por que às vezes vem menos
 

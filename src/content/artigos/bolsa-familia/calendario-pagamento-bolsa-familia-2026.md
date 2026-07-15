@@ -22,6 +22,8 @@ fontesOficiais:
   - label: "Caixa — Bolsa Família"
     href: "https://www.caixa.gov.br/programas-sociais/bolsa-familia/"
 referencias:
+  - label: "Agência Gov (EBC) — calendário de pagamentos do Bolsa Família 2026"
+    href: "https://agenciagov.ebc.com.br/noticias/202512/governo-do-brasil-define-calendario-de-pagamentos-do-bolsa-familia-para-2026"
   - label: "Serasa — calendário do Bolsa Família junho 2026 por NIS"
     href: "https://www.serasa.com.br/blog/calendario-bolsa-familia-junho-2026/"
 faq:
@@ -91,6 +93,10 @@ Não é preciso sacar tudo em espécie nem enfrentar fila no banco. Com o saldo 
 - **pagar em lojas** com o cartão de débito por aproximação.
 
 Usar o dinheiro pelo aplicativo é mais seguro do que andar com a quantia toda em espécie — e você gasta só o que precisa, quando precisa, dentro dos 120 dias.
+
+## O calendário é antecipado em dezembro?
+
+Sim. No fim do ano, o pagamento do Bolsa Família costuma ser **antecipado** e concentrado nos primeiros dias de dezembro, para as famílias terem o dinheiro antes das festas. Nesse mês, as datas fogem do padrão dos "últimos dez dias úteis" — então vale conferir o calendário oficial com atenção redobrada. Nos outros meses do ano, a regra do escalonamento por final de NIS continua valendo normalmente.
 
 ## Quando o calendário muda
 

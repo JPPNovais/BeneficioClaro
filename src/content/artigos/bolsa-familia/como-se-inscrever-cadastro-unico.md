@@ -21,9 +21,13 @@ fontesOficiais:
     href: "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico"
   - label: "Receber o Bolsa Família — serviço oficial (gov.br)"
     href: "https://www.gov.br/pt-br/servicos/receber-o-bolsa-familia"
+  - label: "Tire suas dúvidas sobre o novo Cadastro Único (gov.br)"
+    href: "https://www.gov.br/mds/pt-br/noticias-e-conteudos/desenvolvimento-social/noticias-desenvolvimento-social/tire-suas-duvidas-sobre-o-novo-cadastro-unico"
 referencias:
-  - label: "Serasa — como funciona o Cadastro Único e o Bolsa Família"
-    href: "https://www.serasa.com.br/blog/calendario-bolsa-familia-junho-2026/"
+  - label: "Buskando — CadÚnico 2026: passo a passo para regularizar"
+    href: "https://www.buskando.com.br/blog/como-atualizar-cadunico-2026-passo-a-passo"
+  - label: "É o Dinheiro — atualização do CadÚnico em 2026: prazo e regras"
+    href: "https://www.iadodinheiro.com.br/beneficios-sociais/atualizacao-do-cadunico-em-2026-quando-e-obrigatoria-qual-o-prazo-e-o/"
 howTo:
   name: "Como se inscrever no CadÚnico"
   steps:
@@ -97,6 +101,10 @@ Levar tudo certo de primeira é o que mais acelera o processo.
 ## Dá para fazer o cadastro fora do CRAS?
 
 Na maioria das cidades, o atendimento é no **CRAS**, mas algumas têm **postos do Cadastro Único** ou centrais de atendimento da prefeitura que também fazem a inscrição. O importante é que seja um ponto **oficial** e **gratuito**. Para saber qual é o mais perto e se precisa agendar, ligue para a prefeitura ou para o CRAS do seu bairro antes de ir.
+
+## Depois do cadastro: acompanhe pelo aplicativo
+
+Feito o CadÚnico, baixe o **app Cadastro Único** e o **app Bolsa Família** (Android e iOS). Neles você acompanha se a família foi selecionada, recebe avisos de pendência e confere a data e o valor, caso o benefício seja concedido. Guarde o número do **NIS** que foi gerado: é ele que identifica a sua família em todos os serviços ligados a benefícios. Assim, você não depende de voltar ao CRAS só para saber como está o andamento do processo.
 
 ## Inscrição não é o mesmo que aprovação
 
