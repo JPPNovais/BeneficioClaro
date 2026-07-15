@@ -46,6 +46,10 @@ const ICONS = {
   calculator:
     '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h3"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+  "trending-up": '<path d="M3 16l5-5 4 4 8-8"/><path d="M21 7v5h-5"/>',
+  "piggy-bank":
+    '<path d="M4 11a6 6 0 016-6h2a6 6 0 016 6v1l2 1v3l-2 .5A6 6 0 0114 19v2h-2v-1.5A6 6 0 014 14z"/><path d="M9 9h3M6 13h.01"/>',
+  "credit-card": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>',
 };
 
 // 6 variantes: tema (cores) + deco (composição). Diversas, mas on-brand.

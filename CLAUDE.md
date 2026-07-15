@@ -4,7 +4,7 @@ Guia operacional para desenvolvimento deste projeto. Leia antes de mexer no cód
 
 ## O que é o projeto
 
-Site de conteúdo brasileiro sobre **benefícios sociais** (pilar de entrada: Bolsa Família / CadÚnico) e **finanças do dia a dia**. Monetização por **Google AdSense**, tráfego **100% orgânico** do Google, público **mobile e de baixa renda**, tema **YMYL** (saúde/dinheiro). Domínio: `beneficioclaro.com.br`. Deploy: **Vercel** (Astro estático, detectado automaticamente).
+Site de conteúdo brasileiro sobre **benefícios sociais** (pilar de entrada: Bolsa Família / CadÚnico) e, cada vez mais, a **economia do dia a dia do brasileiro**: **FGTS**, **INSS/aposentadoria**, **renda extra e como ganhar dinheiro**, e **finanças pessoais** (dívidas, Pix, orçamento, investir com pouco). Monetização por **Google AdSense**, tráfego **100% orgânico** do Google, público **mobile e de baixa renda**, tema **YMYL** (saúde/dinheiro). Domínio: `beneficioclaro.com.br`. Deploy: **Vercel** (Astro estático, detectado automaticamente).
 
 Prioridades, nesta ordem: **(1) qualidade/credibilidade do conteúdo → (2) SEO/AEO → (3) performance → (4) acessibilidade**.
 
@@ -42,7 +42,7 @@ O AdSense reprova **"conteúdo de baixo valor"**. Todo artigo precisa, sem exce�
 7. **Sem tom de golpe** — nada de "garanta", "saque liberado", "dinheiro extra". Ser honesto sobre prazos e o que não depende da pessoa.
 8. **Volume** — manter um conjunto de artigos substanciais + as páginas institucionais (Sobre/Contato/Privacidade já existem) antes de pedir revisão do AdSense.
 
-Temas que aprovam e atraem tráfego: "quem tem direito", "qual o valor / quanto vou receber", "como me inscrever no CadÚnico", "calendário / quando cai", "como consultar se fui aprovado", "regra de proteção", "benefício bloqueado/cancelado, o que fazer", "como atualizar o cadastro".
+Temas que aprovam e atraem tráfego: benefícios ("quem tem direito", "qual o valor", "como me inscrever no CadÚnico", "calendário / quando cai", "como consultar", "regra de proteção", "benefício bloqueado/cancelado", "como atualizar o cadastro") **e economia** ("como consultar/sacar o FGTS", "saque-aniversário vale a pena", "como abrir MEI", "como ganhar dinheiro / renda extra", "como sair das dívidas", "como consultar o INSS", "salário mínimo / IR do ano").
 
 **Frescor e não-duplicação:** além do evergreen, publicar **notícias/atualidades** datadas e verificáveis (novos valores, mudanças de regra, calendário do mês, portarias) na categoria `noticias` ou na do benefício. **Nunca repetir um tema já publicado** — atualizar o artigo existente (e a `dataAtualizacao`) em vez de criar um quase igual; conteúdo duplicado prejudica SEO e AdSense. Detalhes em [CONTENT_GUIDE.md](CONTENT_GUIDE.md).
 

@@ -22,16 +22,21 @@ Regras ao publicar:
 - Gerar a **capa** (`node scripts/gen-covers.mjs <slug> "<título>" <icon> "<EYEBROW>"`)
   e referenciar em `capa`/`capaAlt` no frontmatter.
 - Ao publicar o **primeiro** artigo de uma categoria ainda vazia (`cadunico`,
-  `auxilio-gas`, `tarifa-social`, `financas`, `noticias`), **remova essa categoria**
-  da lista de exclusão do sitemap em `astro.config.mjs`.
+  `auxilio-gas`, `tarifa-social`, `financas`, `noticias`, `fgts`, `renda-extra`,
+  `inss`), **remova essa categoria** da lista de exclusão do sitemap em `astro.config.mjs`.
 - Um artigo por execução. `npm run build` tem que passar.
+
+**Escopo do site:** benefícios sociais **e** economia do dia a dia do brasileiro —
+FGTS, INSS/aposentadoria, renda extra e como ganhar dinheiro, finanças pessoais. Não
+foque só em Bolsa Família: alterne os temas para diversificar o tráfego.
 
 ## Notícias (atualidades)
 
 Não é um backlog fixo — vem dos acontecimentos. A cada execução, priorize se houver
-novidade importante e verificável. Exemplos recorrentes de boa notícia datada:
-calendário e valores do mês corrente, reajustes anunciados, novas portarias do MDS,
-mudanças no CadÚnico/biometria, prazos de revisão cadastral, novos programas.
+novidade importante e verificável. Exemplos de boa notícia datada: salário mínimo do
+ano, Imposto de Renda (prazos, restituição), Selic/juros, calendário e valores do mês
+(Bolsa Família, FGTS, INSS), reajustes anunciados, novas portarias, mudanças no
+CadÚnico/biometria, novos programas.
 
 ## Bolsa Família (aprofundar o pilar)
 
@@ -67,12 +72,42 @@ mudanças no CadÚnico/biometria, prazos de revisão cadastral, novos programas.
 - [ ] tarifa-social-energia-quem-tem-direito — desconto na conta de luz, quem tem direito
 - [ ] como-pedir-tarifa-social — inscrição automática e como solicitar
 
+## FGTS (categoria: fgts)
+
+- [ ] consultar-saldo-fgts — como ver o saldo pelo app FGTS e pelo site da Caixa
+- [ ] saque-aniversario-fgts-como-funciona — como funciona e vale a pena? (linke a ferramenta /ferramentas/saque-aniversario-fgts)
+- [ ] saque-rescisao-x-saque-aniversario — diferença entre as duas modalidades
+- [ ] como-sacar-fgts — em quais situações dá para sacar o FGTS
+- [ ] fgts-demissao-sem-justa-causa — quanto recebo de FGTS + multa de 40%
+- [ ] fgts-rende-quanto — rendimento anual do FGTS
+- [ ] fgts-conta-inativa — como sacar FGTS de conta antiga/inativa
+
+## Renda extra e trabalho (categoria: renda-extra)
+
+- [ ] como-ganhar-dinheiro-extra — ideias reais de renda extra em 2026
+- [ ] como-abrir-mei — passo a passo para virar MEI e vantagens
+- [ ] como-ganhar-dinheiro-na-internet — formas reais e seguras (sem golpe)
+- [ ] trabalhos-em-casa-para-ganhar-dinheiro — opções de trabalho remoto
+- [ ] como-vender-online — marketplaces e redes sociais
+- [ ] renda-extra-para-aposentados — o que a lei permite
+
 ## Finanças do dia a dia (categoria: financas)
 
-- [ ] pe-de-meia-poupanca-estudante — como funciona a poupança do estudante
-- [ ] conta-digital-sem-tarifa — como abrir conta digital gratuita
 - [ ] como-sair-das-dividas-pouco-dinheiro — organizar as contas com pouca renda
+- [ ] conta-digital-sem-tarifa — como abrir conta digital gratuita
+- [ ] pe-de-meia-poupanca-estudante — como funciona a poupança do estudante
+- [ ] como-fazer-orcamento-familiar — método simples para o mês fechar
+- [ ] pix-como-usar-com-seguranca — limites e como evitar golpes no Pix
+- [ ] como-limpar-o-nome — Serasa Limpa Nome e Desenrola Brasil
+- [ ] como-comecar-a-investir-com-pouco — Tesouro Direto e poupança
 - [ ] mei-e-bolsa-familia — ser MEI atrapalha o Bolsa Família?
+
+## INSS e aposentadoria (categoria: inss)
+
+- [ ] como-consultar-o-inss — usar o Meu INSS pelo app e site
+- [ ] auxilio-doenca-quem-tem-direito — regras e como pedir
+- [ ] bpc-loas-quem-tem-direito — benefício de R$ 1 salário mínimo (idoso/deficiente)
+- [ ] aposentadoria-por-idade-regras — idade e tempo de contribuição em 2026
 
 ## Como adicionar novos temas
 

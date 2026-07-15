@@ -93,6 +93,24 @@ export const CATEGORIAS: Categoria[] = [
     pilar: false,
   },
   {
+    slug: "fgts",
+    nome: "FGTS",
+    rotulo: "FGTS",
+    pilar: false,
+  },
+  {
+    slug: "renda-extra",
+    nome: "Renda extra e trabalho",
+    rotulo: "Renda extra",
+    pilar: false,
+  },
+  {
+    slug: "inss",
+    nome: "INSS e aposentadoria",
+    rotulo: "INSS",
+    pilar: false,
+  },
+  {
     slug: "noticias",
     nome: "Notícias",
     rotulo: "Notícias",

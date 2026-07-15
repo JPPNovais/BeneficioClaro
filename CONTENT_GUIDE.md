@@ -16,7 +16,16 @@ O AdSense reprova sites com **"conteúdo de baixo valor"**: textos rasos, genér
 6. **Sem promessas falsas.** Nunca diga "garanta seu benefício", "saque liberado", "dinheiro extra". Isso é tom de golpe e o AdSense pune. Seja honesto sobre prazos, exigências e o que **não** depende da pessoa.
 7. **Volume do site.** O AdSense avalia o site como um todo. Tenha um conjunto de artigos substanciais (não 2 ou 3) + as páginas institucionais (Sobre, Contato, Privacidade — já existem) antes de pedir revisão.
 
-**Temas que ajudam na aprovação e atraem tráfego** (alta busca, dúvida real, dá para responder com autoridade): "quem tem direito", "qual o valor / quanto vou receber", "como me inscrever no CadÚnico", "calendário de pagamento / quando cai", "como consultar se fui aprovado", "regra de proteção", "o que fazer se o benefício foi bloqueado/cancelado", "como atualizar o cadastro". Fuja de tema vago, opinativo ou que você não consiga embasar em fonte oficial.
+**Temas que ajudam na aprovação e atraem tráfego** (alta busca, dúvida real, dá para responder com autoridade). O escopo vai além dos benefícios — cobre a economia do dia a dia do brasileiro:
+
+- **Benefícios:** "quem tem direito", "qual o valor / quanto recebo", "como me inscrever no CadÚnico", "calendário / quando cai", "como consultar", "regra de proteção", "benefício bloqueado/cancelado", "como atualizar o cadastro".
+- **FGTS:** "como consultar/sacar o FGTS", "saque-aniversário vale a pena", "quanto recebo na demissão".
+- **INSS/aposentadoria:** "como consultar o Meu INSS", "auxílio-doença", "BPC/LOAS", "aposentadoria por idade".
+- **Renda extra / ganhar dinheiro:** "como ganhar dinheiro extra", "como abrir MEI", "trabalho em casa", "vender online".
+- **Finanças pessoais:** "como sair das dívidas", "orçamento familiar", "Pix com segurança", "limpar o nome", "investir com pouco".
+- **Economia/notícias:** salário mínimo do ano, Imposto de Renda (prazos/restituição), Selic.
+
+Fuja de tema vago, opinativo ou que você não consiga embasar em fonte oficial.
 
 ---
 
