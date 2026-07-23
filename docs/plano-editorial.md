@@ -85,7 +85,7 @@ CadÚnico/biometria, novos programas.
 ## Renda extra e trabalho (categoria: renda-extra)
 
 - [ ] como-ganhar-dinheiro-extra — ideias reais de renda extra em 2026
-- [ ] como-abrir-mei — passo a passo para virar MEI e vantagens
+- [x] como-abrir-mei — passo a passo para virar MEI e vantagens
 - [ ] como-ganhar-dinheiro-na-internet — formas reais e seguras (sem golpe)
 - [ ] trabalhos-em-casa-para-ganhar-dinheiro — opções de trabalho remoto
 - [ ] como-vender-online — marketplaces e redes sociais
