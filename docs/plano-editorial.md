@@ -63,9 +63,9 @@ CadÚnico/biometria, novos programas.
 
 ## Auxílio Gás (categoria: auxilio-gas)
 
-- [ ] auxilio-gas-quem-tem-direito-valor — quem tem direito e valor do vale-gás
-- [ ] calendario-auxilio-gas — quando cai o Auxílio Gás
-- [ ] auxilio-gas-como-sacar — como sacar/usar o benefício
+- [x] gas-do-povo-quem-tem-direito — Auxílio Gás virou Gás do Povo (vale-recarga do botijão), quem tem direito, valor e como retirar `[auxilio-gas-quem-tem-direito-valor]`
+- [ ] calendario-auxilio-gas — calendário de liberação do vale por ciclo/família
+- [ ] auxilio-gas-como-sacar — passo a passo detalhado de retirada na revenda credenciada
 
 ## Tarifa Social de Energia (categoria: tarifa-social)
 
