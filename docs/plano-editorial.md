@@ -107,7 +107,7 @@ CadÚnico/biometria, novos programas.
 - [ ] como-consultar-o-inss — usar o Meu INSS pelo app e site
 - [ ] auxilio-doenca-quem-tem-direito — regras e como pedir
 - [x] bpc-loas-quem-tem-direito — benefício de R$ 1 salário mínimo (idoso/deficiente)
-- [ ] aposentadoria-por-idade-regras — idade e tempo de contribuição em 2026
+- [x] aposentadoria-por-idade-regras — idade e tempo de contribuição em 2026
 
 ## Como adicionar novos temas
 
