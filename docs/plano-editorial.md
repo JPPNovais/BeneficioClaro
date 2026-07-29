@@ -69,7 +69,7 @@ CadÚnico/biometria, novos programas.
 
 ## Tarifa Social de Energia (categoria: tarifa-social)
 
-- [ ] tarifa-social-energia-quem-tem-direito — desconto na conta de luz, quem tem direito
+- [x] tarifa-social-energia-quem-tem-direito — desconto na conta de luz, quem tem direito
 - [ ] como-pedir-tarifa-social — inscrição automática e como solicitar
 
 ## FGTS (categoria: fgts)
