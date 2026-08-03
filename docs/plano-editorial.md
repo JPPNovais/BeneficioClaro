@@ -48,7 +48,7 @@ CadÚnico/biometria, novos programas.
 - [x] bolsa-familia-bloqueado-suspenso-cancelado — o que fazer `[pagamento]`
 - [x] consultar-bolsa-familia-pelo-cpf — como consultar o benefício pelo CPF/app `[pagamento]`
 - [x] como-sacar-bolsa-familia-caixa-tem — sacar e usar pelo Caixa Tem (Pix, contas) `[pagamento]`
-- [ ] regra-de-protecao-bolsa-familia — como funciona quando a renda aumenta `[quem-tem-direito]`
+- [x] regra-de-protecao-bolsa-familia — como funciona quando a renda aumenta `[quem-tem-direito]`
 - [ ] bolsa-familia-carteira-assinada — posso receber trabalhando de carteira? `[quem-tem-direito]`
 - [ ] beneficio-primeira-infancia — adicional de R$ 150 por criança até 6 anos `[valores]`
 - [ ] bolsa-familia-mora-sozinho — quem mora sozinho tem direito? `[quem-tem-direito]`
