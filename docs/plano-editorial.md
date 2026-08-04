@@ -56,7 +56,7 @@ CadÚnico/biometria, novos programas.
 
 ## CadÚnico (categoria: cadunico)
 
-- [ ] o-que-e-cadastro-unico — o que é e para que serve
+- [x] o-que-e-cadastro-unico — o que é e para que serve
 - [ ] como-fazer-cadastro-unico — primeira inscrição, passo a passo
 - [ ] beneficios-do-cadastro-unico — quais benefícios o CadÚnico dá direito
 - [ ] cadastro-unico-pelo-aplicativo — pré-cadastro e consulta pelo app

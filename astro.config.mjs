@@ -32,8 +32,7 @@ export default defineConfig({
       lastmod: new Date(),
       // Não lista no sitemap as páginas noindex: a busca e as categorias ainda
       // sem conteúdo. Ao publicar artigos numa categoria, remova-a desta lista.
-      filter: (page) =>
-        !/\/(buscar|cadunico)\/?$/.test(page),
+      filter: (page) => !/\/(buscar)\/?$/.test(page),
     }),
   ],
   markdown: {
