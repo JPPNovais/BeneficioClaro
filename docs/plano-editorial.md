@@ -74,7 +74,7 @@ CadÚnico/biometria, novos programas.
 
 ## FGTS (categoria: fgts)
 
-- [ ] consultar-saldo-fgts — como ver o saldo pelo app FGTS e pelo site da Caixa
+- [x] consultar-saldo-fgts — como ver o saldo pelo app FGTS e pelo site da Caixa
 - [x] saque-aniversario-fgts-como-funciona — como funciona e vale a pena? (linke a ferramenta /ferramentas/saque-aniversario-fgts)
 - [ ] saque-rescisao-x-saque-aniversario — diferença entre as duas modalidades
 - [ ] como-sacar-fgts — em quais situações dá para sacar o FGTS
