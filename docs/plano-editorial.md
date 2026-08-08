@@ -97,7 +97,7 @@ CadÚnico/biometria, novos programas.
 - [ ] conta-digital-sem-tarifa — como abrir conta digital gratuita
 - [ ] pe-de-meia-poupanca-estudante — como funciona a poupança do estudante
 - [ ] como-fazer-orcamento-familiar — método simples para o mês fechar
-- [ ] pix-como-usar-com-seguranca — limites e como evitar golpes no Pix
+- [x] pix-como-usar-com-seguranca — limites e como evitar golpes no Pix
 - [x] como-limpar-o-nome — Serasa Limpa Nome e Desenrola Brasil
 - [ ] como-comecar-a-investir-com-pouco — Tesouro Direto e poupança
 - [ ] mei-e-bolsa-familia — ser MEI atrapalha o Bolsa Família?
