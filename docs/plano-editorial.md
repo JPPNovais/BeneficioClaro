@@ -99,6 +99,7 @@ CadÚnico/biometria, novos programas.
 - [ ] como-fazer-orcamento-familiar — método simples para o mês fechar
 - [x] pix-como-usar-com-seguranca — limites e como evitar golpes no Pix
 - [x] como-limpar-o-nome — Serasa Limpa Nome e Desenrola Brasil
+- [x] abono-salarial-pis-pasep-2026 — quem tem direito, valor e calendário do abono salarial (notícia/atualidade, fora do backlog original)
 - [ ] como-comecar-a-investir-com-pouco — Tesouro Direto e poupança
 - [ ] mei-e-bolsa-familia — ser MEI atrapalha o Bolsa Família?
 
