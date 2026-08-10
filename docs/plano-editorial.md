@@ -51,7 +51,7 @@ CadÚnico/biometria, novos programas.
 - [x] regra-de-protecao-bolsa-familia — como funciona quando a renda aumenta `[quem-tem-direito]`
 - [ ] bolsa-familia-carteira-assinada — posso receber trabalhando de carteira? `[quem-tem-direito]`
 - [ ] beneficio-primeira-infancia — adicional de R$ 150 por criança até 6 anos `[valores]`
-- [ ] bolsa-familia-mora-sozinho — quem mora sozinho tem direito? `[quem-tem-direito]`
+- [x] bolsa-familia-mora-sozinho — quem mora sozinho tem direito? (notícia: Portaria MDS 1.199/2026 adia entrevista domiciliar até 2027) `[quem-tem-direito]`
 - [ ] nao-recebi-bolsa-familia-o-que-fazer — pagamento não caiu na data `[pagamento]`
 
 ## CadÚnico (categoria: cadunico)
