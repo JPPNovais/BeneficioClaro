@@ -106,7 +106,7 @@ CadÚnico/biometria, novos programas.
 ## INSS e aposentadoria (categoria: inss)
 
 - [x] como-consultar-o-inss — usar o Meu INSS pelo app e site
-- [ ] auxilio-doenca-quem-tem-direito — regras e como pedir
+- [x] auxilio-doenca-quem-tem-direito — regras e como pedir
 - [x] bpc-loas-quem-tem-direito — benefício de R$ 1 salário mínimo (idoso/deficiente)
 - [x] aposentadoria-por-idade-regras — idade e tempo de contribuição em 2026
 
