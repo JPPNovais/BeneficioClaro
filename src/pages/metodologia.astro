@@ -1,0 +1,303 @@
+---
+/**
+ * /metodologia — a página de confiança do site.
+ *
+ * As tabelas são renderizadas a partir dos MESMOS objetos que as calculadoras
+ * usam (src/data/*.ts), de propósito: assim a metodologia publicada nunca
+ * diverge do que o código faz. Ao atualizar uma tabela, esta página acompanha.
+ *
+ * Não escreva números à mão aqui.
+ */
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Alert from "@components/feedback/Alert.astro";
+import Card from "@components/core/Card.astro";
+import Icon from "@components/Icon.astro";
+import { SITE } from "@config/site";
+import { SALARIO } from "@data/salario";
+import { SAQUE_ANIVERSARIO } from "@data/fgts";
+import { CALENDARIO } from "@data/calendario";
+
+const brl = (n: number) =>
+  n.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2 });
+const pct = (n: number) => `${(n * 100).toLocaleString("pt-BR", { maximumFractionDigits: 2 })}%`;
+const dataBR = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString("pt-BR");
+
+const faixaLabel = (
+  faixas: { ate: number | null }[],
+  i: number
+): string => {
+  const de = i === 0 ? 0 : (faixas[i - 1].ate as number);
+  const ate = faixas[i].ate;
+  if (ate === null) return `acima de ${brl(de)}`;
+  return `${i === 0 ? "até" : `de ${brl(de)} até`} ${brl(ate)}`;
+};
+
+const { irrf, inss } = SALARIO;
+
+const ferramentas = [
+  {
+    nome: "Calculadora de Salário Líquido",
+    href: "/ferramentas/calculadora-salario-liquido",
+    atualizadoEm: SALARIO.atualizadoEm,
+    fontes: SALARIO.fontes,
+  },
+  {
+    nome: "Simulador do Saque-Aniversário do FGTS",
+    href: "/ferramentas/saque-aniversario-fgts",
+    atualizadoEm: SAQUE_ANIVERSARIO.atualizadoEm,
+    fontes: SAQUE_ANIVERSARIO.fontes,
+  },
+  {
+    nome: "Calendário de pagamento por NIS",
+    href: "/ferramentas/calendario",
+    atualizadoEm: CALENDARIO.atualizadoEm,
+    fontes: [],
+  },
+];
+---
+
+<BaseLayout
+  title="Metodologia: como fazemos cada cálculo"
+  description="As fórmulas, tabelas e fontes oficiais por trás de cada calculadora do site — com a data de vigência de cada tabela e o que cada conta não considera."
+  canonical="/metodologia"
+>
+  <div class="max-w-prose mx-auto px-4 pt-8 pb-2">
+    <div class="prose-artigo">
+      <h1>Metodologia: como fazemos cada cálculo</h1>
+      <p>
+        Uma calculadora que só mostra o resultado pede fé. Esta página existe para você não precisar
+        ter: aqui estão a <strong>fórmula</strong>, a <strong>tabela</strong> e a <strong>fonte oficial</strong>
+        de cada conta que o {SITE.nome} faz — com a data em que conferimos cada número e o que cada
+        cálculo <em>não</em> considera.
+      </p>
+
+      <Alert tone="info" title="O cálculo roda no seu aparelho">
+        Nenhuma calculadora deste site envia os seus dados para um servidor. Salário, saldo e respostas
+        ficam apenas no seu navegador, e nada é salvo. Não temos banco de dados de usuários.
+      </Alert>
+
+      <h2>Nossos três compromissos</h2>
+      <ol>
+        <li>
+          <strong>Nenhum número sem fonte.</strong> Toda alíquota, faixa e teto vem de norma publicada
+          (lei, portaria ou tabela oficial). Se não achamos a fonte, não publicamos o número.
+        </li>
+        <li>
+          <strong>A conta fica aberta.</strong> Mostramos a memória de cálculo linha por linha, para você
+          poder conferir — ou levar ao RH, ao contador ou ao sindicato.
+        </li>
+        <li>
+          <strong>Estimativa é chamada de estimativa.</strong> Nossas contas não substituem o cálculo
+          oficial da empresa, da Caixa ou do INSS. Quando há caso especial, dizemos qual é.
+        </li>
+      </ol>
+
+      <h2>Vigência das tabelas</h2>
+      <p>
+        Cada ferramenta carrega a data em que a tabela foi conferida pela última vez. Tabelas de INSS e
+        Imposto de Renda mudam na virada do ano (e podem mudar no meio dele, por portaria).
+      </p>
+    </div>
+
+    <div class="grid gap-3 mt-4 mb-10">
+      {
+        ferramentas.map((f) => (
+          <Card padding="md">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <a href={f.href} class="font-heading font-bold text-ink-900 no-underline hover:underline">
+                {f.nome}
+              </a>
+              <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700">
+                <Icon name="shield-check" size={16} />
+                Conferido em {dataBR(f.atualizadoEm)}
+              </span>
+            </div>
+            {f.fontes.length > 0 && (
+              <ul class="m-0 mt-2 pl-5 text-[15px] text-ink-600">
+                {f.fontes.map((s) => (
+                  <li>
+                    <a href={s.href} rel="nofollow noopener" target="_blank">
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </Card>
+        ))
+      }
+    </div>
+
+    <div class="prose-artigo">
+      <h2 id="salario-liquido">Calculadora de Salário Líquido (CLT)</h2>
+      <p>A conta segue a ordem legal dos descontos — e essa ordem importa, porque o IR incide depois do INSS:</p>
+      <ol>
+        <li><strong>INSS</strong> sobre o salário bruto, limitado ao teto previdenciário.</li>
+        <li>
+          <strong>Base do IRRF</strong> = salário bruto − INSS − {brl(irrf.deducaoDependente)} por dependente.
+        </li>
+        <li><strong>IRRF</strong> pela tabela progressiva mensal, com a parcela a deduzir da faixa.</li>
+        <li><strong>Redutor legal do IRRF</strong>, quando o bruto se enquadra (ver abaixo).</li>
+        <li><strong>Líquido</strong> = bruto − INSS − IRRF.</li>
+      </ol>
+
+      <h3>INSS — tabela {new Date(`${SALARIO.atualizadoEm}T12:00:00`).getFullYear()}</h3>
+      <p>
+        Usamos o método da <strong>parcela a deduzir</strong>, que dá o mesmo resultado do cálculo faixa
+        por faixa (progressivo) e é o que a folha de pagamento aplica:
+      </p>
+      <p><code>INSS = mín(bruto, teto) × alíquota da faixa − parcela a deduzir</code></p>
+    </div>
+
+    <div class="overflow-x-auto my-4">
+      <table class="w-full text-[15px] border-collapse">
+        <caption class="text-left text-sm text-ink-600 pb-2">
+          Teto de {brl(inss.teto)} · desconto máximo de {brl(inss.descontoMax)}
+        </caption>
+        <thead>
+          <tr class="bg-green-50 text-left">
+            <th class="p-2.5 border-b border-ink-200 font-heading">Salário bruto</th>
+            <th class="p-2.5 border-b border-ink-200 font-heading">Alíquota</th>
+            <th class="p-2.5 border-b border-ink-200 font-heading">Parcela a deduzir</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            inss.faixas.map((f, i) => (
+              <tr>
+                <td class="p-2.5 border-b border-ink-200">{faixaLabel(inss.faixas, i)}</td>
+                <td class="p-2.5 border-b border-ink-200 tabular-nums">{pct(f.aliquota)}</td>
+                <td class="p-2.5 border-b border-ink-200 tabular-nums">{brl(f.deduzir)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose-artigo">
+      <h3>IRRF — tabela progressiva mensal</h3>
+      <p>
+        Aplicada sobre a base (bruto − INSS − dependentes), com dedução de
+        <strong>{brl(irrf.deducaoDependente)}</strong> por dependente:
+      </p>
+    </div>
+
+    <div class="overflow-x-auto my-4">
+      <table class="w-full text-[15px] border-collapse">
+        <thead>
+          <tr class="bg-green-50 text-left">
+            <th class="p-2.5 border-b border-ink-200 font-heading">Base de cálculo</th>
+            <th class="p-2.5 border-b border-ink-200 font-heading">Alíquota</th>
+            <th class="p-2.5 border-b border-ink-200 font-heading">Parcela a deduzir</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            irrf.faixas.map((f, i) => (
+              <tr>
+                <td class="p-2.5 border-b border-ink-200">{faixaLabel(irrf.faixas, i)}</td>
+                <td class="p-2.5 border-b border-ink-200 tabular-nums">
+                  {f.aliquota === 0 ? "Isento" : pct(f.aliquota)}
+                </td>
+                <td class="p-2.5 border-b border-ink-200 tabular-nums">{brl(f.deduzir)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose-artigo">
+      <h3>Redutor do Imposto de Renda</h3>
+      <p>Além da tabela, aplicamos o redutor mensal que amplia a faixa de isenção:</p>
+      <ul>
+        <li>
+          Bruto de até <strong>{brl(irrf.redutor.isencaoAte)}</strong>: IRRF <strong>zero</strong>.
+        </li>
+        <li>
+          Bruto entre {brl(irrf.redutor.isencaoAte)} e {brl(irrf.redutor.zeraAcima)}: o imposto é
+          reduzido por <code>{brl(irrf.redutor.coefA)} − {irrf.redutor.coefB} × bruto</code>, e o
+          resultado nunca fica negativo.
+        </li>
+        <li>
+          Bruto acima de <strong>{brl(irrf.redutor.zeraAcima)}</strong>: sem redutor, vale a tabela cheia.
+        </li>
+      </ul>
+
+      <h3>O que esta calculadora não considera</h3>
+      <p>Ela é uma <strong>estimativa para CLT mensalista</strong>. Ficam de fora:</p>
+      <ul>
+        <li>pensão alimentícia descontada em folha;</li>
+        <li>contribuição a previdência privada, plano de saúde e vale-transporte;</li>
+        <li>adiantamentos, faltas, horas extras, adicionais e comissões do mês;</li>
+        <li>regimes que não sejam CLT (servidor, MEI, autônomo, RPA) e categorias com regra própria.</li>
+      </ul>
+      <p>
+        Por isso o valor do seu holerite pode diferir. A conta serve para conferir a ordem de grandeza e
+        entender de onde vem cada desconto — não para substituir a folha.
+      </p>
+
+      <h2 id="saque-aniversario">Simulador do Saque-Aniversário do FGTS</h2>
+      <p>O valor liberado depende da faixa em que o seu saldo total se encaixa:</p>
+      <p><code>saque = saldo × alíquota da faixa + parcela adicional</code></p>
+    </div>
+
+    <div class="overflow-x-auto my-4">
+      <table class="w-full text-[15px] border-collapse">
+        <thead>
+          <tr class="bg-green-50 text-left">
+            <th class="p-2.5 border-b border-ink-200 font-heading">Saldo total do FGTS</th>
+            <th class="p-2.5 border-b border-ink-200 font-heading">Alíquota</th>
+            <th class="p-2.5 border-b border-ink-200 font-heading">Parcela adicional</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            SAQUE_ANIVERSARIO.faixas.map((f, i) => (
+              <tr>
+                <td class="p-2.5 border-b border-ink-200">{faixaLabel(SAQUE_ANIVERSARIO.faixas, i)}</td>
+                <td class="p-2.5 border-b border-ink-200 tabular-nums">{pct(f.aliquota)}</td>
+                <td class="p-2.5 border-b border-ink-200 tabular-nums">{brl(f.adicional)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose-artigo">
+      <Alert tone="warning" title="Aderir ao saque-aniversário tem custo">
+        Quem escolhe a modalidade <strong>perde o direito de sacar o saldo em uma demissão sem justa
+        causa</strong> (só recebe a multa de 40%), e voltar ao saque-rescisão exige carência. O simulador
+        mostra o valor, não recomenda a adesão.
+      </Alert>
+
+      <h2 id="beneficios">Simulador de benefícios, calendário e checklist</h2>
+      <p>
+        O <strong>simulador de benefícios</strong> aplica as regras de elegibilidade declaradas em
+        <code>src/data/simulador.ts</code> às suas respostas. O resultado é uma
+        <strong>indicação, não uma aprovação</strong>: quem decide é o órgão responsável, e estar no
+        CadÚnico não garante entrada imediata em nenhum programa.
+      </p>
+      <p>
+        O <strong>calendário de pagamento</strong> reproduz o cronograma oficial por final de NIS e é
+        atualizado a cada mês (última conferência: {dataBR(CALENDARIO.atualizadoEm)}). O
+        <strong>checklist</strong> lista os documentos normalmente exigidos — o CRAS da sua cidade pode
+        pedir outros.
+      </p>
+
+      <h2>Achou um erro? Diga onde</h2>
+      <p>
+        Cálculo errado em tema de dinheiro prejudica quem lê, e corrigimos rápido. Se um valor não fecha
+        com o seu holerite ou com a norma, escreva para <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        dizendo qual ferramenta, quais números você usou e qual resultado esperava. Quando a correção
+        muda um número, atualizamos a data de conferência da ferramenta.
+      </p>
+      <p class="text-ink-600 text-[15px]">
+        Veja também: <a href="/sobre">quem somos e como nos mantemos</a> ·
+        <a href="/politica-de-privacidade">política de privacidade</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

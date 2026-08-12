@@ -9,15 +9,22 @@ const equipe = Object.values(AUTORES);
 
 <BaseLayout
   title={`Sobre o ${SITE.nome}`}
-  description={`Quem somos: o ${SITE.nome} é um site independente que explica benefícios sociais e finanças do dia a dia em linguagem simples, com base em fontes oficiais.`}
+  description={`Quem somos: o ${SITE.nome} é um site independente com calculadoras de salário, rescisão e FGTS — com a memória de cálculo aberta e a base legal de cada desconto.`}
   canonical="/sobre"
 >
   <div class="max-w-prose mx-auto px-4 pt-8 pb-2">
     <div class="prose-artigo">
       <h1>Sobre o {SITE.nome}</h1>
       <p>
-        O {SITE.nome} é um site independente que explica, em linguagem simples, os benefícios sociais do
-        governo e as finanças do dia a dia. Nosso objetivo é ajudar você a entender seus direitos sem juridiquês.
+        O {SITE.nome} é um site independente sobre <strong>o dinheiro de quem trabalha</strong>: salário e
+        descontos, rescisão, férias, 13º, FGTS, INSS e as finanças do dia a dia. Também explicamos os
+        benefícios sociais do governo, como Bolsa Família e CadÚnico.
+      </p>
+      <p>
+        Nossa aposta é simples: quase toda calculadora na internet entrega só o número final. Nós
+        entregamos <strong>o número e a conta</strong> — linha por linha, com a alíquota, a faixa e a
+        norma que a define. Você pode conferir, discordar e levar a memória de cálculo ao RH, ao contador
+        ou ao sindicato.
       </p>
 
       <Alert tone="info" title="Não somos o governo">
@@ -27,15 +34,38 @@ const equipe = Object.values(AUTORES);
 
       <h2>Como produzimos o conteúdo</h2>
       <p>
-        Todo artigo é escrito em linguagem simples, revisado e baseado em <strong>fontes oficiais</strong>
-        (gov.br, Caixa, Ministério do Desenvolvimento). Sempre indicamos a data de atualização e os links das fontes.
+        Todo artigo é escrito em linguagem simples e conferido em <strong>fonte oficial</strong> (Receita
+        Federal, Ministério do Trabalho, Previdência Social, Caixa, gov.br e a lei) antes de publicar.
+        Sempre indicamos a data de atualização e os links das fontes. Quando um número não pode ser
+        confirmado, não publicamos: explicamos a regra e mandamos você ao canal oficial.
+      </p>
+      <p>
+        As fórmulas e tabelas usadas por cada calculadora ficam públicas na
+        <a href="/metodologia">página de metodologia</a>, com a data em que cada tabela foi conferida e o
+        que cada cálculo não considera. Nossos cálculos são <strong>estimativas</strong> — não
+        substituem a folha de pagamento da empresa nem o cálculo oficial da Caixa e do INSS.
+      </p>
+
+      <h2>Seus dados não saem do seu aparelho</h2>
+      <p>
+        As calculadoras rodam inteiramente no seu navegador. Salário, saldo do FGTS e respostas do
+        simulador <strong>não são enviados para nenhum servidor e não são salvos</strong>. Não temos banco
+        de dados de usuários. Detalhes na <a href="/politica-de-privacidade">política de privacidade</a>.
       </p>
 
       <h2>Como nos mantemos</h2>
       <p>
         O conteúdo é <strong>100% gratuito</strong>. Para manter o site no ar, exibimos anúncios, sempre
         identificados com a palavra "Publicidade" e separados do conteúdo. Nunca cobramos para você acessar
-        informações ou usar nossas ferramentas.
+        informações ou usar nossas ferramentas, e não recebemos comissão de banco, corretora ou
+        financeira para recomendar produto nenhum.
+      </p>
+
+      <h2>Achou um erro?</h2>
+      <p>
+        Informação errada sobre dinheiro prejudica quem lê. Se um valor não fecha com o seu holerite ou
+        com a norma, escreva para <a href={`mailto:${SITE.email}`}>{SITE.email}</a> dizendo onde está o
+        problema — corrigimos e registramos a nova data de conferência.
       </p>
     </div>
 
@@ -54,8 +84,19 @@ const equipe = Object.values(AUTORES);
                 </div>
               )}
               <div>
-                <div class="font-heading font-bold text-lg text-ink-900">{a.nome}</div>
-                <div class="text-sm text-green-700 font-semibold mb-1">{a.cargo}</div>
+                <div class="font-heading font-bold text-lg text-ink-900">
+                  {a.perfilExterno ? (
+                    <a href={a.perfilExterno} rel="me noopener" target="_blank" class="text-ink-900">
+                      {a.nome}
+                    </a>
+                  ) : (
+                    a.nome
+                  )}
+                </div>
+                <div class="text-sm text-green-700 font-semibold mb-1">
+                  {a.cargo}
+                  {a.credencial && <span class="text-ink-600"> · {a.credencial}</span>}
+                </div>
                 <p class="m-0 text-base text-ink-700 leading-normal">{a.bio}</p>
               </div>
             </div>

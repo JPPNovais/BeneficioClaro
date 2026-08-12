@@ -5,9 +5,9 @@ categoria: "bolsa-familia"
 capa: "../../../assets/covers/calendario-pagamento-bolsa-familia-2026.png"
 capaAlt: "Arte do Benefício Claro sobre o calendário de pagamento do Bolsa Família"
 description: "Quando cai o Bolsa Família? O pagamento é escalonado pelo final do NIS, nos últimos dez dias úteis do mês. Veja como descobrir a sua data exata em 2026."
-respostaRapida: "O Bolsa Família é pago nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS: quem tem final 1 recebe primeiro e final 0 por último. Em junho de 2026, o pagamento vai de 17 a 30. Cada parcela fica disponível por até 120 dias para saque ou uso pelo Caixa Tem."
+respostaRapida: "O Bolsa Família é pago nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS: quem tem final 1 recebe primeiro e final 0 por último. Em agosto de 2026, o pagamento vai de 18 a 31. Cada parcela fica disponível por até 120 dias para saque ou uso pelo Caixa Tem."
 dataPublicacao: 2026-06-10
-dataAtualizacao: 2026-06-25
+dataAtualizacao: 2026-08-12
 autor: "redacao"
 revisado: true
 subtopico: "pagamento"
@@ -24,8 +24,8 @@ fontesOficiais:
 referencias:
   - label: "Agência Gov (EBC) — calendário de pagamentos do Bolsa Família 2026"
     href: "https://agenciagov.ebc.com.br/noticias/202512/governo-do-brasil-define-calendario-de-pagamentos-do-bolsa-familia-para-2026"
-  - label: "Serasa — calendário do Bolsa Família junho 2026 por NIS"
-    href: "https://www.serasa.com.br/blog/calendario-bolsa-familia-junho-2026/"
+  - label: "Serasa — calendário do Bolsa Família de agosto por NIS"
+    href: "https://www.serasa.com.br/blog/calendario-bolsa-familia-agosto/"
 faq:
   - pergunta: "Onde encontro o final do meu NIS?"
     resposta: "O NIS está no Cartão Cidadão, na carteira de trabalho e no app Caixa Tem. O 'final' é o último número antes do dígito verificador. Também é chamado de PIS/PASEP."
@@ -46,24 +46,28 @@ Todo mês surge a mesma pergunta: "quando cai o dinheiro?". O Bolsa Família tem
 
 O pagamento acontece nos **últimos dez dias úteis** de cada mês. Para não lotar tudo no mesmo dia, a Caixa **escalona pelo final do NIS** — o último número antes do dígito. Quem tem NIS final **1 recebe no primeiro dia**; final 2 no segundo; e assim por diante, até o final **0**, que recebe por último.
 
-## As datas de junho de 2026
+## As datas de agosto de 2026
 
-Em junho de 2026, o calendário vai de **17 a 30 de junho**:
+Em agosto de 2026, o calendário vai de **18 a 31 de agosto**. Agosto não tem feriado nacional, então os dez dias úteis finais são corridos, com as pausas só nos fins de semana:
 
 | Final do NIS | Data |
 | --- | --- |
-| 1 | 17 de junho |
-| 2 | 18 de junho |
-| 3 | 19 de junho |
-| 4 | 22 de junho |
-| 5 | 23 de junho |
-| 6 | 24 de junho |
-| 7 | 25 de junho |
-| 8 | 26 de junho |
-| 9 | 29 de junho |
-| 0 | 30 de junho |
+| 1 | 18 de agosto |
+| 2 | 19 de agosto |
+| 3 | 20 de agosto |
+| 4 | 21 de agosto |
+| 5 | 24 de agosto |
+| 6 | 25 de agosto |
+| 7 | 26 de agosto |
+| 8 | 27 de agosto |
+| 9 | 28 de agosto |
+| 0 | 31 de agosto |
 
 Em vez de decorar a tabela todo mês, use a nossa ferramenta de [calendário de pagamento](/ferramentas/calendario): escolha o final do seu NIS e ela mostra a data exata.
+
+### Como conferir a data de qualquer mês por conta própria
+
+A regra é fechada, então você mesmo consegue chegar à data sem depender de mensagem de grupo: conte **os dez últimos dias úteis do mês** (sem sábado, domingo e feriado nacional) e veja em qual deles cai a sua posição — final 1 é o primeiro dia da lista, final 2 o segundo, e assim até o final 0, que é o último dia útil do mês. As duas exceções são **dezembro**, que é antecipado, e municípios em **calamidade**, onde todos recebem no primeiro dia. Na dúvida, confirme no app Bolsa Família ou no calendário oficial linkado no fim desta página.
 
 ## Você tem até 120 dias para usar
 

@@ -78,6 +78,8 @@ const schema: object[] = [
     authorName: autor.nome,
     authorUrl: urlAbsoluta(Astro.site ?? SITE.url, autor.perfilUrl),
     authorJobTitle: autor.cargo,
+    authorSameAs: autor.perfilExterno,
+    authorCredential: autor.credencial,
     image: d.capa ? urlAbsoluta(Astro.site ?? SITE.url, d.capa.src) : undefined,
     section: categoriaNome,
     keywords: d.tags,

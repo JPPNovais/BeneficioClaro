@@ -36,6 +36,7 @@ export const ICON_PATHS: Record<string, string> = {
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
   "alert-triangle": '<path d="M12 4l9 16H3l9-16z"/><path d="M12 10v4M12 17h.01"/>',
   list: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
+  lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/>',
   "book-open":
     '<path d="M12 6c-1.5-1-4-1.5-7-1v13c3-.5 5.5 0 7 1 1.5-1 4-1.5 7-1V5c-3-.5-5.5 0-7 1z"/><path d="M12 6v13"/>',
   wallet:

@@ -4,30 +4,49 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Card from "@components/core/Card.astro";
 import Button from "@components/core/Button.astro";
 import ArticleCard from "@components/content/ArticleCard.astro";
+import SectionTitle from "@components/content/SectionTitle.astro";
 import Icon from "@components/Icon.astro";
 import { SITE } from "@config/site";
-import { CATEGORIAS, getCategoria } from "@config/categorias";
+import { CATEGORIAS, getCategoria, type Categoria } from "@config/categorias";
+import { ferramentasDoGrupo, type Ferramenta } from "@config/ferramentas";
 import { formatarDataCurta, tempoLeitura, urlArtigo, urlAbsoluta } from "@lib/utils";
-import { breadcrumbSchema } from "@lib/seo";
+import { breadcrumbSchema, itemListSchema } from "@lib/seo";
 
 export async function getStaticPaths() {
   const artigos = await getCollection("artigos", ({ data }) => !data.draft);
-  return CATEGORIAS.map((cat) => ({
-    params: { categoria: cat.slug },
-    props: { cat, artigos: artigos.filter((a) => a.data.categoria === cat.slug) },
-  }));
+  return CATEGORIAS.map((cat) => {
+    // Artigos das categorias irmãs, agrupados por categoria e na ordem de `irmas`.
+    const irmas = (cat.irmas ?? [])
+      .map((slug) => ({
+        cat: getCategoria(slug),
+        artigos: artigos.filter((a) => a.data.categoria === slug),
+      }))
+      .filter((g): g is { cat: Categoria; artigos: CollectionEntry<"artigos">[] } =>
+        !!g.cat && g.artigos.length > 0
+      );
+
+    return {
+      params: { categoria: cat.slug },
+      props: {
+        cat,
+        artigos: artigos.filter((a) => a.data.categoria === cat.slug),
+        irmas,
+      },
+    };
+  });
 }
 
 interface Props {
-  cat: (typeof CATEGORIAS)[number];
+  cat: Categoria;
   artigos: CollectionEntry<"artigos">[];
+  irmas: { cat: Categoria; artigos: CollectionEntry<"artigos">[] }[];
 }
-const { cat, artigos } = Astro.props;
+const { cat, artigos, irmas } = Astro.props;
 
-const cardOf = (e: CollectionEntry<"artigos">) => ({
+const cardOf = (e: CollectionEntry<"artigos">, rotulo = cat.rotulo) => ({
   title: e.data.title,
   href: urlArtigo(e.data.categoria, e.slug),
-  category: cat.rotulo,
+  category: rotulo,
   readingTime: tempoLeitura(e.body),
   date: formatarDataCurta(e.data.dataAtualizacao),
   cover: e.data.capa,
@@ -38,13 +57,35 @@ const cardOf = (e: CollectionEntry<"artigos">) => ({
 const porSubtopico = (key: string) => artigos.filter((a) => a.data.subtopico === key);
 
 const ehPilar = cat.pilar && !!cat.subtopicos;
-const semConteudo = artigos.length === 0;
 
+/**
+ * Só renderizamos (no índice e nas seções) os subtópicos que já têm artigo.
+ * Um pilar novo mostraria "conteúdo em breve" várias vezes — página fina, ruim
+ * para o leitor e para a análise do AdSense. Conforme os artigos são publicados,
+ * cada subtópico aparece sozinho.
+ */
+const subtopicos = (cat.subtopicos ?? []).filter((s) => porSubtopico(s.key).length > 0);
+
+// Ferramentas do silo, destacadas no topo do pilar (tool-first).
+const ferramentas: Ferramenta[] = cat.ferramentasGrupo ? ferramentasDoGrupo(cat.ferramentasGrupo) : [];
+const ctaFerramenta = ferramentas[0];
+
+/**
+ * A página só é `noindex` quando não tem absolutamente nada a oferecer. Um pilar
+ * recém-criado, ainda sem artigos próprios, já é útil pelas ferramentas e pelos
+ * artigos das categorias irmãs — e por isso deve ser indexado.
+ */
+const semConteudo = artigos.length === 0 && irmas.length === 0 && ferramentas.length === 0;
+
+const site = Astro.site ?? SITE.url;
 const schema = [
   breadcrumbSchema([
-    { name: "Início", url: urlAbsoluta(Astro.site ?? SITE.url, "/") },
-    { name: cat.nome, url: urlAbsoluta(Astro.site ?? SITE.url, `/${cat.slug}`) },
+    { name: "Início", url: urlAbsoluta(site, "/") },
+    { name: cat.nome, url: urlAbsoluta(site, `/${cat.slug}`) },
   ]),
+  ...(ferramentas.length > 0
+    ? [itemListSchema(ferramentas.map((f) => ({ name: f.title, url: urlAbsoluta(site, f.href) })))]
+    : []),
 ];
 
 const descricao = cat.heroDescricao ?? `Artigos e guias sobre ${cat.nome} em linguagem simples, com fontes oficiais.`;
@@ -71,55 +112,103 @@ const descricao = cat.heroDescricao ?? `Artigos e guias sobre ${cat.nome} em lin
       </section>
 
       <div class="max-w-container mx-auto px-4 pt-8">
+        <!-- Ferramentas do silo — tool-first: a conta antes do texto -->
+        {ferramentas.length > 0 && (
+          <section class="mb-9">
+            <SectionTitle eyebrow="Faça a conta" title="Calculadoras deste guia" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {ferramentas.map((f) => (
+                <Card interactive href={f.href} padding="md">
+                  <div class="flex flex-col gap-2 h-full">
+                    <span
+                      class={`w-12 h-12 rounded-md flex items-center justify-center ${f.tone === "cta" ? "bg-orange-100 text-orange-700" : "bg-green-100 text-green-700"}`}
+                    >
+                      <Icon name={f.icon} size={26} />
+                    </span>
+                    <h3 class="mt-1 mb-0 text-lg">{f.short ?? f.title}</h3>
+                    <p class="m-0 text-[15px] text-ink-600">{f.description}</p>
+                    <span class="mt-auto pt-2.5 inline-flex items-center gap-1.5 text-green-700 font-bold text-[15px]">
+                      Abrir ferramenta <Icon name="arrow-right" size={18} />
+                    </span>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
+
         <!-- Índice navegável -->
-        <Card padding="md" class="mb-8">
-          <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-2.5">Conteúdo deste guia</div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-            {cat.subtopicos!.map((s) => (
-              <a
-                href={`#${s.key}`}
-                class="flex items-center gap-2 p-3 rounded-md bg-green-50 no-underline text-green-800 font-semibold min-h-control-min hover:bg-green-100"
-              >
-                <Icon name={s.icon} size={20} color="#0A5446" />
-                {s.title}
-              </a>
-            ))}
-          </div>
-        </Card>
+        {subtopicos.length > 0 && (
+          <Card padding="md" class="mb-8">
+            <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-2.5">
+              Conteúdo deste guia
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {subtopicos.map((s) => (
+                <a
+                  href={`#${s.key}`}
+                  class="flex items-center gap-2 p-3 rounded-md bg-green-50 no-underline text-green-800 font-semibold min-h-control-min hover:bg-green-100"
+                >
+                  <Icon name={s.icon} size={20} color="#0A5446" />
+                  {s.title}
+                </a>
+              ))}
+            </div>
+          </Card>
+        )}
 
         <!-- Blocos de subtópico -->
-        {cat.subtopicos!.map((s) => {
-          const lista = porSubtopico(s.key);
-          return (
-            <section id={s.key} class="mb-9 scroll-mt-24">
-              <div class="flex items-center gap-3 mb-3.5">
-                <span class="w-12 h-12 rounded-md bg-green-100 text-green-700 flex items-center justify-center flex-none">
-                  <Icon name={s.icon} size={26} />
-                </span>
-                <div>
-                  <h2 class="m-0">{s.title}</h2>
-                  <p class="mt-0.5 mb-0 text-ink-600 text-base">{s.desc}</p>
+        {subtopicos.map((s) => (
+          <section id={s.key} class="mb-9 scroll-mt-24">
+            <div class="flex items-center gap-3 mb-3.5">
+              <span class="w-12 h-12 rounded-md bg-green-100 text-green-700 flex items-center justify-center flex-none">
+                <Icon name={s.icon} size={26} />
+              </span>
+              <div>
+                <h2 class="m-0">{s.title}</h2>
+                <p class="mt-0.5 mb-0 text-ink-600 text-base">{s.desc}</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {porSubtopico(s.key).map((e) => <ArticleCard {...cardOf(e)} />)}
+            </div>
+          </section>
+        ))}
+
+        <!-- Artigos das categorias irmãs do mesmo silo -->
+        {irmas.length > 0 && (
+          <section class="mb-9 pt-2 border-t border-ink-200">
+            <SectionTitle
+              eyebrow="No mesmo assunto"
+              title={cat.irmasTitulo ?? `Também em ${cat.nome}`}
+              class="mt-6"
+            />
+            {irmas.map((g) => (
+              <div class="mb-6">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                  <h3 class="m-0 text-lg">{g.cat.nome}</h3>
+                  <a href={`/${g.cat.slug}`} class="text-green-700 font-bold text-[15px] no-underline hover:underline">
+                    Ver todos
+                  </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {g.artigos.map((e) => <ArticleCard {...cardOf(e, g.cat.rotulo)} />)}
                 </div>
               </div>
-              {lista.length > 0 ? (
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {lista.map((e) => <ArticleCard {...cardOf(e)} />)}
-                </div>
-              ) : (
-                <p class="text-ink-500 text-base m-0">Conteúdo em breve para esta seção.</p>
-              )}
-            </section>
-          );
-        })}
+            ))}
+          </section>
+        )}
 
-        <Card padding="lg" class="bg-green-50 border border-green-200 text-center mb-2">
-          <h3 class="mt-0 mb-1.5">Não sabe por onde começar?</h3>
-          <p class="mt-0 mb-4 text-ink-600">Use o simulador e descubra a quais benefícios você pode ter direito.</p>
-          <Button variant="cta" size="lg" href="/ferramentas/simulador">
-            Abrir o simulador
-            <Icon name="arrow-right" size={20} slot="trailing" />
-          </Button>
-        </Card>
+        {ctaFerramenta && (
+          <Card padding="lg" class="bg-green-50 border border-green-200 text-center mb-2">
+            <h3 class="mt-0 mb-1.5">Não sabe por onde começar?</h3>
+            <p class="mt-0 mb-4 text-ink-600">{ctaFerramenta.description}</p>
+            <Button variant="cta" size="lg" href={ctaFerramenta.href}>
+              Abrir a ferramenta
+              <Icon name="arrow-right" size={20} slot="trailing" />
+            </Button>
+          </Card>
+        )}
       </div>
     ) : (
       <!-- ===== Listagem de categoria (não-pilar) ===== -->

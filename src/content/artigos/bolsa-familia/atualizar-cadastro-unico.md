@@ -8,7 +8,7 @@ description: "Quando e como atualizar o CadÚnico em 2026: o prazo de 24 meses, 
 respostaRapida: "Você deve atualizar o CadÚnico sempre que mudar endereço, renda ou composição da família e, mesmo sem mudanças, pelo menos a cada 24 meses. A atualização é gratuita, feita no CRAS. Ficar mais de 2 anos sem atualizar pode bloquear ou cancelar o Bolsa Família e outros benefícios ligados ao cadastro."
 dataPublicacao: 2026-06-22
 dataAtualizacao: 2026-06-25
-autor: "ana_ribeiro"
+autor: "redacao"
 revisado: true
 subtopico: "inscricao"
 tags:

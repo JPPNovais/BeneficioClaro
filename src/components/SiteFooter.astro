@@ -9,7 +9,17 @@ import { SITE } from "@config/site";
 
 const colunas = [
   {
-    titulo: "Benefícios",
+    titulo: "Seu dinheiro",
+    links: [
+      { label: "Salário líquido", href: "/ferramentas/calculadora-salario-liquido" },
+      { label: "Salário e rescisão", href: "/trabalho" },
+      { label: "FGTS", href: "/fgts" },
+      { label: "INSS e aposentadoria", href: "/inss" },
+      { label: "Todas as calculadoras", href: "/ferramentas" },
+    ],
+  },
+  {
+    titulo: "Benefícios sociais",
     links: [
       { label: "Bolsa Família", href: "/bolsa-familia" },
       { label: "CadÚnico", href: "/cadunico" },
@@ -21,6 +31,7 @@ const colunas = [
     titulo: "Institucional",
     links: [
       { label: "Sobre nós", href: "/sobre" },
+      { label: "Metodologia", href: "/metodologia" },
       { label: "Contato", href: "/contato" },
       { label: "Política de Privacidade", href: "/politica-de-privacidade" },
     ],
@@ -31,14 +42,15 @@ const ano = new Date().getFullYear();
 
 <footer class="bg-green-900 text-green-100 mt-12">
   <div class="max-w-container mx-auto px-4 pt-10 pb-7">
-    <div class="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
       <div>
         <div class="flex items-center gap-2.5 mb-3">
           <Logo variant="light" size={40} />
           <span class="font-heading font-extrabold text-[19px] text-white">{SITE.nome}</span>
         </div>
         <p class="m-0 text-[15px] leading-relaxed text-green-200 max-w-[320px]">
-          Explicamos seus direitos e benefícios em linguagem simples. Conteúdo gratuito, sempre com fontes oficiais.
+          Calculadoras e guias sobre o dinheiro do seu trabalho, com a conta aberta e a base legal de
+          cada desconto. Gratuito, e sem enviar nada do que você digita.
         </p>
       </div>
 

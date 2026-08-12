@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { SITE } from "@config/site";
 
-const atualizadoEm = "12 de junho de 2026";
+const atualizadoEm = "12 de agosto de 2026";
 ---
 
 <BaseLayout
@@ -17,8 +17,29 @@ const atualizadoEm = "12 de junho de 2026";
 
       <h2>Quais dados coletamos</h2>
       <p>
-        Não pedimos CPF, NIS ou senhas. Nossas ferramentas (como o simulador e o checklist) funcionam no seu
-        próprio aparelho e <strong>não salvam</strong> suas respostas em nossos servidores.
+        Não pedimos CPF, NIS, senhas nem cadastro. <strong>O que você digita nas nossas ferramentas não é
+        coletado.</strong> As calculadoras (salário líquido, FGTS, simulador, checklist) rodam inteiramente no
+        seu próprio aparelho: salário, saldo e respostas não são enviados a nenhum servidor, não são salvos e
+        não chegam a nós nem a terceiros. Não temos banco de dados de usuários.
+      </p>
+      <p>
+        O que coletamos é a <strong>estatística de navegação</strong> descrita abaixo — páginas visitadas,
+        tipo de aparelho, origem do acesso e região aproximada —, para saber qual conteúdo ajuda as pessoas.
+      </p>
+
+      <h2>Medição de audiência (Google Analytics)</h2>
+      <p>
+        Usamos o <strong>Google Analytics 4</strong> para medir o tráfego do site. Ele registra dados de uso de
+        forma agregada — quais páginas você visitou, quanto tempo ficou, de onde veio (busca, link, rede social),
+        o tipo de aparelho e navegador, e uma localização aproximada derivada do endereço IP. O Google atua como
+        nosso operador nesse tratamento e pode usar cookies ou identificadores similares para distinguir visitas.
+      </p>
+      <p>
+        Não usamos esses dados para identificar você individualmente, e eles <strong>não incluem</strong> nada do
+        que você digita nas calculadoras. Você pode bloquear a medição pelo
+        <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">complemento de
+        desativação do Google Analytics</a>, pelas configurações de cookies do seu navegador ou navegando em modo
+        anônimo.
       </p>
 
       <h2>Cookies e anúncios</h2>
@@ -28,6 +49,11 @@ const atualizadoEm = "12 de junho de 2026";
         este e a outros sites. Você pode desativar a publicidade personalizada nas
         <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">configurações de anúncios do Google</a>
         ou gerenciar cookies nas configurações do seu navegador.
+      </p>
+      <p>
+        Base legal desses tratamentos, pela LGPD: <strong>legítimo interesse</strong> (art. 7º, IX) para medir a
+        audiência e manter o site sustentável por publicidade. Você pode se opor a qualquer momento pelos meios
+        acima ou pelo nosso e-mail.
       </p>
 
       <h2>Seus direitos (LGPD)</h2>

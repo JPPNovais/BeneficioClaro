@@ -1,6 +1,10 @@
 # Benefício Claro
 
-Site de conteúdo brasileiro sobre **benefícios sociais** (pilar de entrada: Bolsa Família / CadÚnico) e **finanças do dia a dia**. Foco 100% em tráfego orgânico do Google, monetizado por Google AdSense, com público predominantemente mobile e de baixa renda. Tema YMYL (saúde/dinheiro), construído para **performance**, **SEO** e **AEO** (otimização para respostas/IA).
+Site brasileiro sobre **o dinheiro de quem trabalha**, em formato **tool-first**: o ativo principal são **calculadoras** (salário líquido, rescisão, férias, 13º, FGTS) que mostram a **memória de cálculo linha por linha** e a **base legal** de cada desconto; o conteúdo existe para explicar a regra por trás da conta. **Benefícios sociais** (Bolsa Família, CadÚnico, Auxílio Gás, Tarifa Social) são um silo secundário, com entrada em `/beneficios`.
+
+Foco 100% em tráfego orgânico do Google, monetizado por Google AdSense, público predominantemente mobile. Tema YMYL (dinheiro), construído para **performance**, **SEO** e **AEO** (otimização para respostas/IA).
+
+O diferencial e as regras que sustentam ele estão no [CLAUDE.md](CLAUDE.md) ("Por que tool-first" e "Padrão de ferramenta"); a metodologia pública de cada cálculo fica em `/metodologia`, renderizada a partir das mesmas tabelas que as calculadoras usam (`src/data/*.ts`).
 
 > **Site independente.** Não é um site oficial do governo. Não temos vínculo com o Governo Federal, a Caixa ou o gov.br.
 
@@ -29,9 +33,12 @@ Requer Node 18+.
 src/
 ├─ config/
 │  ├─ site.ts          # marca, URL, e-mail E AdSense (publisher id / ligar-desligar) — edite AQUI
-│  ├─ autores.ts       # autores (E-E-A-T): nome, bio, foto, vínculo com a Sobre
-│  └─ categorias.ts    # pilares + subtópicos (estrutura pilar + satélites)
-├─ data/               # dados editáveis das ferramentas
+│  ├─ autores.ts       # autores (E-E-A-T): nome, bio, credencial — nada inventado
+│  ├─ categorias.ts    # pilares + subtópicos + `grupo` (silo trabalho/benefícios)
+│  └─ ferramentas.ts   # registro das calculadoras (por grupo) + roadmap
+├─ data/               # tabelas editáveis das ferramentas (cada uma com `atualizadoEm`)
+│  ├─ salario.ts       # faixas de INSS e IRRF (conferir na virada do ano)
+│  ├─ fgts.ts          # faixas do saque-aniversário
 │  ├─ calendario.ts    # calendário de pagamento por NIS (atualizar mensalmente)
 │  ├─ simulador.ts     # perguntas e regras de elegibilidade (declarativas)
 │  └─ checklist.ts     # documentos por benefício
@@ -42,10 +49,12 @@ src/
 ├─ layouts/BaseLayout.astro
 ├─ lib/                # utils (datas, tempo de leitura), seo (JSON-LD), icons
 ├─ pages/
-│  ├─ index.astro                 # Home
+│  ├─ index.astro                 # Home (tool-first: calculadoras primeiro)
 │  ├─ [categoria]/index.astro      # página-pilar / listagem de categoria
 │  ├─ [categoria]/[slug].astro     # template de artigo (o mais importante)
-│  ├─ ferramentas/                 # hub + simulador + calendário + checklist
+│  ├─ ferramentas/                 # hub (por grupo) + as calculadoras
+│  ├─ metodologia.astro            # fórmulas, tabelas e vigência (renderizadas de src/data)
+│  ├─ beneficios.astro             # hub do silo secundário de benefícios sociais
 │  ├─ sobre.astro · contato.astro · politica-de-privacidade.astro
 │  ├─ buscar.astro                 # busca on-site (client-side)
 │  └─ robots.txt.ts
@@ -102,6 +111,10 @@ O que é gerado automaticamente a partir do frontmatter/corpo: `<title>`, meta d
 
 ## Como atualizar os dados das ferramentas
 
+Todo arquivo em `src/data/` tem `atualizadoEm`. **Atualize essa data no mesmo commit da tabela** — ela é exibida no site (`/metodologia` e a própria ferramenta) como promessa de vigência, e `/metodologia` renderiza as faixas a partir desses mesmos objetos.
+
+- **INSS e IRRF (salário líquido)** — `src/data/salario.ts`. Faixas, teto, parcelas a deduzir, dedução por dependente e o redutor do IR. **Conferir na virada do ano** e a cada portaria; a fonte primária é a tabela da Receita Federal.
+- **Saque-aniversário do FGTS** — `src/data/fgts.ts`. Faixas de saldo → alíquota + parcela adicional.
 - **Calendário de pagamento** — `src/data/calendario.ts`. Troque `mesReferencia`, `periodo`, `atualizadoEm` e o array `datas` (final do NIS → dia). Confira a fonte oficial da Caixa.
 - **Simulador de elegibilidade** — `src/data/simulador.ts`. Edite `PERGUNTAS` (fluxo) e `BENEFICIOS` (regras declarativas: `{ chaveDaPergunta: [valores que satisfazem] }`). `FALLBACK` é o resultado quando nada casa.
 - **Checklist de documentos** — `src/data/checklist.ts`. Adicione/edite entradas em `LISTAS` (label + array de documentos).

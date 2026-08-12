@@ -8,7 +8,7 @@ description: "Quanto o Bolsa Família paga em 2026: o mínimo de R$ 600 por fam�
 respostaRapida: "Em 2026, o Bolsa Família paga no mínimo R$ 600 por família, mais R$ 150 por criança de até 6 anos e R$ 50 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos. O valor final depende de quem mora na casa; o benefício médio fica em torno de R$ 690 a R$ 700."
 dataPublicacao: 2026-06-08
 dataAtualizacao: 2026-06-25
-autor: "ana_ribeiro"
+autor: "redacao"
 revisado: true
 subtopico: "valores"
 tags:

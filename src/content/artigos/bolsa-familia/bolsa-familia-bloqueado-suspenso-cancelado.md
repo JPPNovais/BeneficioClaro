@@ -8,7 +8,7 @@ description: "Seu Bolsa Família foi bloqueado, suspenso ou cancelado? Entenda a
 respostaRapida: "Bloqueio e suspensão são temporários: o pagamento fica retido por uma pendência, e você tem um prazo para regularizar no CRAS. Cancelamento é definitivo, quando a família não atende mais aos critérios. Na maioria dos casos, o motivo é cadastro desatualizado — atualizando o CadÚnico, é possível voltar a receber, às vezes com os valores atrasados."
 dataPublicacao: 2026-06-24
 dataAtualizacao: 2026-06-25
-autor: "ana_ribeiro"
+autor: "redacao"
 revisado: true
 subtopico: "pagamento"
 tags:

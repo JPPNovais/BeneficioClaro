@@ -8,7 +8,7 @@ description: "Passo a passo para se inscrever no Bolsa Família pelo CadÚnico e
 respostaRapida: "Para entrar no Bolsa Família, a família precisa se inscrever no CadÚnico, de graça, no CRAS da sua cidade. Leve identidade e CPF de todos e um comprovante de residência. Atenção: a inscrição é obrigatória, mas não garante o benefício na hora — a entrada depende de seleção e do orçamento do programa."
 dataPublicacao: 2026-06-05
 dataAtualizacao: 2026-06-25
-autor: "ana_ribeiro"
+autor: "redacao"
 revisado: true
 subtopico: "inscricao"
 tags:

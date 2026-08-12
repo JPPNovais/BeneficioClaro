@@ -8,7 +8,7 @@ description: "Entenda o que é o Cadastro Único (CadÚnico): quem pode se inscr
 respostaRapida: "O Cadastro Único (CadÚnico) é o registro do governo federal que identifica famílias de baixa renda para incluí-las em programas como Bolsa Família, BPC e Tarifa Social. Pode se inscrever quem tem renda de até meio salário mínimo por pessoa (R$ 810,50 em 2026) ou até três salários mínimos no total. A inscrição é gratuita, no CRAS, e não garante entrada automática em nenhum benefício."
 dataPublicacao: 2026-08-04
 dataAtualizacao: 2026-08-04
-autor: "ana_ribeiro"
+autor: "redacao"
 revisado: true
 tags:
   - "cadúnico"
@@ -118,7 +118,7 @@ Depois de cadastrada, a família pode ser considerada para os programas sociais 
 
 ## De quanto em quanto tempo preciso atualizar o cadastro
 
-O Cadastro Único precisa ser **atualizado a cada 2 anos (24 meses)**, mesmo que nada tenha mudado na família, e também **sempre que houver alteração** relevante: nascimento ou saída de alguém de casa, mudança de renda, de endereço, ou de situação escolar dos filhos. Quando o cadastro passa de 2 anos sem atualização, o município pode convocar a família para a chamada **revisão cadastral** — e ignorar essa convocação pode levar à suspensão de benefícios como o Bolsa Família até a regularização. Veja como funciona esse processo em [como atualizar o Cadastro Único](/cadunico/atualizar-cadastro-unico) e em [revisão cadastral do CadÚnico: quem foi convocado](/noticias/revisao-cadastral-cadunico-2026-quem-foi-convocado).
+O Cadastro Único precisa ser **atualizado a cada 2 anos (24 meses)**, mesmo que nada tenha mudado na família, e também **sempre que houver alteração** relevante: nascimento ou saída de alguém de casa, mudança de renda, de endereço, ou de situação escolar dos filhos. Quando o cadastro passa de 2 anos sem atualização, o município pode convocar a família para a chamada **revisão cadastral** — e ignorar essa convocação pode levar à suspensão de benefícios como o Bolsa Família até a regularização. Veja como funciona esse processo em [como atualizar o Cadastro Único](/bolsa-familia/atualizar-cadastro-unico) e em [revisão cadastral do CadÚnico: quem foi convocado](/noticias/revisao-cadastral-cadunico-2026-quem-foi-convocado).
 
 ## O cadastro é gratuito — cuidado com golpes
 

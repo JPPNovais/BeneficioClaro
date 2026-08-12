@@ -6,7 +6,7 @@ export const SITE = {
   /** Nome da marca, usado no logo, títulos e schema. */
   nome: "Benefício Claro",
   /** Slogan curto exibido no header. */
-  slogan: "Seus direitos, sem complicação",
+  slogan: "O dinheiro do seu trabalho, claro",
   /** URL canônica de produção (sem barra no final). */
   url: "https://beneficioclaro.com.br",
   /** Domínio "limpo" para exibição (rodapé, copyright). */
@@ -15,7 +15,7 @@ export const SITE = {
   locale: "pt-BR",
   /** Descrição padrão (fallback de meta description e OG). */
   descricao:
-    "Explicamos o Bolsa Família, o CadÚnico e outros benefícios sociais em linguagem simples, com ferramentas gratuitas e fontes oficiais.",
+    "Calculadoras gratuitas de rescisão, férias, 13º e salário líquido, com a memória de cálculo aberta e a base legal de cada desconto. Roda no seu aparelho.",
   /** E-mail de contato (página de contato e schema). */
   email: "contato@beneficioclaro.com.br",
   /** Imagem Open Graph padrão (PNG 1200×630, melhor compatibilidade que SVG). */
@@ -58,11 +58,35 @@ export const ADSENSE = {
 
 export type AdPlacement = keyof typeof ADSENSE.slots;
 
-/** Itens de navegação principal (header). */
+/**
+ * Google Analytics 4 — medição de tráfego.
+ *
+ * O carregamento acontece **apenas em build de produção** (`import.meta.env.PROD`),
+ * para o `npm run dev` não sujar os dados. Deixe `gaId` vazio para desligar por
+ * completo (nenhum script é injetado).
+ *
+ * Atenção ao trocar/ligar: o GA4 usa cookies e é um tratamento de dados — tem que
+ * continuar declarado na Política de Privacidade (/politica-de-privacidade).
+ * As promessas de que as CALCULADORAS não enviam nada seguem verdadeiras: elas
+ * rodam no navegador e o GA não recebe o que a pessoa digita nos campos.
+ */
+export const ANALYTICS = {
+  /** ID de medição do GA4 (formato G-XXXXXXXXXX). Vazio = desligado. */
+  gaId: "G-X9BEDKXSQ9",
+} as const;
+
+/**
+ * Itens de navegação principal (header).
+ *
+ * Ordem tool-first, proposital: as calculadoras vêm antes do conteúdo porque
+ * são o ativo que ranqueia e o motivo de a pessoa voltar. Os benefícios sociais
+ * seguem acessíveis pelo hub /beneficios (silo secundário) — as URLs dos
+ * artigos antigos não mudaram.
+ */
 export const NAV_PRINCIPAL = [
-  { href: "/", label: "Início", match: "home" },
-  { href: "/bolsa-familia", label: "Bolsa Família", match: "pillar" },
-  { href: "/ferramentas", label: "Ferramentas", match: "tools" },
-  { href: "/ferramentas/calendario", label: "Calendário", match: "calendar" },
-  { href: "/sobre", label: "Sobre", match: "about" },
+  { href: "/", label: "Início" },
+  { href: "/ferramentas", label: "Calculadoras" },
+  { href: "/trabalho", label: "Salário e rescisão" },
+  { href: "/beneficios", label: "Benefícios" },
+  { href: "/sobre", label: "Sobre" },
 ] as const;

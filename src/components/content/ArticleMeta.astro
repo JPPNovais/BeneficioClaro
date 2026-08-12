@@ -48,6 +48,7 @@ const iniciais = autor.nome
     <div class="text-base text-ink-900">
       <a href={autor.perfilUrl} class="font-semibold text-ink-900 no-underline hover:underline">{autor.nome}</a>
       <span class="text-ink-600"> · {autor.cargo}</span>
+      {autor.credencial && <span class="text-ink-600"> · {autor.credencial}</span>}
     </div>
     <div class="flex items-center gap-3 flex-wrap text-sm text-ink-600">
       <span>Atualizado em {date}</span>

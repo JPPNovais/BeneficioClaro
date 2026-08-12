@@ -67,6 +67,14 @@ export interface ArticleSchemaInput {
   authorName: string;
   authorUrl: string;
   authorJobTitle?: string;
+  /**
+   * Perfil público externo do autor (LinkedIn, consulta CRC/OAB, currículo).
+   * Vira `sameAs` no Person — é o que permite ao Google cruzar a identidade,
+   * sinal de E-E-A-T que mais pesa em YMYL.
+   */
+  authorSameAs?: string;
+  /** Credencial verificável do autor (ex.: "CRC-SP 000000"). */
+  authorCredential?: string;
   image?: string;
   /** Categoria/seção do artigo (articleSection). */
   section?: string;
@@ -89,6 +97,10 @@ export function articleSchema(a: ArticleSchemaInput) {
       name: a.authorName,
       url: a.authorUrl,
       ...(a.authorJobTitle ? { jobTitle: a.authorJobTitle } : {}),
+      ...(a.authorSameAs ? { sameAs: [a.authorSameAs] } : {}),
+      ...(a.authorCredential
+        ? { hasCredential: { "@type": "EducationalOccupationalCredential", name: a.authorCredential } }
+        : {}),
     },
     publisher: { "@id": ORG_ID },
     image: a.image ? [a.image] : [urlAbsoluta(SITE.url, SITE.ogImage)],

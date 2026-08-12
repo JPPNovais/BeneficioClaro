@@ -2,9 +2,10 @@
 /**
  * BaseHead — tudo do <head> relacionado a SEO/AEO e performance:
  * <title>, meta description, canonical, Open Graph, Twitter Card, robots,
- * preconnect de fontes, favicon e o loader do AdSense (quando ativo).
+ * preconnect de fontes, favicon, o loader do AdSense (quando ativo) e o
+ * Google Analytics 4 (só em produção).
  */
-import { SITE, ADSENSE } from "@config/site";
+import { SITE, ADSENSE, ANALYTICS } from "@config/site";
 import { urlAbsoluta } from "@lib/utils";
 
 interface Props {
@@ -41,6 +42,10 @@ const canonicalUrl = urlAbsoluta(Astro.site ?? SITE.url, canonical ?? pathnameLi
 const imageUrl = image.startsWith("http") ? image : urlAbsoluta(Astro.site ?? SITE.url, image);
 
 const adsenseLoader = ADSENSE.ativo && ADSENSE.publisherId.startsWith("ca-pub-");
+
+// GA4 só no build de produção — evita poluir os dados com o `npm run dev`.
+const gaId = ANALYTICS.gaId;
+const carregarGa = import.meta.env.PROD && /^G-[A-Z0-9]{6,}$/.test(gaId);
 ---
 
 <meta charset="utf-8" />
@@ -89,5 +94,21 @@ const adsenseLoader = ADSENSE.ativo && ADSENSE.publisherId.startsWith("ca-pub-")
       crossorigin="anonymous"
       is:inline
     />
+  )
+}
+
+<!-- Google Analytics 4 (gtag.js) — só em produção; ver ANALYTICS em src/config/site.ts -->
+{
+  carregarGa && (
+    <Fragment>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} is:inline />
+      <script
+        is:inline
+        set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+      />
+    </Fragment>
   )
 }

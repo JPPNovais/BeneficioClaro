@@ -1,4 +1,12 @@
 ---
+/**
+ * Home — tool-first.
+ *
+ * A ordem das seções é a tese do site: primeiro a calculadora (o ativo que
+ * ranqueia e o motivo de a pessoa voltar), depois os sinais de confiança, depois
+ * o conteúdo que explica a regra. Os benefícios sociais viraram silo secundário,
+ * com entrada por /beneficios — as URLs dos artigos não mudaram.
+ */
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SearchBar from "@components/content/SearchBar.astro";
@@ -10,56 +18,86 @@ import Button from "@components/core/Button.astro";
 import Icon from "@components/Icon.astro";
 import FAQAccordion from "@components/feedback/FAQAccordion.astro";
 import { SITE } from "@config/site";
-import { getCategoriaNome } from "@config/categorias";
-import { FERRAMENTAS } from "@config/ferramentas";
-import { CALENDARIO } from "@data/calendario";
+import { getCategoriaNome, categoriasDoGrupo, getCategoria } from "@config/categorias";
+import { ferramentasDoGrupo } from "@config/ferramentas";
+import { SALARIO } from "@data/salario";
 import { formatarDataCurta, tempoLeitura, urlArtigo } from "@lib/utils";
 import { faqSchema } from "@lib/seo";
 
-const beneficios = [
-  { title: "Bolsa Família", description: "Quem tem direito e quanto recebe", icon: "hand-coins", href: "/bolsa-familia" },
-  { title: "CadÚnico", description: "Como se inscrever e atualizar", icon: "file-text", href: "/cadunico" },
-  { title: "Auxílio Gás", description: "Vale-gás de R$ 108 a cada 2 meses", icon: "flame", href: "/auxilio-gas" },
-  { title: "Tarifa Social", description: "Desconto na conta de luz", icon: "droplet", href: "/tarifa-social" },
-  { title: "Pé-de-Meia", description: "Poupança para estudantes", icon: "graduation-cap", href: "/financas" },
-  { title: "Conta sem tarifa", description: "Conta digital gratuita", icon: "wallet", href: "/financas", tone: "info" as const },
-];
+const brl = (n: number) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-const ferramentas = FERRAMENTAS;
+const calculadoras = ferramentasDoGrupo("trabalho");
 
 const todos = await getCollection("artigos", ({ data }) => !data.draft);
-const ultimos = todos
-  .sort((a, b) => b.data.dataAtualizacao.valueOf() - a.data.dataAtualizacao.valueOf())
-  .slice(0, 3);
+const porData = (a: (typeof todos)[number], b: (typeof todos)[number]) =>
+  b.data.dataAtualizacao.valueOf() - a.data.dataAtualizacao.valueOf();
 
-const prevCalendario = CALENDARIO.datas.slice(0, 3);
+const slugsTrabalho = new Set(categoriasDoGrupo("trabalho").map((c) => c.slug));
+const guias = todos.filter((a) => slugsTrabalho.has(a.data.categoria)).sort(porData).slice(0, 6);
+const noticias = todos.filter((a) => a.data.categoria === "noticias").sort(porData).slice(0, 3);
 
-// FAQ da home — respostas curtas e verificadas (alimenta o schema FAQPage).
+const beneficios = categoriasDoGrupo("beneficios").map((c) => ({
+  title: c.rotulo,
+  description:
+    {
+      "bolsa-familia": "Quem tem direito e quanto recebe",
+      cadunico: "Como se inscrever e atualizar",
+      "auxilio-gas": "Quem tem direito ao vale-gás",
+      "tarifa-social": "Desconto na conta de luz",
+    }[c.slug] ?? getCategoriaNome(c.slug),
+  icon: { "bolsa-familia": "hand-coins", cadunico: "file-text", "auxilio-gas": "flame", "tarifa-social": "droplet" }[
+    c.slug
+  ]!,
+  href: `/${c.slug}`,
+}));
+
+const { inss, irrf } = SALARIO;
+
+/**
+ * FAQ da home — respostas curtas, com os números vindos das MESMAS tabelas que a
+ * calculadora usa (src/data/salario.ts), para o texto nunca divergir da conta.
+ * Alimenta o schema FAQPage.
+ */
 const faqHome = [
   {
-    pergunta: "O que é o Bolsa Família?",
-    resposta:
-      "É o principal programa de transferência de renda do Brasil. Ele paga um valor mensal a famílias de baixa renda inscritas no CadÚnico que cumprem compromissos de saúde e educação.",
+    pergunta: "Como se calcula o salário líquido?",
+    resposta: `Do salário bruto sai primeiro o INSS e, só depois, o Imposto de Renda — a ordem importa, porque o IR incide sobre o que sobra após o desconto do INSS. Da base do IR ainda se abate ${brl(irrf.deducaoDependente)} por dependente. O líquido é o bruto menos esses dois descontos.`,
   },
   {
-    pergunta: "Quem tem direito ao Bolsa Família em 2026?",
-    resposta:
-      "Famílias com renda de até R$ 218 por pessoa por mês, inscritas e com os dados atualizados no CadÚnico. Quem passa desse limite mas fica até R$ 706 por pessoa pode continuar recebendo metade do valor pela Regra de Proteção.",
+    pergunta: "Quanto o INSS desconta do salário?",
+    resposta: `A alíquota é progressiva, de ${(inss.faixas[0].aliquota * 100).toLocaleString("pt-BR")}% a ${(inss.faixas[inss.faixas.length - 1].aliquota * 100).toLocaleString("pt-BR")}%, aplicada por faixa de salário. O desconto para no teto: quem ganha acima de ${brl(inss.teto)} contribui no máximo ${brl(inss.descontoMax)} por mês. A tabela completa está na nossa página de metodologia.`,
   },
   {
-    pergunta: "Qual é o valor do Bolsa Família?",
-    resposta:
-      "No mínimo R$ 600 por família, mais R$ 150 por criança de até 6 anos e R$ 50 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos. O valor final depende de quem mora na casa.",
+    pergunta: "Quem é isento de Imposto de Renda no salário?",
+    resposta: `Pela tabela que usamos, quem recebe até ${brl(irrf.redutor.isencaoAte)} de salário bruto por mês não tem desconto de IR na folha. Entre ${brl(irrf.redutor.isencaoAte)} e ${brl(irrf.redutor.zeraAcima)} o imposto existe, mas é reduzido; acima disso vale a tabela progressiva cheia.`,
   },
   {
-    pergunta: "Como faço para me inscrever?",
+    pergunta: "Vale a pena aderir ao saque-aniversário do FGTS?",
     resposta:
-      "A inscrição é gratuita e feita no CRAS da sua cidade, pelo Cadastro Único. Leve identidade e CPF de todos da família e um comprovante de residência. Estar no CadÚnico não garante entrada imediata: a família entra por seleção.",
+      "Depende do seu risco de demissão. Quem adere passa a sacar uma parte do saldo todo ano, mas perde o direito de sacar o FGTS se for demitido sem justa causa — recebe apenas a multa de 40%. Voltar para o saque-rescisão exige carência. Simule o valor antes de decidir.",
   },
   {
-    pergunta: "Quando o dinheiro é pago?",
+    pergunta: "As calculadoras salvam os meus dados?",
     resposta:
-      "Nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS. Use a nossa ferramenta de calendário para ver a data exata do seu pagamento.",
+      "Não. Todas as contas rodam no seu próprio aparelho, dentro do navegador. Salário, saldo e respostas não são enviados para nenhum servidor e não são salvos — não temos banco de dados de usuários.",
+  },
+];
+
+const selos = [
+  {
+    icon: "list",
+    titulo: "A conta fica aberta",
+    texto: "Mostramos a memória de cálculo linha por linha, não só o resultado final.",
+  },
+  {
+    icon: "shield-check",
+    titulo: "Base legal em cada número",
+    texto: "Cada alíquota e teto vem de norma publicada, com a data em que conferimos.",
+  },
+  {
+    icon: "lock",
+    titulo: "Roda no seu aparelho",
+    texto: "Nada do que você digita é enviado para um servidor nem fica salvo.",
   },
 ];
 
@@ -71,23 +109,24 @@ const schema = [faqSchema(faqHome)];
   <section class="bg-hero-fade border-b border-ink-200">
     <div class="max-w-prose mx-auto px-4 pt-10 pb-9 text-center">
       <span class="inline-flex items-center gap-1.5 px-3 py-[5px] rounded-pill bg-green-100 text-green-800 text-sm font-bold mb-4">
-        <Icon name="shield-check" size={16} /> Informação confiável e gratuita
+        <Icon name="shield-check" size={16} /> Grátis, com a conta aberta e a base legal
       </span>
       <h1 class="m-0 mb-3" style="font-size:clamp(2rem,6vw,2.75rem)">
-        Entenda seus direitos e benefícios, sem complicação
+        Descubra quanto é o seu — e de onde vem cada desconto
       </h1>
-      <p class="text-lg text-ink-600 mx-auto mb-6 max-w-[520px]">
-        Explicamos o Bolsa Família, o CadÚnico e outros benefícios em linguagem simples — com ferramentas gratuitas para te ajudar.
+      <p class="text-lg text-ink-600 mx-auto mb-6 max-w-[540px]">
+        Calculadoras de salário, rescisão e FGTS que mostram a conta linha por linha, com a regra e a
+        lei do lado. Sem cadastro, e nada do que você digita sai do seu aparelho.
       </p>
       <SearchBar />
       <div class="flex flex-wrap gap-2 justify-center mt-4">
         <span class="text-sm text-ink-600 self-center">Mais buscados:</span>
         {
           [
-            { t: "Bolsa Família", href: "/bolsa-familia" },
-            { t: "Calendário", href: "/ferramentas/calendario" },
-            { t: "CadÚnico", href: "/cadunico" },
-            { t: "Auxílio Gás", href: "/auxilio-gas" },
+            { t: "Salário líquido", href: "/ferramentas/calculadora-salario-liquido" },
+            { t: "Saque-aniversário do FGTS", href: "/ferramentas/saque-aniversario-fgts" },
+            { t: "Salário e rescisão", href: "/trabalho" },
+            { t: "INSS", href: "/inss" },
           ].map((c) => (
             <a
               href={c.href}
@@ -102,23 +141,19 @@ const schema = [faqSchema(faqHome)];
   </section>
 
   <div class="max-w-container mx-auto px-4 pt-9">
-    <!-- Benefícios -->
-    <SectionTitle eyebrow="Benefícios" title="Os mais buscados" />
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-      {beneficios.map((b) => <BenefitCard {...b} />)}
-    </div>
-
-    <!-- Ferramentas -->
-    <SectionTitle eyebrow="Grátis" title="Ferramentas que ajudam você" class="mt-10" />
+    <!-- Calculadoras — o ativo do site, antes de tudo -->
+    <SectionTitle eyebrow="Faça a conta" title="Calculadoras do seu dinheiro" />
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
       {
-        ferramentas.map((t) => (
-          <Card interactive href={t.href} padding="md">
+        calculadoras.map((t) => (
+          <Card interactive href={t.href} padding="lg">
             <div class="flex flex-col gap-2 h-full">
-              <span class={`w-12 h-12 rounded-md flex items-center justify-center ${t.tone === "cta" ? "bg-orange-100 text-orange-700" : "bg-green-100 text-green-700"}`}>
-                <Icon name={t.icon} size={26} />
+              <span
+                class={`w-14 h-14 rounded-md flex items-center justify-center ${t.tone === "cta" ? "bg-orange-100 text-orange-700" : "bg-green-100 text-green-700"}`}
+              >
+                <Icon name={t.icon} size={30} />
               </span>
-              <h3 class="mt-1 mb-0 text-lg">{t.short ?? t.title}</h3>
+              <h3 class="mt-1 mb-0 text-xl">{t.short ?? t.title}</h3>
               <p class="m-0 text-[15px] text-ink-600">{t.description}</p>
               <span class="mt-auto pt-2.5 inline-flex items-center gap-1.5 text-green-700 font-bold text-[15px]">
                 Abrir ferramenta <Icon name="arrow-right" size={18} />
@@ -127,19 +162,59 @@ const schema = [faqSchema(faqHome)];
           </Card>
         ))
       }
+      <Card padding="lg" class="bg-green-50 border border-green-200">
+        <div class="flex flex-col gap-2 h-full">
+          <span class="w-14 h-14 rounded-md bg-white text-green-700 flex items-center justify-center">
+            <Icon name="calculator" size={30} />
+          </span>
+          <h3 class="mt-1 mb-0 text-xl">Rescisão, férias e 13º</h3>
+          <p class="m-0 text-[15px] text-ink-700">
+            Estão em produção, com a mesma regra: resultado, memória de cálculo e base legal. Enquanto
+            isso, veja como cada verba é calculada no guia.
+          </p>
+          <div class="mt-auto pt-3">
+            <Button variant="secondary" href="/trabalho" fullWidth>
+              Ver o guia de salário e rescisão
+              <Icon name="arrow-right" size={18} slot="trailing" />
+            </Button>
+          </div>
+        </div>
+      </Card>
     </div>
 
-    <!-- Últimos artigos + prévia do calendário -->
-    <div class="grid lg:grid-cols-[1.6fr_1fr] gap-7 mt-10 items-start pb-2">
+    <!-- Sinais de confiança -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+      {
+        selos.map((s) => (
+          <div class="flex gap-3 items-start p-4 bg-white border border-ink-200 rounded-lg">
+            <span class="w-10 h-10 flex-none rounded-md bg-green-100 text-green-700 flex items-center justify-center">
+              <Icon name={s.icon} size={22} />
+            </span>
+            <div>
+              <div class="font-heading font-bold text-ink-900">{s.titulo}</div>
+              <p class="m-0 text-[15px] text-ink-600 leading-normal">{s.texto}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-3 mb-0 text-[15px] text-ink-600">
+      <a href="/metodologia" class="font-semibold text-green-700">Veja a metodologia completa</a> — as
+      fórmulas, as tabelas de {new Date(`${SALARIO.atualizadoEm}T12:00:00`).getFullYear()} e o que cada
+      cálculo não considera.
+    </p>
+
+    <!-- Guias do silo trabalho -->
+    <div class="grid lg:grid-cols-[1.7fr_1fr] gap-7 mt-11 items-start">
       <div>
-        <SectionTitle eyebrow="Atualizações" title="Últimos artigos" />
-        <div class="grid gap-3">
+        <SectionTitle eyebrow="Guias" title="Entenda a regra por trás da conta" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {
-            ultimos.map((a) => (
+            guias.map((a) => (
               <ArticleCard
                 title={a.data.title}
                 href={urlArtigo(a.data.categoria, a.slug)}
-                category={getCategoriaNome(a.data.categoria)}
+                category={getCategoria(a.data.categoria)?.rotulo ?? getCategoriaNome(a.data.categoria)}
                 date={formatarDataCurta(a.data.dataAtualizacao)}
                 readingTime={tempoLeitura(a.body)}
                 cover={a.data.capa}
@@ -149,29 +224,26 @@ const schema = [faqSchema(faqHome)];
           }
         </div>
       </div>
+
       <div>
-        <SectionTitle eyebrow="Calendário" title={`Pagamento de ${CALENDARIO.mesReferencia.split(" de ")[0]}`} />
+        <SectionTitle eyebrow="Frescor" title="O que mudou agora" />
         <Card padding="md">
-          <div class="flex items-center gap-2.5 mb-3">
-            <span class="w-11 h-11 rounded-md bg-green-100 text-green-700 flex items-center justify-center">
-              <Icon name="calendar" />
-            </span>
-            <div>
-              <div class="font-bold text-ink-900">Bolsa Família</div>
-              <div class="text-sm text-ink-600">{CALENDARIO.periodo}</div>
-            </div>
-          </div>
           {
-            prevCalendario.map((r) => (
-              <div class="flex justify-between py-2.5 border-t border-ink-200 text-base">
-                <span class="text-ink-800">NIS Final {r.nis}</span>
-                <span class="font-bold text-ink-900 tabular-nums">{r.dia.replace(" de junho", "/06")}</span>
-              </div>
+            noticias.map((a, i) => (
+              <a
+                href={urlArtigo(a.data.categoria, a.slug)}
+                class={`block no-underline py-3 ${i > 0 ? "border-t border-ink-200" : ""}`}
+              >
+                <div class="text-[13px] font-bold text-green-600 uppercase tracking-[0.06em] mb-0.5">
+                  {formatarDataCurta(a.data.dataAtualizacao)}
+                </div>
+                <div class="font-heading font-bold text-ink-900 leading-snug">{a.data.title}</div>
+              </a>
             ))
           }
-          <div class="mt-4">
-            <Button variant="secondary" href="/ferramentas/calendario" fullWidth>
-              Ver calendário completo
+          <div class="mt-3">
+            <Button variant="secondary" href="/noticias" fullWidth>
+              Ver todas as notícias
               <Icon name="arrow-right" size={18} slot="trailing" />
             </Button>
           </div>
@@ -179,9 +251,25 @@ const schema = [faqSchema(faqHome)];
       </div>
     </div>
 
+    <!-- Benefícios sociais — silo secundário -->
+    <div class="mt-11">
+      <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+        <div>
+          <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-0.5">
+            Benefícios sociais
+          </div>
+          <h2 class="m-0">Também explicamos os benefícios do governo</h2>
+        </div>
+        <a href="/beneficios" class="text-green-700 font-bold no-underline hover:underline">Ver todos →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {beneficios.map((b) => <BenefitCard {...b} />)}
+      </div>
+    </div>
+
     <!-- FAQ (answer-first + schema FAQPage) -->
     <section class="max-w-prose mx-auto mt-12 pb-2">
-      <SectionTitle eyebrow="Perguntas frequentes" title="Dúvidas rápidas sobre benefícios" />
+      <SectionTitle eyebrow="Perguntas frequentes" title="Dúvidas rápidas sobre salário e descontos" />
       <FAQAccordion items={faqHome} />
     </section>
   </div>

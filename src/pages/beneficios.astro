@@ -1,0 +1,116 @@
+---
+/**
+ * /beneficios — hub do silo secundário.
+ *
+ * Depois do reposicionamento do site para "o dinheiro de quem trabalha", os
+ * conteúdos de benefícios sociais continuam publicados nas MESMAS URLs
+ * (/bolsa-familia/..., /cadunico/..., etc.) para não jogar fora a indexação já
+ * conquistada. Esta página é a nova porta de entrada deles na navegação.
+ */
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Card from "@components/core/Card.astro";
+import ArticleCard from "@components/content/ArticleCard.astro";
+import SectionTitle from "@components/content/SectionTitle.astro";
+import Icon from "@components/Icon.astro";
+import { SITE } from "@config/site";
+import { categoriasDoGrupo } from "@config/categorias";
+import { ferramentasDoGrupo } from "@config/ferramentas";
+import { formatarDataCurta, tempoLeitura, urlArtigo, urlAbsoluta } from "@lib/utils";
+import { breadcrumbSchema, itemListSchema } from "@lib/seo";
+
+const artigos = await getCollection("artigos", ({ data }) => !data.draft);
+
+const categorias = categoriasDoGrupo("beneficios")
+  .map((cat) => ({
+    cat,
+    artigos: artigos
+      .filter((a) => a.data.categoria === cat.slug)
+      .sort((a, b) => b.data.dataAtualizacao.valueOf() - a.data.dataAtualizacao.valueOf()),
+  }))
+  .filter((g) => g.artigos.length > 0);
+
+const ferramentas = ferramentasDoGrupo("beneficios");
+
+const site = Astro.site ?? SITE.url;
+const schema = [
+  breadcrumbSchema([
+    { name: "Início", url: urlAbsoluta(site, "/") },
+    { name: "Benefícios sociais", url: urlAbsoluta(site, "/beneficios") },
+  ]),
+  itemListSchema(categorias.map((g) => ({ name: g.cat.nome, url: urlAbsoluta(site, `/${g.cat.slug}`) }))),
+];
+---
+
+<BaseLayout
+  title="Benefícios sociais: guias e ferramentas"
+  description="Bolsa Família, CadÚnico, Auxílio Gás e Tarifa Social explicados em linguagem simples, com fontes oficiais — mais o simulador de elegibilidade e o calendário por NIS."
+  canonical="/beneficios"
+  schema={schema}
+>
+  <div class="max-w-container mx-auto px-4 pt-8">
+    <div class="max-w-prose mb-7">
+      <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-0.5">Benefícios sociais</div>
+      <h1 class="mt-0 mb-2">Bolsa Família, CadÚnico e outros benefícios</h1>
+      <p class="text-lg text-ink-600 m-0">
+        Quem tem direito, quanto é o valor, como se inscrever e quando cai — em linguagem simples e
+        sempre com o link da fonte oficial. Somos um site independente: não temos vínculo com o governo.
+      </p>
+    </div>
+
+    <!-- Ferramentas do silo -->
+    <SectionTitle eyebrow="Grátis" title="Ferramentas de benefícios" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {
+        ferramentas.map((f) => (
+          <Card interactive href={f.href} padding="md">
+            <div class="flex flex-col gap-2 h-full">
+              <span class="w-12 h-12 rounded-md bg-green-100 text-green-700 flex items-center justify-center">
+                <Icon name={f.icon} size={26} />
+              </span>
+              <h3 class="mt-1 mb-0 text-lg">{f.short ?? f.title}</h3>
+              <p class="m-0 text-[15px] text-ink-600">{f.description}</p>
+              <span class="mt-auto pt-2.5 inline-flex items-center gap-1.5 text-green-700 font-bold text-[15px]">
+                Abrir ferramenta <Icon name="arrow-right" size={18} />
+              </span>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+
+    <!-- Conteúdo por benefício -->
+    {
+      categorias.map((g) => (
+        <section class="mt-10">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+            <div>
+              <div class="text-[13px] font-bold tracking-[0.06em] uppercase text-green-600 mb-0.5">
+                {g.artigos.length} {g.artigos.length === 1 ? "guia" : "guias"}
+              </div>
+              <h2 class="m-0">{g.cat.nome}</h2>
+            </div>
+            {g.cat.pilar && (
+              <a href={`/${g.cat.slug}`} class="text-green-700 font-bold no-underline hover:underline">
+                Ver o guia completo →
+              </a>
+            )}
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {g.artigos.map((e) => (
+              <ArticleCard
+                title={e.data.title}
+                href={urlArtigo(e.data.categoria, e.slug)}
+                category={g.cat.rotulo}
+                date={formatarDataCurta(e.data.dataAtualizacao)}
+                readingTime={tempoLeitura(e.body)}
+                cover={e.data.capa}
+                coverAlt={e.data.capaAlt}
+              />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>
