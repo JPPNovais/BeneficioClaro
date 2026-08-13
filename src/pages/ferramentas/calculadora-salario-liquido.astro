@@ -90,6 +90,12 @@ const schema = [
       🔒 Nada é salvo. Estimativa para CLT — não considera pensão alimentícia, plano de saúde nem outras deduções. Tabelas de {formatarData(new Date(atualizadoEm))}.
       Fontes: {fontes.map((f, i) => (<>{i > 0 ? " · " : ""}<a href={f.href} target="_blank" rel="noopener noreferrer" class="font-semibold">{f.label}</a></>))}
     </p>
+
+    <p class="text-sm text-ink-700 pb-6">
+      Quer entender de onde vem cada linha dessa conta? Veja o passo a passo em
+      {" "}<a href="/trabalho/como-calcular-salario-liquido" class="font-semibold text-green-700 underline">como calcular o salário líquido</a>,
+      com a tabela do INSS, a do Imposto de Renda e um exemplo completo.
+    </p>
   </div>
 
   <script type="application/json" id="tabelas" set:html={JSON.stringify({ inss, irrf })} is:inline></script>

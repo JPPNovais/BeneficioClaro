@@ -50,7 +50,7 @@ Silo principal. Cada item abaixo é o par de uma calculadora (existente ou no ro
 de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 [CONTENT_GUIDE.md](../CONTENT_GUIDE.md).
 
-- [ ] como-calcular-salario-liquido — a conta completa, INSS + IRRF, com exemplo (linke /ferramentas/calculadora-salario-liquido) `[salario]`
+- [x] como-calcular-salario-liquido — a conta completa, INSS + IRRF, com exemplo (linke /ferramentas/calculadora-salario-liquido) `[salario]`
 - [ ] tabela-inss-2026 — faixas, teto e desconto máximo, com a conta da parcela a deduzir `[salario]`
 - [ ] tabela-imposto-de-renda-2026 — faixas, isenção, redutor e dedução por dependente `[salario]`
 - [ ] como-calcular-rescisao — todas as verbas da demissão sem justa causa, com exemplo fechado `[rescisao]`
