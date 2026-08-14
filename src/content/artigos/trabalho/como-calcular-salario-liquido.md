@@ -40,7 +40,8 @@ faq:
     resposta: "Sim. Cada dependente declarado reduz a base de cálculo do IRRF em R$ 189,59 por mês em 2026. Isso pode até zerar o imposto de quem estava perto do limite de isenção."
   - pergunta: "Por que meu salário líquido no holerite não bate com a calculadora?"
     resposta: "As causas mais comuns são: a empresa desconta outras rubricas (vale-transporte, plano de saúde, adiantamento, pensão alimentícia, sindicato) que a calculadora não considera; o salário-base é diferente do salário-contrato por causa de faltas ou horas extras; ou a empresa usou a tabela do ano errado. Confira as rubricas do contracheque com o RH antes de supor um erro."
-relacionados: []
+relacionados:
+  - "tabela-inss-2026"
 ---
 
 Quem recebe salário mensal costuma se perguntar por que o valor que cai na conta é menor do que o combinado na carteira. A resposta é sempre a mesma dupla: **INSS** e **Imposto de Renda (IRRF)**, descontados diretamente na folha, nessa ordem. Este guia mostra a conta completa, com a tabela de 2026 e um exemplo do início ao fim — a mesma conta que a nossa [calculadora de salário líquido](/ferramentas/calculadora-salario-liquido) faz automaticamente.
@@ -67,7 +68,7 @@ O INSS em 2026 é progressivo: o salário é dividido em faixas, e cada faixa te
 
 **Fórmula:** INSS = (salário × alíquota da faixa) − parcela a deduzir.
 
-Quem ganha acima do teto de R$ 8.475,55 paga sempre o desconto máximo de **R$ 988,09**, porque o INSS não incide sobre o que passa do teto.
+Quem ganha acima do teto de R$ 8.475,55 paga sempre o desconto máximo de **R$ 988,09**, porque o INSS não incide sobre o que passa do teto. Veja a [tabela completa do INSS 2026](/trabalho/tabela-inss-2026), incluindo as regras para autônomo, MEI e segurado facultativo.
 
 ## Como se calcula o Imposto de Renda (IRRF)
 
