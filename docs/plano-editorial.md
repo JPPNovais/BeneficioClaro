@@ -54,7 +54,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] tabela-inss-2026 — faixas, teto e desconto máximo, com a conta da parcela a deduzir `[salario]`
 - [x] tabela-imposto-de-renda-2026 — faixas, isenção, redutor e dedução por dependente `[salario]`
 - [x] como-calcular-rescisao — todas as verbas da demissão sem justa causa, com exemplo fechado `[rescisao]`
-- [ ] aviso-previo-como-funciona — trabalhado x indenizado, os 3 dias por ano, quem paga o quê `[rescisao]`
+- [x] aviso-previo-como-funciona — trabalhado x indenizado, os 3 dias por ano, quem paga o quê `[rescisao]`
 - [ ] pedido-de-demissao-o-que-recebo — o que se perde ao pedir as contas `[rescisao]`
 - [ ] acordo-mutuo-demissao — demissão por acordo: 20% de multa, 80% do saque, sem seguro `[rescisao]`
 - [ ] seguro-desemprego-quem-tem-direito — requisitos, número de parcelas e valor `[rescisao]`
