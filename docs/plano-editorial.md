@@ -57,7 +57,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] aviso-previo-como-funciona — trabalhado x indenizado, os 3 dias por ano, quem paga o quê `[rescisao]`
 - [x] pedido-de-demissao-o-que-recebo — o que se perde ao pedir as contas `[rescisao]`
 - [ ] acordo-mutuo-demissao — demissão por acordo: 20% de multa, 80% do saque, sem seguro `[rescisao]`
-- [ ] seguro-desemprego-quem-tem-direito — requisitos, número de parcelas e valor `[rescisao]`
+- [x] seguro-desemprego-quem-tem-direito — requisitos, número de parcelas e valor `[rescisao]`
 - [ ] como-calcular-ferias — férias + 1/3, proporcionais e os descontos `[ferias-decimo]`
 - [ ] vender-ferias-vale-a-pena — abono pecuniário: quanto rende vender 10 dias `[ferias-decimo]`
 - [ ] como-calcular-decimo-terceiro — as duas parcelas e por que a 2ª vem menor `[ferias-decimo]`
