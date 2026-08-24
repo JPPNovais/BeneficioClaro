@@ -1,0 +1,157 @@
+---
+title: "Como calcular hora extra: 50%, DSR e banco de horas"
+slug: "como-calcular-hora-extra"
+categoria: "trabalho"
+subtopico: "outros-direitos"
+capa: "../../../assets/covers/como-calcular-hora-extra.png"
+capaAlt: "Arte do Benefício Claro sobre como calcular a hora extra"
+description: "Como calcular a hora extra em 2026: o adicional mínimo de 50%, o divisor certo (220 ou 200), o reflexo no DSR e o que muda com banco de horas. Com exemplo completo."
+respostaRapida: "A hora extra tem acréscimo mínimo de 50% sobre o valor da hora normal (salário ÷ 220, na jornada de 44h). Se for trabalhada em domingo ou feriado sem folga compensatória, o pagamento é em dobro. Quando é habitual, a hora extra também gera reflexo no DSR e entra no cálculo de férias, 13º e FGTS."
+dataPublicacao: 2026-08-24
+dataAtualizacao: 2026-08-24
+autor: "camila_duarte"
+revisado: true
+tags:
+  - "hora extra"
+  - "CLT"
+  - "banco de horas"
+  - "DSR"
+  - "direitos trabalhistas"
+fontesOficiais:
+  - label: "CLT — Decreto-Lei nº 5.452/1943, art. 59 (jornada extraordinária) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+  - label: "Constituição Federal, art. 7º, inciso XVI (adicional mínimo de 50%) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  - label: "Lei nº 605/1949, art. 7º (repouso semanal remunerado) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/leis/l0605.htm"
+  - label: "TST — Súmulas (45, 146, 172, 347 e 431)"
+    href: "https://www3.tst.jus.br/jurisprudencia/Sumulas_com_indice/Sumulas_Ind_1_50.html"
+referencias:
+  - label: "Guia Trabalhista — Reflexo do DSR sobre as horas extras e a base de cálculo de férias e 13º"
+    href: "https://www.guiatrabalhista.com.br/tematicas/Reflexo-dsr-horas-ferias-13salario.htm"
+  - label: "Pontotel — Artigo 59 da CLT: tudo sobre horas extras"
+    href: "https://www.pontotel.com.br/artigo-59-clt/"
+faq:
+  - pergunta: "A hora extra é sempre 50% a mais?"
+    resposta: "50% é o mínimo garantido pela Constituição (art. 7º, XVI). Uma convenção ou acordo coletivo da sua categoria pode fixar um percentual maior, nunca menor. E se a hora extra for feita em domingo ou feriado sem folga compensatória na semana, o pagamento sobe para o dobro (100%), pela Súmula 146 do TST."
+  - pergunta: "Uso o divisor 220 ou 200 para achar o valor da minha hora?"
+    resposta: "Depende da sua jornada semanal contratual. Quem trabalha 44 horas por semana (8h de segunda a sexta + 4h no sábado, a jornada mais comum) usa o divisor 220. Quem tem jornada de 40 horas semanais usa o divisor 200, pela Súmula 431 do TST. Confira no seu contrato ou holerite qual jornada está registrada."
+  - pergunta: "Banco de horas substitui o pagamento da hora extra?"
+    resposta: "Pode substituir, mas só dentro de prazos e regras específicas. Por acordo individual escrito, a compensação tem que acontecer em até 6 meses; por acordo ou convenção coletiva, o prazo pode chegar a 12 meses. Se a empresa não conceder a folga dentro do prazo, as horas viram extras normais, com o adicional de 50% (ou mais)."
+  - pergunta: "A hora extra entra no cálculo das férias, do 13º e do FGTS?"
+    resposta: "Sim, quando é habitual — ou seja, quando você faz hora extra com frequência, não só uma vez ou outra. Nesse caso, a média das horas extras (já com o reflexo do DSR) entra na base de cálculo das férias + 1/3, do 13º salário, do aviso prévio e do depósito de FGTS, conforme as Súmulas 45 e 347 do TST e o art. 15 da Lei nº 8.036/1990."
+  - pergunta: "Posso fazer quantas horas extras eu quiser?"
+    resposta: "Não. A CLT limita a jornada extraordinária a no máximo 2 horas por dia, o que dá um teto de 10 horas trabalhadas no dia (8h normais + 2h extras). Passar desse limite de forma sistemática é irregular, mesmo que a empresa pague o adicional."
+  - pergunta: "A empresa não está pagando as horas extras corretamente. O que eu faço?"
+    resposta: "Primeiro, confira seu contracheque e o registro de ponto (a empresa é obrigada a manter controle de jornada). Se o valor não bate, procure o RH por escrito. Sem solução, o passo seguinte é o sindicato da categoria ou uma reclamação na Justiça do Trabalho — o prazo para cobrar horas extras não pagas é de até 2 anos após o fim do contrato, olhando os últimos 5 anos trabalhados."
+relacionados:
+  - "como-calcular-salario-liquido"
+  - "tabela-inss-2026"
+  - "como-calcular-decimo-terceiro"
+howTo:
+  name: "Como calcular a sua hora extra"
+  steps:
+    - name: "Ache o valor da sua hora normal"
+      text: "Divida o salário mensal pelo divisor da sua jornada: 220 para 44 horas semanais, 200 para 40 horas semanais."
+    - name: "Aplique o adicional de hora extra"
+      text: "Multiplique o valor da hora normal por 1,5 (adicional de 50%) — ou por 2, se for domingo/feriado sem folga compensatória."
+    - name: "Some o reflexo do DSR, se a hora extra for habitual"
+      text: "Divida o total de horas extras do mês pelos dias úteis e multiplique pelo número de domingos e feriados do período."
+    - name: "Confira o total no contracheque"
+      text: "O valor das horas extras e o DSR sobre elas devem aparecer como linhas separadas do salário fixo, e entram na base do INSS e do Imposto de Renda do mês."
+---
+
+import Alert from "@components/feedback/Alert.astro";
+
+Trabalhar além da jornada normal dá direito a um pagamento maior — mas a conta tem mais peças do que só "salário vezes 50%". O valor muda de acordo com a sua jornada contratual, se o dia era domingo ou feriado, e se a empresa usa banco de horas em vez de pagar em dinheiro. Este guia mostra a conta linha por linha, com um exemplo completo.
+
+## O que entra na conta da hora extra
+
+Três elementos formam o valor de uma hora extra:
+
+- **O valor da sua hora normal** — o salário mensal dividido pelo divisor da sua jornada (220 ou 200, explicado abaixo).
+- **O adicional** — no mínimo 50% a mais, podendo ser maior por convenção coletiva, e de 100% (dobro) em domingo ou feriado sem folga compensatória.
+- **O reflexo no Descanso Semanal Remunerado (DSR)** — quando a hora extra é habitual, ela também aumenta o valor pago pelo seu dia de descanso.
+
+## Como achar o valor da hora normal
+
+O primeiro passo é dividir o salário mensal por um número fixo — o **divisor** — que representa quantas horas o seu salário cobre no mês. O divisor certo depende da sua jornada semanal contratual:
+
+- **Divisor 220** — para quem trabalha 44 horas por semana (a jornada mais comum: 8h de segunda a sexta + 4h aos sábados, ou 7h20 de segunda a sexta).
+- **Divisor 200** — para quem trabalha 40 horas por semana, pela Súmula 431 do TST.
+
+Um salário de R$ 2.200, numa jornada de 44 horas, dá um valor de hora normal de **R$ 2.200 ÷ 220 = R$ 10,00**.
+
+## Como calcular o adicional de 50%
+
+Com o valor da hora normal em mãos, multiplique por 1,5 (o adicional mínimo de 50%, garantido pela Constituição no art. 7º, inciso XVI):
+
+**R$ 10,00 × 1,5 = R$ 15,00** por hora extra.
+
+<Alert tone="info" title="50% é o piso, não o teto">
+  A Constituição garante o mínimo de 50%. Muitas convenções coletivas fixam um percentual maior para a categoria — confira o acordo do seu sindicato. E se a hora extra cair em domingo ou feriado, sem folga compensatória concedida na mesma semana, o valor sobe para o dobro (100%), pela Súmula 146 do TST.
+</Alert>
+
+## O reflexo no DSR (descanso semanal remunerado)
+
+Quando você faz hora extra com frequência — não só uma vez isolada —, isso também aumenta o valor do seu **DSR** (o pagamento do domingo e dos feriados como dia de descanso remunerado). A lógica: se as horas extras aumentam a sua remuneração normal, o dia de descanso, que é pago pela média da semana, tem que acompanhar esse aumento. É o que garante o art. 7º da Lei nº 605/1949 (alterado pela Lei nº 7.415/1985) e a Súmula 172 do TST.
+
+A fórmula usada na folha de pagamento é:
+
+**DSR sobre horas extras = (total de horas extras do mês ÷ dias úteis do mês) × domingos e feriados do mês**
+
+## Exemplo completo: salário de R$ 2.200, com 10 horas extras no mês
+
+Um trabalhador com jornada de 44 horas semanais (divisor 220) e salário de R$ 2.200 fez 10 horas extras habituais em um mês com 22 dias úteis e 4 domingos/feriados:
+
+| Item | Valor | Como sai |
+|---|---|---|
+| Valor da hora normal | R$ 10,00 | R$ 2.200 ÷ 220 |
+| Valor da hora extra (50%) | R$ 15,00 | R$ 10,00 × 1,5 |
+| **Total de horas extras (10h)** | **R$ 150,00** | R$ 15,00 × 10 |
+| DSR sobre as horas extras | R$ 27,27 | (R$ 150 ÷ 22) × 4 |
+| **Total a receber pelas extras** | **R$ 177,27** | Horas extras + DSR |
+| **Salário bruto do mês** | **R$ 2.377,27** | R$ 2.200 + R$ 177,27 |
+
+Esse total de R$ 2.377,27 é a base sobre a qual incidem o INSS e o Imposto de Renda do mês — veja a tabela de faixas atualizada em [tabela do INSS 2026](/trabalho/tabela-inss-2026) e a conta completa do líquido em [como calcular o salário líquido](/trabalho/como-calcular-salario-liquido).
+
+## O que muda com banco de horas
+
+Em vez de pagar as horas extras em dinheiro, a empresa pode oferecer **banco de horas**: você trabalha a mais em um dia e folga (ou sai mais cedo) em outro, sem receber o adicional em espécie. As regras de prazo, depois da reforma trabalhista de 2017, são:
+
+- **Acordo individual escrito** — compensação em até **6 meses**.
+- **Acordo ou convenção coletiva** — compensação em até **12 meses**.
+- **Acordo verbal** — só vale para compensação dentro do **mesmo mês**.
+
+Se a empresa não conceder a folga dentro do prazo combinado, as horas acumuladas viram horas extras normais, com o adicional de 50% (ou mais) — não somem simplesmente do banco.
+
+<Alert tone="warning" title="Limite diário continua valendo">
+  Mesmo com banco de horas, a CLT limita a jornada extraordinária a no máximo 2 horas por dia — ou seja, até 10 horas trabalhadas no total. Passar sistematicamente desse limite é irregular, independentemente de como a compensação é combinada.
+</Alert>
+
+## Quando a hora extra entra em férias, 13º e FGTS
+
+Se você faz hora extra **com habitualidade** (regularmente, não de forma esporádica), a média mensal dessas horas — já somada ao reflexo do DSR — passa a integrar a base de cálculo de outras verbas:
+
+- **Férias + 1/3** e **13º salário** (Súmulas 45 e 347 do TST, e art. 142, §5º da CLT).
+- **Aviso prévio**, quando indenizado.
+- **FGTS**, inclusive a multa de 40% na demissão sem justa causa (art. 15 da Lei nº 8.036/1990).
+
+Isso significa que quem faz hora extra todo mês recebe férias, 13º e FGTS um pouco maiores do que quem ganha só o salário fixo — veja o passo a passo dessas contas em [como calcular as férias](/trabalho/como-calcular-ferias), [como calcular o 13º salário](/trabalho/como-calcular-decimo-terceiro) e, na saída da empresa, em [como calcular a rescisão](/trabalho/como-calcular-rescisao).
+
+## O que essa conta não considera
+
+- **Adicional noturno** (20% a mais para quem trabalha entre 22h e 5h, com a hora reduzida para 52min30s), que se soma à hora extra quando os dois coincidem, mas tem regra e cálculo próprios.
+- **Convenções coletivas** da sua categoria, que podem prever percentual de hora extra maior que 50% ou regras específicas de banco de horas.
+- **Cargos de confiança e trabalho externo sem controle de ponto** (art. 62 da CLT), que em regra não têm direito a hora extra — a exceção depende de comprovação de que havia controle de fato sobre o horário.
+- **Comissionistas**, cuja base de cálculo da hora extra usa a média das comissões recebidas, não só o salário fixo.
+
+## O que fazer se a empresa não pagar
+
+O controle de ponto (cartão, aplicativo ou livro) é obrigatório para empresas com mais de 20 empregados, e serve como prova do que foi trabalhado. Se o valor das horas extras não aparecer no contracheque ou estiver errado:
+
+1. Confira seus próprios registros de entrada e saída e compare com o holerite.
+2. Procure o RH da empresa, por escrito, pedindo a correção.
+3. Sem solução, leve o caso ao sindicato da categoria ou registre uma reclamação na Justiça do Trabalho — o trabalhador pode cobrar horas extras não pagas dos últimos 5 anos trabalhados, com prazo de até 2 anos após o fim do contrato para entrar com a ação.
+
+Para conferir o quanto essas horas pesam no seu salário líquido do mês, use a [calculadora de salário líquido](/ferramentas/calculadora-salario-liquido) — ela usa as mesmas tabelas de INSS e Imposto de Renda de 2026 publicadas em [/metodologia](/metodologia).

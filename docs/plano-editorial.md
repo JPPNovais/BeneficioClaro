@@ -61,7 +61,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] como-calcular-ferias — férias + 1/3, proporcionais e os descontos `[ferias-decimo]`
 - [ ] vender-ferias-vale-a-pena — abono pecuniário: quanto rende vender 10 dias `[ferias-decimo]`
 - [x] como-calcular-decimo-terceiro — as duas parcelas e por que a 2ª vem menor `[ferias-decimo]`
-- [ ] como-calcular-hora-extra — 50% e 100%, reflexo no DSR, com exemplo `[outros-direitos]`
+- [x] como-calcular-hora-extra — 50% e 100%, reflexo no DSR, com exemplo `[outros-direitos]`
 - [ ] adicional-noturno-como-calcular — 20%, hora reduzida de 52min30s `[outros-direitos]`
 - [ ] justa-causa-o-que-recebo — o que sobra e quais faltas configuram `[rescisao]`
 
