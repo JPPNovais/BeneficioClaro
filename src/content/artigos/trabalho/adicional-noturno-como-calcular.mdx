@@ -1,0 +1,154 @@
+---
+title: "Adicional noturno: como calcular os 20% e a hora reduzida"
+slug: "adicional-noturno-como-calcular"
+categoria: "trabalho"
+subtopico: "outros-direitos"
+capa: "../../../assets/covers/adicional-noturno-como-calcular.png"
+capaAlt: "Arte do Benefício Claro sobre como calcular o adicional noturno"
+description: "Como calcular o adicional noturno: os 20% a mais, a hora reduzida de 52min30s e o horário das 22h às 5h. Com exemplo completo e regras para rural e doméstico."
+respostaRapida: "Quem trabalha entre 22h e 5h tem direito a pelo menos 20% a mais sobre o valor da hora normal, além da hora noturna reduzida: cada 52min30s trabalhados valem como 1 hora cheia. Um salário de R$ 2.200 (divisor 220) rende R$ 12,00 por hora noturna, e um turno de 7 horas corridas nesse período é pago como 8 horas."
+dataPublicacao: 2026-08-25
+dataAtualizacao: 2026-08-25
+autor: "camila_duarte"
+revisado: true
+tags:
+  - "adicional noturno"
+  - "CLT"
+  - "hora noturna reduzida"
+  - "jornada de trabalho"
+  - "direitos trabalhistas"
+fontesOficiais:
+  - label: "CLT — Decreto-Lei nº 5.452/1943, art. 73 (adicional noturno) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+  - label: "Lei nº 5.889/1973, art. 7º (trabalho noturno rural) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/leis/l5889.htm"
+  - label: "Lei Complementar nº 150/2015, art. 14 (adicional noturno do doméstico) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp150.htm"
+  - label: "TST — Súmula nº 60 (adicional noturno e prorrogação da jornada)"
+    href: "https://www3.tst.jus.br/jurisprudencia/Sumulas_com_indice/Sumulas_Ind_51_100.html"
+referencias:
+  - label: "Guia Trabalhista — Adicional noturno: cálculo e legislação"
+    href: "https://www.guiatrabalhista.com.br/guia/adicional_noturno.htm"
+  - label: "Pontotel — Adicional noturno: o que é, como calcular e quem tem direito"
+    href: "https://www.pontotel.com.br/adicional-noturno/"
+faq:
+  - pergunta: "O adicional noturno é sempre 20%?"
+    resposta: "20% é o mínimo garantido pela CLT para o trabalhador urbano. Uma convenção ou acordo coletivo da categoria pode fixar um percentual maior — bancários, por exemplo, costumam ter adicionais superiores por norma coletiva. Já o trabalhador rural tem piso diferente: 25% na lavoura e na pecuária, sem direito à hora reduzida."
+  - pergunta: "O que é a hora noturna reduzida?"
+    resposta: "É uma ficção jurídica criada pelo art. 73, §1º da CLT: cada 52 minutos e 30 segundos trabalhados no período noturno contam como uma hora cheia para fins de pagamento. Na prática, quem cumpre as 7 horas corridas entre 22h e 5h recebe como se tivesse trabalhado 8 horas. Essa regra vale para o trabalhador urbano e para o doméstico, mas não para o rural."
+  - pergunta: "Se eu começo a trabalhar às 22h e saio às 6h, as horas depois das 5h também têm adicional?"
+    resposta: "Sim, se a sua jornada começou e foi cumprida integralmente dentro do período noturno e apenas se estendeu (prorrogou) para depois das 5h. Pela Súmula 60, item II, do TST, o adicional noturno e a hora reduzida continuam valendo também para essas horas de prorrogação, porque o desgaste de trabalhar à noite não termina no minuto exato em que bate 5h."
+  - pergunta: "Quem trabalha em horário misto (parte de dia, parte de noite) tem direito ao adicional?"
+    resposta: "Tem, mas só sobre as horas que efetivamente caem dentro do período noturno (22h às 5h, para o urbano). As horas cumpridas fora desse intervalo são pagas normalmente, sem adicional nem redução."
+  - pergunta: "O adicional noturno entra no cálculo de férias, 13º e FGTS?"
+    resposta: "Sim, quando é habitual. Por ter natureza salarial, o valor recebido a título de adicional noturno integra a remuneração para o cálculo de férias + 1/3, 13º salário, aviso prévio e FGTS — do mesmo jeito que a hora extra habitual."
+  - pergunta: "Empregada doméstica tem direito ao adicional noturno?"
+    resposta: "Tem, nas mesmas condições do trabalhador urbano: 20% sobre a hora diurna, no horário das 22h às 5h, com a hora reduzida de 52min30s. A regra está no art. 14 da Lei Complementar nº 150/2015, a lei que organiza os direitos do trabalho doméstico."
+relacionados:
+  - "como-calcular-hora-extra"
+  - "como-calcular-salario-liquido"
+  - "como-calcular-decimo-terceiro"
+howTo:
+  name: "Como calcular o adicional noturno"
+  steps:
+    - name: "Ache o valor da sua hora normal"
+      text: "Divida o salário mensal pelo divisor da sua jornada: 220 para 44 horas semanais, 200 para 40 horas semanais."
+    - name: "Aplique o adicional de 20%"
+      text: "Multiplique o valor da hora normal por 1,20 — esse é o valor de cada hora trabalhada entre 22h e 5h."
+    - name: "Converta pela hora reduzida"
+      text: "Divida o tempo corrido trabalhado no período noturno por 52min30s (0,875 hora) para achar quantas horas noturnas você deve receber."
+    - name: "Multiplique horas noturnas pelo valor com adicional"
+      text: "O total pago pelo turno noturno é o número de horas noturnas (já convertidas) vezes o valor da hora com os 20%."
+---
+
+import Alert from "@components/feedback/Alert.astro";
+
+Quem trabalha à noite ganha mais que quem faz o mesmo tipo de trabalho de dia — e não é só uma questão de percentual. A CLT dá dois benefícios ao mesmo tempo: um adicional de pelo menos 20% sobre o valor da hora e uma "hora reduzida", que faz o relógio contar mais rápido durante o período noturno. Este guia mostra como cada peça funciona e como somá-las numa conta só.
+
+## O que entra na conta do adicional noturno
+
+Dois elementos formam o ganho extra de quem trabalha à noite:
+
+- **O adicional de 20%** — o acréscimo mínimo sobre o valor da hora diurna, garantido pelo art. 73 da CLT para quem trabalha entre 22h e 5h.
+- **A hora noturna reduzida** — cada 52 minutos e 30 segundos trabalhados nesse período valem, para fins de pagamento, como uma hora cheia de 60 minutos.
+
+Os dois efeitos se somam: você ganha um valor maior por hora **e** é pago por mais horas do que realmente trabalhou em minutos corridos.
+
+## Qual é o horário noturno
+
+A CLT define o período noturno urbano como o intervalo entre **22h de um dia e 5h do dia seguinte**. Fora desse intervalo, mesmo que ainda esteja escuro lá fora, não há adicional noturno — só o horário fixado em lei conta.
+
+<Alert tone="info" title="O horário muda para rural e para atividades específicas">
+  Trabalhador rural tem horário noturno diferente: das 21h às 5h na lavoura e das 20h às 4h na pecuária (art. 7º da Lei nº 5.889/1973). Categorias com jornada especial ou norma coletiva própria também podem ter horários distintos — confira o acordo da sua categoria.
+</Alert>
+
+## Como calcular o adicional de 20%
+
+O primeiro passo é achar o valor da sua hora normal, dividindo o salário mensal pelo divisor da jornada: **220** para quem trabalha 44 horas semanais (a jornada mais comum) ou **200** para 40 horas semanais.
+
+Com um salário de **R$ 2.200** e jornada de 44 horas:
+
+**R$ 2.200 ÷ 220 = R$ 10,00** por hora normal.
+
+Sobre esse valor, aplica-se o acréscimo mínimo de 20%:
+
+**R$ 10,00 × 1,20 = R$ 12,00** por hora noturna.
+
+## Como funciona a hora reduzida
+
+Aqui está o ponto que mais confunde: a lei não conta os minutos corridos igual ao período diurno. Cada **52 minutos e 30 segundos** (0,875 hora) trabalhados dentro do período noturno equivalem a **1 hora cheia** para fins de pagamento (art. 73, §1º da CLT).
+
+Na prática, quem cumpre as **7 horas corridas** entre 22h e 5h (o intervalo noturno inteiro) recebe como se tivesse trabalhado:
+
+**7 ÷ 0,875 = 8 horas noturnas.**
+
+Ou seja: 7 horas no relógio de parede viram 8 horas na folha de pagamento — sem que o trabalhador precise ficar 1 hora a mais no serviço.
+
+## Exemplo completo: salário de R$ 2.200, turno das 22h às 5h
+
+Um trabalhador com jornada de 44 horas semanais (divisor 220) e salário de R$ 2.200 cumpre um turno de 7 horas corridas, inteiramente dentro do período noturno (22h às 5h):
+
+| Item | Valor | Como sai |
+|---|---|---|
+| Valor da hora normal | R$ 10,00 | R$ 2.200 ÷ 220 |
+| Valor da hora com adicional (20%) | R$ 12,00 | R$ 10,00 × 1,20 |
+| Horas corridas trabalhadas | 7 horas | Turno das 22h às 5h |
+| Horas noturnas pagas (hora reduzida) | 8 horas | 7 ÷ 0,875 |
+| **Total pago pelo turno** | **R$ 96,00** | 8 horas × R$ 12,00 |
+| Se fosse pago como turno diurno de 7h | R$ 70,00 | 7 horas × R$ 10,00 |
+| **Ganho extra por trabalhar à noite** | **R$ 26,00** | Soma do efeito do adicional + da hora reduzida |
+
+O ganho de R$ 26,00 nesse turno vem de duas fontes: R$ 14,00 pelo adicional de 20% sobre as 7 horas reais (R$ 2,00 × 7) e R$ 12,00 pela hora reduzida (a hora extra "fictícia" que aparece na conta, já com o adicional embutido). Some as duas partes e chega ao mesmo total.
+
+## O que muda em cada situação
+
+- **Prorrogação da jornada além das 5h.** Se você começou a trabalhar dentro do período noturno e a jornada se estendeu para depois das 5h sem interrupção, as horas de prorrogação também mantêm o adicional e a hora reduzida — é o que garante a Súmula 60, item II, do TST. A empresa não pode simplesmente "cortar" o adicional no minuto em que bate 5h.
+- **Horário misto (dia e noite).** Só as horas efetivamente cumpridas entre 22h e 5h recebem o adicional. As horas fora desse intervalo são pagas no valor normal.
+- **Trabalho rural.** O piso é maior (25%, e não 20%), mas não existe hora reduzida — a hora vale os 60 minutos cheios. O horário também muda: 21h às 5h na lavoura, 20h às 4h na pecuária.
+- **Empregada e empregado doméstico.** Seguem a mesma regra do trabalhador urbano — 20%, horário das 22h às 5h e hora reduzida —, garantida pelo art. 14 da Lei Complementar nº 150/2015.
+- **Adicional noturno + hora extra.** Quando as duas coisas coincidem (hora extra feita dentro do período noturno), os dois adicionais se somam: primeiro aplica-se a hora reduzida e o adicional noturno sobre as horas noturnas, depois o acréscimo de hora extra sobre o que passar da jornada normal. Veja o cálculo da hora extra em [como calcular a hora extra](/trabalho/como-calcular-hora-extra).
+- **Servidor público e categorias com norma própria.** Podem ter percentual, horário ou regras de conversão diferentes, fixados em lei específica ou estatuto — confira a norma da sua categoria antes de aplicar a regra geral da CLT.
+
+## O adicional noturno entra em férias, 13º e FGTS?
+
+Sim, quando é **habitual** — ou seja, quando você trabalha à noite com regularidade, não só uma vez isolada. Por ter natureza salarial, a média do adicional noturno passa a integrar a base de cálculo de:
+
+- **Férias + 1/3** e **13º salário**, junto com outras verbas variáveis como a hora extra habitual — veja o passo a passo em [como calcular as férias](/trabalho/como-calcular-ferias) e [como calcular o 13º salário](/trabalho/como-calcular-decimo-terceiro).
+- **Aviso prévio**, quando indenizado, e **FGTS**, inclusive a multa de 40% na demissão sem justa causa.
+
+## O que essa conta não considera
+
+- **Convenções e acordos coletivos** que fixem percentual maior que 20% para a categoria — sempre confira o instrumento coletivo do seu sindicato.
+- **Cargos de confiança e trabalho externo sem controle de ponto** (art. 62 da CLT), que em regra não têm direito ao adicional, salvo prova de que havia controle de fato do horário.
+- **Regras de categorias especiais** (bancários, vigilantes, motoristas profissionais, entre outras), que podem ter jornada, percentual ou forma de cálculo próprios definidos em lei específica.
+- **Trabalho em regime de plantão ou escala 12x36**, cuja integração do adicional noturno tem entendimento próprio nos tribunais.
+
+## O que fazer se o adicional não aparecer no contracheque
+
+O horário de entrada e saída registrado no controle de ponto é a prova do trabalho noturno — por isso vale sempre conferir o cartão de ponto ou o aplicativo da empresa contra o holerite:
+
+1. Confira se as horas entre 22h e 5h aparecem destacadas no contracheque, com o adicional calculado sobre elas.
+2. Se o valor não bater, procure o RH por escrito, pedindo a correção e apontando as datas e horários trabalhados.
+3. Sem solução, o passo seguinte é o sindicato da categoria ou uma reclamação na Justiça do Trabalho — o trabalhador pode cobrar diferenças de adicional noturno dos últimos 5 anos trabalhados, com prazo de até 2 anos após o fim do contrato para entrar com a ação.
+
+Para ver como o adicional noturno se combina com o INSS e o Imposto de Renda no seu salário do mês, use a [calculadora de salário líquido](/ferramentas/calculadora-salario-liquido) — ela usa as mesmas tabelas de 2026 publicadas em [/metodologia](/metodologia).
