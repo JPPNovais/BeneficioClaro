@@ -69,7 +69,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 
 - [x] consultar-saldo-fgts — como ver o saldo pelo app FGTS e pelo site da Caixa
 - [x] saque-aniversario-fgts-como-funciona — como funciona e vale a pena? (linke a ferramenta /ferramentas/saque-aniversario-fgts)
-- [ ] fgts-demissao-sem-justa-causa — quanto recebo de FGTS + multa de 40%
+- [x] fgts-demissao-sem-justa-causa — quanto recebo de FGTS + multa de 40%
 - [ ] saque-rescisao-x-saque-aniversario — diferença entre as duas modalidades
 - [ ] como-sacar-fgts — em quais situações dá para sacar o FGTS
 - [ ] fgts-rende-quanto — rendimento anual do FGTS
