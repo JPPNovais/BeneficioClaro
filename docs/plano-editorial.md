@@ -71,7 +71,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] saque-aniversario-fgts-como-funciona — como funciona e vale a pena? (linke a ferramenta /ferramentas/saque-aniversario-fgts)
 - [x] fgts-demissao-sem-justa-causa — quanto recebo de FGTS + multa de 40%
 - [x] saque-rescisao-x-saque-aniversario — diferença entre as duas modalidades
-- [ ] como-sacar-fgts — em quais situações dá para sacar o FGTS
+- [x] como-sacar-fgts — em quais situações dá para sacar o FGTS
 - [ ] fgts-rende-quanto — rendimento anual do FGTS
 - [ ] fgts-conta-inativa — como sacar FGTS de conta antiga/inativa
 
