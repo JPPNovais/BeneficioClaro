@@ -72,7 +72,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] fgts-demissao-sem-justa-causa — quanto recebo de FGTS + multa de 40%
 - [x] saque-rescisao-x-saque-aniversario — diferença entre as duas modalidades
 - [x] como-sacar-fgts — em quais situações dá para sacar o FGTS
-- [ ] fgts-rende-quanto — rendimento anual do FGTS
+- [x] fgts-rende-quanto — rendimento anual do FGTS
 - [ ] fgts-conta-inativa — como sacar FGTS de conta antiga/inativa
 
 ## INSS e aposentadoria (categoria: inss)
