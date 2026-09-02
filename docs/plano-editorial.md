@@ -81,7 +81,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] auxilio-doenca-quem-tem-direito — regras e como pedir
 - [x] bpc-loas-quem-tem-direito — benefício de R$ 1 salário mínimo (idoso/deficiente)
 - [x] aposentadoria-por-idade-regras — idade e tempo de contribuição em 2026
-- [ ] como-contar-tempo-de-contribuicao — CNIS, períodos que contam e como corrigir
+- [x] como-contar-tempo-de-contribuicao — CNIS, períodos que contam e como corrigir
 - [ ] quanto-vou-receber-de-aposentadoria — média dos salários e o cálculo do valor
 
 ## Finanças do dia a dia (categoria: financas)
