@@ -1,0 +1,139 @@
+---
+title: "Quanto vou receber de aposentadoria? Veja como calcular"
+slug: "quanto-vou-receber-de-aposentadoria"
+categoria: "inss"
+capa: "../../../assets/covers/quanto-vou-receber-de-aposentadoria.png"
+capaAlt: "Arte do Benefício Claro sobre como calcular o valor da aposentadoria do INSS"
+description: "O valor da aposentadoria do INSS é a média dos seus salários desde julho de 1994, multiplicada por um coeficiente que começa em 60% e sobe 2% por ano. Veja a conta com exemplo."
+respostaRapida: "O INSS calcula a média de todos os seus salários de contribuição desde julho de 1994 (corrigidos pela inflação) e aplica um coeficiente: 60% da média, mais 2% para cada ano de contribuição que passar do mínimo exigido pela regra usada. O valor final nunca fica abaixo de um salário mínimo nem acima do teto do INSS."
+dataPublicacao: 2026-09-03
+dataAtualizacao: 2026-09-03
+autor: "redacao"
+revisado: true
+tags:
+  - "aposentadoria"
+  - "inss"
+  - "cálculo"
+  - "média salarial"
+  - "meu inss"
+fontesOficiais:
+  - label: "INSS — Valor das aposentadorias (gov.br)"
+    href: "https://www.gov.br/inss/pt-br/saiba-mais/aposentadorias/aposentadoria-por-tempo-de-contribuicao/valor-das-aposentadorias"
+  - label: "INSS — Confira as principais mudanças da Nova Previdência (gov.br)"
+    href: "https://www.gov.br/inss/pt-br/noticias/noticias/confira-as-principais-mudancas-da-nova-previdencia"
+  - label: "Emenda Constitucional nº 103/2019 (Reforma da Previdência) — Planalto"
+    href: "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm"
+referencias:
+  - label: "Agência Brasil (EBC) — Entenda mudanças na aposentadoria em 2026"
+    href: "https://agenciabrasil.ebc.com.br/economia/noticia/2026-01/entenda-mudancas-na-aposentadoria-em-2026"
+  - label: "Mix Vale — Planeje sua aposentadoria INSS 2026: descubra as fórmulas e otimize o benefício"
+    href: "https://www.mixvale.com.br/2026/08/26/planeje-sua-aposentadoria-inss-2026-descubra-as-formulas-e-otimize-o-beneficio/"
+faq:
+  - pergunta: "A aposentadoria é calculada sobre o último salário?"
+    resposta: "Não. Desde a Reforma da Previdência de 2019, o cálculo usa a média de todos os salários de contribuição desde julho de 1994, corrigidos pela inflação — não só o último salário nem os maiores valores da carreira. Quem teve um salário mais baixo no início da vida profissional e foi subindo tem uma média puxada para baixo por esses anos iniciais."
+  - pergunta: "Por que minha média pode ser mais baixa do que eu esperava?"
+    resposta: "Porque meses sem contribuição dentro do período contado (desde julho de 1994) entram na conta como salário zero, reduzindo a média final. Antes da reforma de 2019, o INSS descartava os 20% menores salários da carreira; hoje não descarta mais nenhum. Por isso, quanto mais tempo de carteira assinada ou contribuição contínua, mais a média se aproxima dos seus melhores salários."
+  - pergunta: "Com quantos anos de contribuição eu chego a 100% da média?"
+    resposta: "Depende do sexo: mulher chega a 100% com 35 anos de contribuição (15 de base + 20 anos × 2% = 40%, somados aos 60% iniciais); homem chega a 100% com 40 anos de contribuição (20 de base + 20 anos × 2%). Quem se aposenta com menos tempo que isso recebe um percentual da média entre 60% e 100%, conforme os anos que exceder o mínimo da regra usada."
+  - pergunta: "O valor pode ficar abaixo de um salário mínimo?"
+    resposta: "Não. Por determinação constitucional, nenhuma aposentadoria do INSS paga menos que um salário mínimo (R$ 1.621 em 2026), mesmo que a conta da média × coeficiente resulte em um valor menor. Também não pode ultrapassar o teto do INSS, de R$ 8.475,55 em 2026."
+  - pergunta: "Quem se aposenta pelo pedágio de 100% recebe mais?"
+    resposta: "Tende a receber mais, sim. Essa é a única regra de transição pós-reforma que paga 100% da média salarial, sem o coeficiente de 60% + 2% ao ano usado nas demais regras. Em compensação, exige trabalhar o dobro do tempo que faltava para a aposentadoria em 13/11/2019, além de uma idade mínima. Veja os detalhes em [aposentadoria por idade: idade e regras em 2026](/inss/aposentadoria-por-idade-regras)."
+  - pergunta: "Como sei o valor exato que vou receber?"
+    resposta: "A conta manual dá uma estimativa, mas só o Meu INSS tem acesso ao seu histórico completo de salários de contribuição corrigidos. A simulação de aposentadoria, disponível no site e no aplicativo Meu INSS, mostra o valor estimado com base no seu CNIS real — é o número mais confiável antes de dar entrada no pedido."
+relacionados:
+  - "aposentadoria-por-idade-regras"
+  - "como-contar-tempo-de-contribuicao"
+  - "bpc-loas-quem-tem-direito"
+---
+
+import Alert from "@components/feedback/Alert.astro";
+
+"Vou trabalhar mais 15 anos, mas quanto isso vale no fim das contas?" É a pergunta que vem logo depois de descobrir a idade e o tempo de contribuição necessários. A resposta tem uma fórmula fixa — média dos salários vezes um coeficiente — mas os dois números dessa conta escondem detalhes que mudam bastante o resultado final. Veja como calcular, com um exemplo completo.
+
+## O que entra na conta do valor da aposentadoria
+
+O valor mensal do benefício vem de dois elementos, multiplicados um pelo outro:
+
+- **A média salarial** (chamada de "salário de benefício"): a média de todos os seus salários de contribuição desde julho de 1994, corrigidos pela inflação até a data do pedido.
+- **O coeficiente**: um percentual que começa em 60% e sobe 2 pontos para cada ano de contribuição que exceder o tempo mínimo da regra usada para se aposentar.
+
+O resultado dessa multiplicação é limitado por dois pisos: nunca pode ficar **abaixo de um salário mínimo** (R$ 1.621 em 2026) nem **acima do teto do INSS** (R$ 8.475,55 em 2026).
+
+## Como se calcula a média salarial
+
+Desde a Reforma da Previdência (Emenda Constitucional nº 103/2019), a regra mudou: a média passou a considerar **todos** os salários de contribuição registrados desde **julho de 1994** — não mais só os 80% maiores, como era antes de 2019.
+
+Isso funciona assim:
+
+1. O INSS reúne, no seu **CNIS** (Cadastro Nacional de Informações Sociais), todos os salários sobre os quais você contribuiu, mês a mês, desde julho de 1994 (ou desde que você começou a contribuir, se foi depois disso).
+2. Cada salário antigo é **corrigido monetariamente** pela inflação (INPC), para ficar em valores comparáveis aos de hoje.
+3. Somam-se todos os valores corrigidos e divide-se pelo **número total de meses** do período — incluindo os meses em que não houve contribuição, que entram como salário zero.
+
+<Alert tone="warning" title="Meses sem contribuição pesam contra você">
+  Esse último ponto é o que mais surpreende quem calcula pela primeira vez: como a regra atual não descarta mais os salários mais baixos (nem os meses vazios), períodos de desemprego, informalidade ou baixa renda dentro da janela contada reduzem a média final — mesmo que hoje você já ganhe bem mais. Quanto mais contínuo o histórico de contribuição, mais a média se aproxima dos seus salários mais recentes.
+</Alert>
+
+## Como se calcula o coeficiente (60% + 2% ao ano)
+
+O coeficiente aplicado sobre a média depende de quantos anos de contribuição você tem **além** do mínimo exigido pela regra pela qual está se aposentando (regra permanente, regra de pontos ou idade mínima progressiva — veja cada uma em [aposentadoria por idade: idade e regras em 2026](/inss/aposentadoria-por-idade-regras)):
+
+- **Base:** 60% da média, para quem cumpre exatamente o tempo mínimo (20 anos de contribuição para homem, 15 para mulher).
+- **Acréscimo:** +2 pontos percentuais para cada ano de contribuição que passar desse mínimo.
+
+Fazendo a conta ao contrário: o coeficiente chega a **100%** com **35 anos de contribuição para mulher** (15 + 20 anos × 2% = 40%, somados aos 60% iniciais) e **40 anos para homem** (20 + 20 anos × 2%). Contribuir além disso não aumenta mais o coeficiente — ele já está no teto de 100%.
+
+A única exceção é o **pedágio de 100%** (regra de transição para quem já estava perto de se aposentar em 13/11/2019): nela, o benefício já sai direto em 100% da média, sem passar pelo cálculo de 60% + 2% ao ano.
+
+## Exemplo completo
+
+Um trabalhador se aposenta pela regra permanente aos 65 anos, com **30 anos de contribuição** — 10 anos além do mínimo de 20 exigido para homens. A média dos salários de contribuição dele, já corrigida, ficou em **R$ 3.500**.
+
+| Item | Cálculo | Valor |
+|---|---|---|
+| Média salarial | Soma dos salários corrigidos ÷ meses | R$ 3.500,00 |
+| Anos além do mínimo | 30 anos − 20 anos | 10 anos |
+| Coeficiente | 60% + (10 × 2%) | 80% |
+| **Valor da aposentadoria** | R$ 3.500 × 80% | **R$ 2.800,00** |
+
+Agora compare com uma trabalhadora que se aposenta com **35 anos de contribuição** e a mesma média de R$ 3.500:
+
+| Item | Cálculo | Valor |
+|---|---|---|
+| Anos além do mínimo (15 anos p/ mulher) | 35 − 15 | 20 anos |
+| Coeficiente | 60% + (20 × 2%) = 100% (teto) | 100% |
+| **Valor da aposentadoria** | R$ 3.500 × 100% | **R$ 3.500,00** |
+
+Com mais tempo de contribuição, o coeficiente sobe e o benefício se aproxima (ou empata) com a própria média salarial.
+
+## O que muda em cada situação
+
+- **Quanto mais tempo de contribuição além do mínimo, maior o coeficiente** — até o teto de 100%, atingido aos 35 anos (mulher) ou 40 anos (homem).
+- **Pedágio de 100%:** paga 100% da média direto, sem o coeficiente de 60% + 2% — costuma ser a regra com o maior valor para quem se enquadra e consegue esperar.
+- **Quem tem histórico de informalidade ou desemprego:** a média cai, porque os meses sem contribuição entram como zero na conta desde julho de 1994.
+- **Quem só começou a contribuir depois de julho de 1994:** a média considera apenas os meses desde o início da vida contributiva, não o período todo.
+- **Categorias especiais** (professor, rural, pessoa com deficiência, atividade especial): têm coeficientes e tempos mínimos próprios, diferentes da regra geral usada nos exemplos acima.
+
+## O que essa conta não considera
+
+- **Correção mês a mês exata pelo INPC** — o exemplo usa uma média já corrigida para simplificar; na prática, cada salário antigo tem um fator de correção diferente, aplicado pelo sistema do INSS.
+- **Décimo terceiro e outras verbas** — o cálculo do benefício usa o salário de contribuição mensal, não inclui 13º ou outras parcelas variáveis diretamente na fórmula da média.
+- **Categorias com regra própria** — professor, trabalhador rural, pessoa com deficiência e quem exerceu atividade especial (insalubre/perigosa) têm tempos mínimos e coeficientes diferentes dos usados aqui.
+- **Pensão alimentícia ou outros descontos judiciais** — se houver, são deduzidos do valor já calculado, não alteram a fórmula em si.
+
+<Alert tone="info" title="A conta oficial usa o seu CNIS real">
+  Este guia explica a lógica da fórmula com valores redondos para facilitar o entendimento. O número exato do seu benefício depende do seu histórico completo de contribuições, salário por salário — e isso só o **Meu INSS** tem registrado.
+</Alert>
+
+## Como ver a simulação com os seus números reais
+
+1. **Acesse o Meu INSS** (aplicativo ou site) com login gov.br.
+2. **Confira o extrato CNIS** primeiro, para garantir que todos os seus vínculos e salários estão registrados corretamente — veja como em [como contar o tempo de contribuição pelo CNIS](/inss/como-contar-tempo-de-contribuicao).
+3. **Use a simulação de aposentadoria**, disponível no menu do Meu INSS: ela calcula a média e o coeficiente automaticamente, comparando as regras pelas quais você já tem direito ou está perto de cumprir.
+4. **Compare as regras disponíveis** — às vezes a regra em que você se enquadra primeiro não é a que paga o maior valor.
+
+O serviço é **gratuito**. Desconfie de qualquer site ou pessoa que cobre para "calcular" ou "liberar" a simulação — isso não existe.
+
+## Perguntas frequentes
+
+Se a sua situação envolve atividade rural, magistério, deficiência ou atividade especial, o cálculo pode ter variações importantes em relação ao exemplo geral deste guia — o caminho mais seguro é sempre conferir a simulação real no Meu INSS. Veja também as regras de idade e tempo de contribuição em [aposentadoria por idade em 2026](/inss/aposentadoria-por-idade-regras) e, para quem ainda não tem tempo suficiente, o [BPC/LOAS](/inss/bpc-loas-quem-tem-direito), que não exige contribuição prévia.
