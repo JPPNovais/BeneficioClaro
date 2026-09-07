@@ -92,7 +92,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] custo-de-parcelar-no-cartao — quanto custa o rotativo e o parcelado, com exemplo
 - [x] como-sair-das-dividas-pouco-dinheiro — organizar as contas com pouca renda
 - [x] como-fazer-orcamento-familiar — método simples para o mês fechar
-- [ ] conta-digital-sem-tarifa — como abrir conta digital gratuita
+- [x] conta-digital-sem-tarifa — como abrir conta digital gratuita
 - [ ] como-comecar-a-investir-com-pouco — Tesouro Direto e poupança
 - [ ] pe-de-meia-poupanca-estudante — como funciona a poupança do estudante
 
