@@ -99,7 +99,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 ## MEI e renda extra (categoria: renda-extra)
 
 - [x] como-abrir-mei — passo a passo para virar MEI e vantagens
-- [ ] das-mei-quanto-custa — valor do DAS, o que ele cobre e o que acontece se atrasar
+- [x] das-mei-quanto-custa — valor do DAS, o que ele cobre e o que acontece se atrasar
 - [ ] limite-faturamento-mei — teto anual, o que fazer ao estourar e quando virar ME
 - [ ] mei-e-bolsa-familia — ser MEI atrapalha o Bolsa Família?
 - [ ] como-ganhar-dinheiro-extra — ideias reais de renda extra em 2026
