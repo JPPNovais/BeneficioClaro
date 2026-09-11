@@ -83,6 +83,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] aposentadoria-por-idade-regras — idade e tempo de contribuição em 2026
 - [x] como-contar-tempo-de-contribuicao — CNIS, períodos que contam e como corrigir
 - [x] quanto-vou-receber-de-aposentadoria — média dos salários e o cálculo do valor
+- [x] salario-familia-quem-tem-direito — quem tem direito, valor da cota e limite de renda em 2026 (notícia: Portaria Interministerial MPS/MF nº 13/2026 reajustou a cota para R$ 67,54 e esclareceu o cálculo proporcional)
 
 ## Finanças do dia a dia (categoria: financas)
 
