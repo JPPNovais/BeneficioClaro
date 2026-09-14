@@ -103,7 +103,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] das-mei-quanto-custa — valor do DAS, o que ele cobre e o que acontece se atrasar
 - [x] limite-faturamento-mei — teto anual, o que fazer ao estourar e quando virar ME
 - [x] mei-e-bolsa-familia — ser MEI atrapalha o Bolsa Família?
-- [ ] como-ganhar-dinheiro-extra — ideias reais de renda extra em 2026
+- [x] como-ganhar-dinheiro-extra — ideias reais de renda extra em 2026
 - [ ] como-ganhar-dinheiro-na-internet — formas reais e seguras (sem golpe)
 - [ ] trabalhos-em-casa-para-ganhar-dinheiro — opções de trabalho remoto
 - [ ] como-vender-online — marketplaces e redes sociais
