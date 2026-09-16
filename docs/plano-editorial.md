@@ -104,7 +104,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] limite-faturamento-mei — teto anual, o que fazer ao estourar e quando virar ME
 - [x] mei-e-bolsa-familia — ser MEI atrapalha o Bolsa Família?
 - [x] como-ganhar-dinheiro-extra — ideias reais de renda extra em 2026
-- [ ] como-ganhar-dinheiro-na-internet — formas reais e seguras (sem golpe)
+- [x] como-ganhar-dinheiro-na-internet — formas reais e seguras (sem golpe)
 - [ ] trabalhos-em-casa-para-ganhar-dinheiro — opções de trabalho remoto
 - [ ] como-vender-online — marketplaces e redes sociais
 - [ ] renda-extra-para-aposentados — o que a lei permite
