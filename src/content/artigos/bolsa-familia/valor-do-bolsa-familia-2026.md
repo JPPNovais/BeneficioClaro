@@ -4,10 +4,10 @@ slug: "valor-do-bolsa-familia-2026"
 categoria: "bolsa-familia"
 capa: "../../../assets/covers/valor-do-bolsa-familia-2026.png"
 capaAlt: "Arte do Benefício Claro sobre o valor do Bolsa Família em 2026"
-description: "Quanto o Bolsa Família paga em 2026: o mínimo de R$ 600 por família, os adicionais de R$ 150 e R$ 50 e a Regra de Proteção. Com exemplos de cálculo."
-respostaRapida: "Em 2026, o Bolsa Família paga no mínimo R$ 600 por família, mais R$ 150 por criança de até 6 anos e R$ 50 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos. O valor final depende de quem mora na casa; o benefício médio fica em torno de R$ 690 a R$ 700."
+description: "Quanto o Bolsa Família paga a partir de outubro de 2026: o mínimo de R$ 691 por família, os adicionais de R$ 173 e R$ 58 e a Regra de Proteção. Com exemplos de cálculo."
+respostaRapida: "Desde outubro de 2026, o Bolsa Família paga no mínimo R$ 691 por família, mais R$ 173 por criança de até 6 anos e R$ 58 por gestante, nutriz e por criança ou adolescente de 7 a 18 anos — valores reajustados em 15,04% pelo Decreto nº 13.120/2026. O valor final depende de quem mora na casa; o benefício médio fica em torno de R$ 777."
 dataPublicacao: 2026-06-08
-dataAtualizacao: 2026-06-25
+dataAtualizacao: 2026-09-18
 autor: "redacao"
 revisado: true
 subtopico: "valores"
@@ -17,6 +17,8 @@ tags:
   - "benefício primeira infância"
   - "benefício variável familiar"
 fontesOficiais:
+  - label: "Lei nº 14.601, de 19 de junho de 2023 — institui o Programa Bolsa Família (Planalto)"
+    href: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14601.htm"
   - label: "Bolsa Família — Ministério do Desenvolvimento (gov.br)"
     href: "https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia"
   - label: "Receber o Bolsa Família — serviço oficial (gov.br)"
@@ -26,17 +28,19 @@ fontesOficiais:
 referencias:
   - label: "Correio Braziliense — regras e valores do Bolsa Família 2026"
     href: "https://www.correiobraziliense.com.br/aqui/2026/05/18/bolsa-familia-2026-confira-as-regras-e-valores-dos-beneficios/"
-  - label: "Fast Company Brasil — qual o valor do Bolsa Família em 2026"
-    href: "https://fastcompanybrasil.com/money/qual-o-valor-do-bolsa-familia-em-2026/"
+  - label: "Agência Brasil — Bolsa Família é reajustado em 15%; medida vale a partir de outubro"
+    href: "https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/bolsa-familia-e-reajustado-em-15-medida-vale-partir-de-outubro"
 faq:
-  - pergunta: "O valor mínimo de R$ 600 vale para todo mundo?"
-    resposta: "Sim. Toda família que entra no programa e cumpre as regras recebe pelo menos R$ 600 por mês, mesmo que a soma dos adicionais dê um número menor. Os adicionais entram por cima desse piso."
+  - pergunta: "O valor mínimo de R$ 691 vale para todo mundo?"
+    resposta: "Sim. Toda família que entra no programa e cumpre as regras recebe pelo menos R$ 691 por mês (valor reajustado a partir de outubro de 2026), mesmo que a soma dos adicionais dê um número menor. Os adicionais entram por cima desse piso."
   - pergunta: "Recebo um valor por pessoa ou por família?"
-    resposta: "O pagamento é por família: junta-se o mínimo de R$ 600 com os adicionais de cada integrante que se enquadra (crianças, gestantes, nutrizes e adolescentes). Não é um valor para cada pessoa."
+    resposta: "O pagamento é por família: junta-se o mínimo de R$ 691 com os adicionais de cada integrante que se enquadra (crianças, gestantes, nutrizes e adolescentes). Não é um valor para cada pessoa."
   - pergunta: "Por que recebi menos do que esperava?"
     resposta: "Pode ser a Regra de Proteção (quem está com renda entre R$ 218 e R$ 706 por pessoa recebe 50% do valor), um desconto por descumprir condicionalidades, ou um cadastro que precisa de atualização. Procure o CRAS ou consulte o app Bolsa Família para entender o motivo."
   - pergunta: "O valor aumenta se nascer um filho?"
-    resposta: "Sim. Ao registrar o nascimento e atualizar o CadÚnico, a família passa a receber o adicional de R$ 150 do Benefício Primeira Infância por aquela criança de até 6 anos. Por isso avise a mudança no CRAS assim que puder — o valor só é ajustado depois que o cadastro reflete a nova composição da família."
+    resposta: "Sim. Ao registrar o nascimento e atualizar o CadÚnico, a família passa a receber o adicional de R$ 173 do Benefício Primeira Infância por aquela criança de até 6 anos. Por isso avise a mudança no CRAS assim que puder — o valor só é ajustado depois que o cadastro reflete a nova composição da família."
+  - pergunta: "Por que o valor subiu em relação ao início de 2026?"
+    resposta: "Porque o governo reajustou os valores do programa em 15,04% pelo Decreto nº 13.120/2026, a primeira correção pela inflação (INPC) desde a recriação do Bolsa Família em 2023. O novo valor vale a partir do pagamento de outubro de 2026 — veja os detalhes em [o reajuste do Bolsa Família em outubro de 2026](/noticias/reajuste-bolsa-familia-2026)."
 relacionados:
   - "quem-tem-direito-bolsa-familia"
   - "como-se-inscrever-cadastro-unico"
@@ -44,30 +48,30 @@ relacionados:
 
 O valor do Bolsa Família não é um número fixo igual para todo mundo. Ele parte de um piso garantido e cresce conforme a composição da sua família. Entender como a conta é montada ajuda você a saber quanto esperar — e a perceber rápido se algo veio errado.
 
-## O valor mínimo: R$ 600 por família
+## O valor mínimo: R$ 691 por família
 
-Toda família que entra no programa e cumpre as regras recebe **pelo menos R$ 600 por mês**. Esse é o piso: mesmo que a soma dos adicionais dê menos que isso, o pagamento é completado até chegar a R$ 600. O valor é **por família**, não por pessoa.
+Toda família que entra no programa e cumpre as regras recebe **pelo menos R$ 691 por mês** — valor reajustado em 15,04% pelo Decreto nº 13.120/2026 e válido a partir do pagamento de **outubro de 2026** (até setembro, o piso era R$ 600). Esse é o piso: mesmo que a soma dos adicionais dê menos que isso, o pagamento é completado até chegar a R$ 691. O valor é **por família**, não por pessoa.
 
 ## Os adicionais por integrante
 
 Em cima do mínimo, a família pode receber dois adicionais, conforme quem mora na casa:
 
-- **Benefício Primeira Infância — R$ 150** por criança de **até 6 anos**.
-- **Benefício Variável Familiar — R$ 50** por **gestante, nutriz** e por **criança ou adolescente de 7 a 18 anos**.
+- **Benefício Primeira Infância — R$ 173** por criança de **até 6 anos**.
+- **Benefício Variável Familiar — R$ 58** por **gestante, nutriz** e por **criança ou adolescente de 7 a 18 anos**.
 
-Esses adicionais existem para reforçar o apoio justamente nas fases em que a criança e a gestante mais precisam de cuidado.
+Esses adicionais existem para reforçar o apoio justamente nas fases em que a criança e a gestante mais precisam de cuidado. Veja o histórico do reajuste e a base legal em [o reajuste do Bolsa Família em outubro de 2026](/noticias/reajuste-bolsa-familia-2026).
 
 ## Exemplos de cálculo
 
-Veja como fica a conta em três situações comuns:
+Veja como fica a conta em três situações comuns, já com os valores de outubro de 2026:
 
 | Família | Conta | Total estimado |
 | --- | --- | --- |
-| 1 adulto + 1 bebê (1 ano) | R$ 600 + R$ 150 | **R$ 750** |
-| 2 adultos + 2 crianças (3 e 5 anos) | R$ 600 + R$ 150 + R$ 150 | **R$ 900** |
-| 1 gestante + 1 adolescente (15 anos) | R$ 600 + R$ 50 + R$ 50 | **R$ 700** |
+| 1 adulto + 1 bebê (1 ano) | R$ 691 + R$ 173 | **R$ 864** |
+| 2 adultos + 2 crianças (3 e 5 anos) | R$ 691 + R$ 173 + R$ 173 | **R$ 1.037** |
+| 1 gestante + 1 adolescente (15 anos) | R$ 691 + R$ 58 + R$ 58 | **R$ 807** |
 
-O **benefício médio** pago pelo programa ficou em torno de **R$ 690 a R$ 700** no começo de 2026 — mas, como você viu, o seu valor depende da sua família.
+O **benefício médio** pago pelo programa deve ficar em torno de **R$ 777** a partir de outubro de 2026 — mas, como você viu, o seu valor depende da sua família.
 
 ## A Regra de Proteção pode mudar o valor
 
@@ -94,7 +98,7 @@ Ver a composição ajuda a entender, por exemplo, por que a família vizinha rec
 
 ## Quando o valor pode mudar
 
-O valor não fica congelado: ele é recalculado quando a **composição da família muda**. Se nasce um bebê, entra o adicional de R$ 150; quando uma criança completa 7 anos, o adicional dela cai de R$ 150 para R$ 50; e quando um filho faz 18 anos, aquele adicional deixa de contar. Mudanças de renda também podem acionar a Regra de Proteção. Por isso é tão importante manter o [CadÚnico atualizado](/bolsa-familia/atualizar-cadastro-unico) sempre que algo muda em casa — é a atualização que garante o valor certo, para mais ou para menos.
+O valor não fica congelado: ele é recalculado quando a **composição da família muda**. Se nasce um bebê, entra o adicional de R$ 173; quando uma criança completa 7 anos, o adicional dela cai de R$ 173 para R$ 58; e quando um filho faz 18 anos, aquele adicional deixa de contar. Mudanças de renda também podem acionar a Regra de Proteção. Por isso é tão importante manter o [CadÚnico atualizado](/bolsa-familia/atualizar-cadastro-unico) sempre que algo muda em casa — é a atualização que garante o valor certo, para mais ou para menos.
 
 ## Por que às vezes vem menos
 
