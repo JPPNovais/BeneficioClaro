@@ -107,7 +107,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] como-ganhar-dinheiro-na-internet — formas reais e seguras (sem golpe)
 - [ ] trabalhos-em-casa-para-ganhar-dinheiro — opções de trabalho remoto
 - [ ] como-vender-online — marketplaces e redes sociais
-- [ ] renda-extra-para-aposentados — o que a lei permite
+- [x] renda-extra-para-aposentados — o que a lei permite
 
 ---
 
