@@ -129,7 +129,7 @@ backlog de `trabalho`, `fgts`, `inss`, `financas` e `renda-extra` estiver vazio.
 - [x] consultar-bolsa-familia-pelo-cpf — como consultar o benefício pelo CPF/app `[pagamento]`
 - [x] como-sacar-bolsa-familia-caixa-tem — sacar e usar pelo Caixa Tem (Pix, contas) `[pagamento]`
 - [x] regra-de-protecao-bolsa-familia — como funciona quando a renda aumenta `[quem-tem-direito]`
-- [ ] bolsa-familia-carteira-assinada — posso receber trabalhando de carteira? `[quem-tem-direito]`
+- [x] bolsa-familia-carteira-assinada — posso receber trabalhando de carteira? `[quem-tem-direito]`
 - [ ] beneficio-primeira-infancia — adicional de R$ 150 por criança até 6 anos `[valores]`
 - [x] bolsa-familia-mora-sozinho — quem mora sozinho tem direito? (notícia: Portaria MDS 1.199/2026 adia entrevista domiciliar até 2027) `[quem-tem-direito]`
 - [ ] nao-recebi-bolsa-familia-o-que-fazer — pagamento não caiu na data `[pagamento]`
