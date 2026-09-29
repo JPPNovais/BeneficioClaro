@@ -86,7 +86,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] salario-familia-quem-tem-direito — quem tem direito, valor da cota e limite de renda em 2026 (notícia: Portaria Interministerial MPS/MF nº 13/2026 reajustou a cota para R$ 67,54 e esclareceu o cálculo proporcional)
 - [x] pensao-por-morte-quem-tem-direito — dependentes por classe, cota familiar, duração por idade do cônjuge e como pedir no Meu INSS
 - [x] auxilio-reclusao-quem-tem-direito — benefício para dependentes de segurado de baixa renda preso, valor e como pedir
-- [ ] isencao-ir-aposentados-doenca-grave — quais doenças isentam o aposentado/pensionista do Imposto de Renda e como pedir
+- [x] isencao-ir-aposentados-doenca-grave — quais doenças isentam o aposentado/pensionista do Imposto de Renda e como pedir
 
 ## Finanças do dia a dia (categoria: financas)
 
