@@ -87,6 +87,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] pensao-por-morte-quem-tem-direito — dependentes por classe, cota familiar, duração por idade do cônjuge e como pedir no Meu INSS
 - [x] auxilio-reclusao-quem-tem-direito — benefício para dependentes de segurado de baixa renda preso, valor e como pedir
 - [x] isencao-ir-aposentados-doenca-grave — quais doenças isentam o aposentado/pensionista do Imposto de Renda e como pedir
+- [x] calendario-pagamento-inss — lógica do calendário por final do benefício (até/acima do mínimo), com as datas de outubro/novembro de 2026 (evergreen, atualizar mensalmente)
 
 ## Finanças do dia a dia (categoria: financas)
 

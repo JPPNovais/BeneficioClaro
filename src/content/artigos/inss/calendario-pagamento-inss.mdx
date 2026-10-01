@@ -1,0 +1,145 @@
+---
+title: "Calendário do INSS: quando cai o pagamento?"
+slug: "calendario-pagamento-inss"
+categoria: "inss"
+capa: "../../../assets/covers/calendario-pagamento-inss.png"
+capaAlt: "Arte do Benefício Claro sobre o calendário de pagamento do INSS"
+description: "O INSS paga em duas levas, por final do número do benefício. Veja as datas de outubro e novembro de 2026, por que elas mudam todo mês e como conferir a sua."
+respostaRapida: "O INSS paga todo mês em duas levas, pelo final do número do benefício (sem o dígito verificador): primeiro quem recebe até um salário mínimo, depois quem recebe acima. Na competência de outubro de 2026, os pagamentos começam em 26 de outubro (final 1) e terminam em 9 de novembro (final 0, e finais 5 e 0 de quem ganha acima do mínimo)."
+dataPublicacao: 2026-10-01
+dataAtualizacao: 2026-10-01
+autor: "redacao"
+revisado: true
+tags:
+  - "inss"
+  - "calendário"
+  - "pagamento"
+  - "aposentadoria"
+  - "meu inss"
+fontesOficiais:
+  - label: "Calendário de pagamentos do INSS de 2026 está disponível — INSS (gov.br)"
+    href: "https://www.gov.br/inss/pt-br/assuntos/calendario-de-pagamentos-do-inss-de-2026-esta-disponivel"
+  - label: "Tabela de Pagamento de Benefícios 2026 — INSS (PDF oficial, gov.br)"
+    href: "https://www.gov.br/inss/pt-br/assuntos/calendario-de-pagamentos-do-inss-de-2026-esta-disponivel/TabeladePagamentodeBenefcios20261.pdf"
+  - label: "Extrato de Pagamento de Benefício — INSS (gov.br)"
+    href: "https://www.gov.br/inss/pt-br/saiba-mais/seu-beneficio/extrato-de-pagamento-de-beneficio"
+  - label: "Central 135 — Ministério da Previdência Social (gov.br)"
+    href: "https://www.gov.br/previdencia/pt-br/canais_atendimento/central-135"
+referencias:
+  - label: "Brasil 247 — INSS libera calendário de outubro para aposentados e pensionistas"
+    href: "https://www.brasil247.com/tendencias/2026/09/30/inss-libera-calendario-de-outubro-para-aposentados-e-pensionistas/"
+  - label: "CSB — Pagamento do INSS de setembro de 2026: veja calendário e datas"
+    href: "https://csb.org.br/noticias/pagamento-inss-setembro-datas"
+faq:
+  - pergunta: "Qual é o final do meu benefício?"
+    resposta: "É o número do seu benefício (NB), sem contar o dígito verificador depois do traço. Por exemplo, num NB 123.456.789-0, o final usado no calendário é o 9, não o 0 depois do traço. O NB está no cartão do benefício, no extrato de pagamento e no Meu INSS."
+  - pergunta: "Por que quem recebe acima do salário mínimo é pago depois?"
+    resposta: "O INSS organiza o pagamento em duas levas desde 2019: primeiro os benefícios de até um salário mínimo (a maioria, cerca de 60% do total), depois os de valor maior. A ordem não é privilégio nem atraso — é só a forma como o INSS organiza o processamento da folha, dividida pelo valor do benefício."
+  - pergunta: "O que acontece se a data cair num sábado, domingo ou feriado?"
+    resposta: "O pagamento daquele final é adiado para o próximo dia útil. É o que explica por que os finais 6, 7, 8, 9 e 0 de outubro de 2026 só saem a partir de 3 de novembro: o dia 2 de novembro (Finados) é feriado nacional e cai numa segunda-feira, então o calendário pula para terça."
+  - pergunta: "Posso receber antes da data do meu final?"
+    resposta: "Em regra, não. A única exceção é quando o banco pagador antecipa por conta própria (alguns bancos liberam o crédito horas antes da meia-noite do dia oficial), mas isso não é regra do INSS nem garantido — não dá para contar com isso para organizar o orçamento do mês."
+  - pergunta: "O calendário é o mesmo para o 13º salário?"
+    resposta: "Não. O 13º salário do INSS tem calendário próprio, pago em duas parcelas no meio e no fim do ano (a antecipação costuma sair entre abril e maio, e a segunda parcela em dezembro), separado do pagamento mensal do benefício."
+howTo:
+  name: "Como descobrir a data exata do seu pagamento do INSS"
+  steps:
+    - name: "Veja o final do seu benefício"
+      text: "Pegue o número do benefício (NB) no cartão, no extrato ou no Meu INSS e observe o último número antes do traço do dígito verificador — é esse dígito que define o seu grupo no calendário."
+    - name: "Confira se você recebe até ou acima de um salário mínimo"
+      text: "O calendário tem duas tabelas por mês: uma para quem recebe até R$ 1.621 (o piso de 2026) e outra, com datas diferentes, para quem recebe acima disso."
+    - name: "Compare com a tabela do mês de competência"
+      text: "O calendário se refere ao mês trabalhado (competência), não ao mês em que o dinheiro cai. O pagamento da competência outubro sai entre o fim de outubro e o início de novembro."
+    - name: "Confirme pelo Meu INSS no dia"
+      text: "No dia previsto, veja o Extrato de Pagamento no app ou site Meu INSS para confirmar que o crédito já foi feito, ou ligue de graça para a Central 135."
+relacionados:
+  - "como-consultar-o-inss"
+  - "bpc-loas-quem-tem-direito"
+  - "aposentadoria-por-idade-regras"
+---
+
+import Alert from "@components/feedback/Alert.astro";
+
+O INSS paga mais de 34 milhões de benefícios por mês — aposentadorias, pensões, auxílios e o BPC — e faz isso em etapas, não tudo no mesmo dia. Se o seu pagamento ainda não caiu, antes de se preocupar vale conferir se a data do seu grupo já chegou. Este texto traz a lógica do calendário e as datas de outubro e novembro de 2026.
+
+## Como funciona o calendário de pagamento do INSS?
+
+O INSS divide o pagamento por dois critérios, nessa ordem:
+
+1. **Valor do benefício.** Primeiro são pagos os benefícios de até um salário mínimo (R$ 1.621 em 2026) — a maior parte do total. Depois, os benefícios de valor acima do mínimo.
+2. **Final do número do benefício (NB).** Dentro de cada grupo, o pagamento segue o último algarismo do NB, sem contar o dígito verificador depois do traço: final 1 recebe primeiro, final 0 recebe por último.
+
+Esse escalonamento existe desde 2019 e segue o mesmo padrão todo mês: só as datas de cada final mudam, porque dependem de quantos dias úteis o mês tem no fim.
+
+## Qual é a data de pagamento em outubro e novembro de 2026?
+
+A competência de outubro (o mês trabalhado) é paga entre o fim de outubro e o início de novembro.
+
+### Quem recebe até um salário mínimo (R$ 1.621)
+
+| Final do benefício | Data de pagamento |
+| --- | --- |
+| 1 | 26/10 (segunda) |
+| 2 | 27/10 (terça) |
+| 3 | 28/10 (quarta) |
+| 4 | 29/10 (quinta) |
+| 5 | 30/10 (sexta) |
+| 6 | 03/11 (terça) |
+| 7 | 04/11 (quarta) |
+| 8 | 05/11 (quinta) |
+| 9 | 06/11 (sexta) |
+| 0 | 09/11 (segunda) |
+
+### Quem recebe acima de um salário mínimo
+
+Nesse grupo, cada data atende dois finais ao mesmo tempo:
+
+| Finais do benefício | Data de pagamento |
+| --- | --- |
+| 1 e 6 | 03/11 (terça) |
+| 2 e 7 | 04/11 (quarta) |
+| 3 e 8 | 05/11 (quinta) |
+| 4 e 9 | 06/11 (sexta) |
+| 5 e 0 | 09/11 (segunda) |
+
+<Alert tone="info" title="Por que o final 6 pula para 3 de novembro?">
+  Depois do final 5 (sexta-feira, 30/10), o próximo dia útil seria segunda-feira, 2 de novembro — mas esse dia é feriado nacional de Finados. Por isso o calendário pula direto para terça, 3 de novembro, e é também por isso que os pagamentos de quem ganha acima do mínimo só começam nessa data.
+</Alert>
+
+## Por que a data muda todo mês?
+
+O calendário usa só **dias úteis**, de segunda a sexta, sem contar feriados nacionais. Como cada mês tem um número diferente de dias úteis na reta final, a data de cada final de benefício varia de mês para mês — às vezes avança um ou dois dias, às vezes recua. Por isso não dá para supor que a data de outubro vai se repetir em novembro: o certo é sempre conferir a tabela do mês de competência.
+
+## Como descobrir o final do meu benefício?
+
+O número que importa é o do **NB (Número do Benefício)**, não o do CPF nem o do cartão do banco. Ele aparece:
+
+- No cartão de benefício ou na carta de concessão.
+- No **Extrato de Pagamento de Benefício**, pelo Meu INSS.
+- Na carteira de trabalho digital, para quem já teve o benefício vinculado.
+
+O final usado no calendário é o **último dígito antes do traço** — o número depois do traço é só o dígito verificador e não entra na conta.
+
+## Onde consultar se o pagamento já caiu
+
+- **App ou site Meu INSS** (meu.inss.gov.br): entre com a conta gov.br e veja o Extrato de Pagamento, que mostra a data exata do crédito de cada mês.
+- **Central 135**: ligação gratuita, de segunda a sábado, das 7h às 22h, para quem não tem acesso à internet.
+- **Banco pagador**: o app do banco onde o benefício é creditado também mostra o extrato, às vezes antes do Meu INSS atualizar.
+
+## O que fazer se o pagamento não caiu na data
+
+Primeiro, confira se a data que você está usando é a da tabela certa (mês de competência, e não o mês em que o crédito cai) e se você está olhando o grupo certo (até ou acima do salário mínimo). Se a data já passou e o valor não apareceu:
+
+1. Veja o Extrato de Pagamento no Meu INSS — ele indica se o benefício está suspenso, em análise ou com algum bloqueio.
+2. Ligue para a Central 135 para confirmar a situação.
+3. Se não houver nenhuma pendência indicada e o prazo já passou de alguns dias úteis, abra um requerimento de revisão pelo Meu INSS.
+
+<Alert tone="warning" title="Desconfie de quem promete 'liberar' o pagamento">
+  O INSS nunca cobra para adiantar, liberar ou corrigir um pagamento. Qualquer contato pedindo dinheiro, dados bancários ou senha "para resolver" o benefício é golpe — denuncie e procure apenas os canais oficiais (Meu INSS, Central 135 ou uma agência do INSS).
+</Alert>
+
+## O calendário vale para todos os benefícios?
+
+Vale para o pagamento mensal regular de aposentadorias, pensões por morte, auxílios por incapacidade e o **BPC/LOAS**. O **13º salário** do INSS segue um calendário à parte, com a primeira parcela costumando sair entre abril e maio e a segunda em dezembro — datas que o governo define e divulga separadamente a cada ano.
+
+Quer entender melhor outros benefícios do INSS? Veja quem tem direito ao [BPC/LOAS](/inss/bpc-loas-quem-tem-direito), as regras da [aposentadoria por idade](/inss/aposentadoria-por-idade-regras) ou como usar o [Meu INSS para consultar extrato e CNIS](/inss/como-consultar-o-inss).
