@@ -136,7 +136,7 @@ backlog de `trabalho`, `fgts`, `inss`, `financas` e `renda-extra` estiver vazio.
 - [x] bolsa-familia-carteira-assinada — posso receber trabalhando de carteira? `[quem-tem-direito]`
 - [x] beneficio-primeira-infancia — adicional de R$ 150 por criança até 6 anos `[valores]`
 - [x] bolsa-familia-mora-sozinho — quem mora sozinho tem direito? (notícia: Portaria MDS 1.199/2026 adia entrevista domiciliar até 2027) `[quem-tem-direito]`
-- [ ] nao-recebi-bolsa-familia-o-que-fazer — pagamento não caiu na data `[pagamento]`
+- [x] nao-recebi-bolsa-familia-o-que-fazer — pagamento não caiu na data `[pagamento]`
 
 ## CadÚnico (categoria: cadunico)
 

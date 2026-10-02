@@ -5,9 +5,9 @@ categoria: "bolsa-familia"
 capa: "../../../assets/covers/calendario-pagamento-bolsa-familia-2026.png"
 capaAlt: "Arte do Benefício Claro sobre o calendário de pagamento do Bolsa Família"
 description: "Quando cai o Bolsa Família? O pagamento é escalonado pelo final do NIS, nos últimos dez dias úteis do mês. Veja como descobrir a sua data exata em 2026."
-respostaRapida: "O Bolsa Família é pago nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS: quem tem final 1 recebe primeiro e final 0 por último. Em agosto de 2026, o pagamento vai de 18 a 31. Cada parcela fica disponível por até 120 dias para saque ou uso pelo Caixa Tem."
+respostaRapida: "O Bolsa Família é pago nos últimos dez dias úteis de cada mês, escalonado pelo final do NIS: quem tem final 1 recebe primeiro e final 0 por último. Em outubro de 2026, o pagamento vai de 19 a 30 — e já sai com o valor mínimo reajustado para R$ 691. Cada parcela fica disponível por até 120 dias para saque ou uso pelo Caixa Tem."
 dataPublicacao: 2026-06-10
-dataAtualizacao: 2026-08-12
+dataAtualizacao: 2026-10-02
 autor: "redacao"
 revisado: true
 subtopico: "pagamento"
@@ -46,22 +46,24 @@ Todo mês surge a mesma pergunta: "quando cai o dinheiro?". O Bolsa Família tem
 
 O pagamento acontece nos **últimos dez dias úteis** de cada mês. Para não lotar tudo no mesmo dia, a Caixa **escalona pelo final do NIS** — o último número antes do dígito. Quem tem NIS final **1 recebe no primeiro dia**; final 2 no segundo; e assim por diante, até o final **0**, que recebe por último.
 
-## As datas de agosto de 2026
+## As datas de outubro de 2026
 
-Em agosto de 2026, o calendário vai de **18 a 31 de agosto**. Agosto não tem feriado nacional, então os dez dias úteis finais são corridos, com as pausas só nos fins de semana:
+Em outubro de 2026, o calendário vai de **19 a 30 de outubro**. Outubro não tem feriado nacional, então os dez dias úteis finais são corridos, com a pausa só no fim de semana entre os finais 5 e 6:
 
 | Final do NIS | Data |
 | --- | --- |
-| 1 | 18 de agosto |
-| 2 | 19 de agosto |
-| 3 | 20 de agosto |
-| 4 | 21 de agosto |
-| 5 | 24 de agosto |
-| 6 | 25 de agosto |
-| 7 | 26 de agosto |
-| 8 | 27 de agosto |
-| 9 | 28 de agosto |
-| 0 | 31 de agosto |
+| 1 | 19 de outubro |
+| 2 | 20 de outubro |
+| 3 | 21 de outubro |
+| 4 | 22 de outubro |
+| 5 | 23 de outubro |
+| 6 | 26 de outubro |
+| 7 | 27 de outubro |
+| 8 | 28 de outubro |
+| 9 | 29 de outubro |
+| 0 | 30 de outubro |
+
+Outubro também é o **primeiro mês** com o valor mínimo do Bolsa Família reajustado para **R$ 691** (antes R$ 600) — veja os novos valores de cada adicional em [Bolsa Família sobe para R$ 691: o que muda em outubro](/noticias/reajuste-bolsa-familia-2026).
 
 Em vez de decorar a tabela todo mês, use a nossa ferramenta de [calendário de pagamento](/ferramentas/calendario): escolha o final do seu NIS e ela mostra a data exata.
 

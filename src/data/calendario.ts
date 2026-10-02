@@ -37,27 +37,27 @@ export interface Calendario {
 }
 
 export const CALENDARIO: Calendario = {
-  mesReferencia: "agosto de 2026",
-  periodo: "De 18 a 31 de agosto",
-  atualizadoEm: "2026-08-12",
+  mesReferencia: "outubro de 2026",
+  periodo: "De 19 a 30 de outubro",
+  atualizadoEm: "2026-10-02",
   fonte: {
-    label: "Calendário Bolsa Família 2026 — Ministério do Desenvolvimento (gov.br)",
-    href: "https://www.gov.br/mds/pt-br/noticias-e-conteudos/desenvolvimento-social/noticias-desenvolvimento-social/confira-o-calendario-de-pagamentos-do-bolsa-familia-de-2026",
+    label: "Bolsa Família terá valor mínimo de R$ 691 a partir de outubro — MDS (gov.br)",
+    href: "https://www.gov.br/mds/pt-br/noticias/bolsa-familia-tera-valor-minimo-de-r-691-a-partir-de-outubro",
   },
-  // Agosto/2026: os últimos 10 dias úteis do mês são 18, 19, 20, 21, 24, 25,
-  // 26, 27, 28 e 31 (agosto não tem feriado nacional). Final 1 = 18/08;
-  // final 0 = 31/08. Confere com a regra oficial do MDS e com o calendário
-  // divulgado pela imprensa.
+  // Outubro/2026: os últimos 10 dias úteis do mês são 19, 20, 21, 22, 23, 26,
+  // 27, 28, 29 e 30 (outubro não tem feriado nacional; os feriados de 2/11,
+  // 15/11 e 20/11 são de novembro). Final 1 = 19/10; final 0 = 30/10. Também
+  // é o 1º mês com o valor mínimo reajustado para R$ 691 (Decreto 13.120/2026).
   datas: [
-    { nis: "1", dia: "18 de agosto", iso: "2026-08-18" },
-    { nis: "2", dia: "19 de agosto", iso: "2026-08-19" },
-    { nis: "3", dia: "20 de agosto", iso: "2026-08-20" },
-    { nis: "4", dia: "21 de agosto", iso: "2026-08-21" },
-    { nis: "5", dia: "24 de agosto", iso: "2026-08-24" },
-    { nis: "6", dia: "25 de agosto", iso: "2026-08-25" },
-    { nis: "7", dia: "26 de agosto", iso: "2026-08-26" },
-    { nis: "8", dia: "27 de agosto", iso: "2026-08-27" },
-    { nis: "9", dia: "28 de agosto", iso: "2026-08-28" },
-    { nis: "0", dia: "31 de agosto", iso: "2026-08-31" },
+    { nis: "1", dia: "19 de outubro", iso: "2026-10-19" },
+    { nis: "2", dia: "20 de outubro", iso: "2026-10-20" },
+    { nis: "3", dia: "21 de outubro", iso: "2026-10-21" },
+    { nis: "4", dia: "22 de outubro", iso: "2026-10-22" },
+    { nis: "5", dia: "23 de outubro", iso: "2026-10-23" },
+    { nis: "6", dia: "26 de outubro", iso: "2026-10-26" },
+    { nis: "7", dia: "27 de outubro", iso: "2026-10-27" },
+    { nis: "8", dia: "28 de outubro", iso: "2026-10-28" },
+    { nis: "9", dia: "29 de outubro", iso: "2026-10-29" },
+    { nis: "0", dia: "30 de outubro", iso: "2026-10-30" },
   ],
 };
