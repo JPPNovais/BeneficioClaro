@@ -143,7 +143,7 @@ backlog de `trabalho`, `fgts`, `inss`, `financas` e `renda-extra` estiver vazio.
 - [x] o-que-e-cadastro-unico — o que é e para que serve
 - [ ] como-fazer-cadastro-unico — primeira inscrição, passo a passo
 - [ ] beneficios-do-cadastro-unico — quais benefícios o CadÚnico dá direito
-- [ ] cadastro-unico-pelo-aplicativo — pré-cadastro e consulta pelo app
+- [x] cadastro-unico-pelo-aplicativo — pré-cadastro e consulta pelo app
 
 ## Auxílio Gás (categoria: auxilio-gas)
 
