@@ -141,8 +141,8 @@ backlog de `trabalho`, `fgts`, `inss`, `financas` e `renda-extra` estiver vazio.
 ## CadÚnico (categoria: cadunico)
 
 - [x] o-que-e-cadastro-unico — o que é e para que serve
-- [ ] como-fazer-cadastro-unico — primeira inscrição, passo a passo
-- [ ] beneficios-do-cadastro-unico — quais benefícios o CadÚnico dá direito
+- [ ] como-fazer-cadastro-unico — primeira inscrição, passo a passo (nota: o passo a passo da inscrição já está coberto em o-que-e-cadastro-unico; só vale revisitar com um ângulo realmente novo)
+- [x] beneficios-do-cadastro-unico — quais benefícios o CadÚnico dá direito (Bolsa Família, BPC, Tarifa Social, Gás do Povo, Pé-de-Meia, Minha Casa Minha Vida, ID Jovem, com valor e renda exigida de cada um)
 - [x] cadastro-unico-pelo-aplicativo — pré-cadastro e consulta pelo app
 
 ## Auxílio Gás (categoria: auxilio-gas)
