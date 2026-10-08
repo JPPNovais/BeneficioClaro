@@ -154,7 +154,7 @@ backlog de `trabalho`, `fgts`, `inss`, `financas` e `renda-extra` estiver vazio.
 ## Tarifa Social de Energia (categoria: tarifa-social)
 
 - [x] tarifa-social-energia-quem-tem-direito — desconto na conta de luz, quem tem direito
-- [ ] como-pedir-tarifa-social — inscrição automática e como solicitar
+- [x] como-pedir-tarifa-social — inscrição automática e como solicitar
 
 ---
 
