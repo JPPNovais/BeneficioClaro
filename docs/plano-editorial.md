@@ -64,6 +64,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] como-calcular-hora-extra — 50% e 100%, reflexo no DSR, com exemplo `[outros-direitos]`
 - [x] adicional-noturno-como-calcular — 20%, hora reduzida de 52min30s `[outros-direitos]`
 - [x] justa-causa-o-que-recebo — o que sobra e quais faltas configuram `[rescisao]`
+- [x] vale-transporte-quem-tem-direito — quem tem direito, o desconto de 6%, home office e híbrido `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
