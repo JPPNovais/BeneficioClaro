@@ -65,6 +65,9 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] adicional-noturno-como-calcular — 20%, hora reduzida de 52min30s `[outros-direitos]`
 - [x] justa-causa-o-que-recebo — o que sobra e quais faltas configuram `[rescisao]`
 - [x] vale-transporte-quem-tem-direito — quem tem direito, o desconto de 6%, home office e híbrido `[outros-direitos]`
+- [x] o-que-e-dsr-descanso-semanal-remunerado — o que é o DSR, como funciona para horista/comissionista e quando se perde por falta `[outros-direitos]`
+- [ ] banco-de-horas-como-funciona — regras do banco de horas, prazos de compensação e quando vira hora extra `[outros-direitos]`
+- [ ] ferias-coletivas-como-funcionam — o que são férias coletivas, aviso prévio de 15 dias e o que muda para o trabalhador `[ferias-decimo]`
 
 ## FGTS (categoria: fgts)
 
