@@ -68,6 +68,9 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] o-que-e-dsr-descanso-semanal-remunerado — o que é o DSR, como funciona para horista/comissionista e quando se perde por falta `[outros-direitos]`
 - [x] banco-de-horas-como-funciona — regras do banco de horas, prazos de compensação e quando vira hora extra `[outros-direitos]`
 - [x] ferias-coletivas-como-funcionam — o que são férias coletivas, aviso prévio de 15 dias e o que muda para o trabalhador `[ferias-decimo]`
+- [x] adicional-insalubridade-periculosidade — graus (10/20/40% do mínimo) e periculosidade (30% do salário-base), por que não acumulam, laudo técnico `[outros-direitos]`
+- [ ] jornada-12x36-como-funciona — regras da escala 12x36, DSR embutido e adicional noturno na escala `[outros-direitos]`
+- [ ] equiparacao-salarial-quando-tenho-direito — regra do art. 461 da CLT, mesma função e mesmo salário, quadro de carreira `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
