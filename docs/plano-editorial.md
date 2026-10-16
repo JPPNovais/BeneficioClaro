@@ -70,7 +70,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] ferias-coletivas-como-funcionam — o que são férias coletivas, aviso prévio de 15 dias e o que muda para o trabalhador `[ferias-decimo]`
 - [x] adicional-insalubridade-periculosidade — graus (10/20/40% do mínimo) e periculosidade (30% do salário-base), por que não acumulam, laudo técnico `[outros-direitos]`
 - [x] jornada-12x36-como-funciona — regras da escala 12x36, DSR embutido e adicional noturno na escala `[outros-direitos]`
-- [ ] equiparacao-salarial-quando-tenho-direito — regra do art. 461 da CLT, mesma função e mesmo salário, quadro de carreira `[outros-direitos]`
+- [x] equiparacao-salarial-quando-tenho-direito — regra do art. 461 da CLT, mesma função e mesmo salário, quadro de carreira `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
