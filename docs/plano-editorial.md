@@ -71,6 +71,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] adicional-insalubridade-periculosidade — graus (10/20/40% do mínimo) e periculosidade (30% do salário-base), por que não acumulam, laudo técnico `[outros-direitos]`
 - [x] jornada-12x36-como-funciona — regras da escala 12x36, DSR embutido e adicional noturno na escala `[outros-direitos]`
 - [x] equiparacao-salarial-quando-tenho-direito — regra do art. 461 da CLT, mesma função e mesmo salário, quadro de carreira `[outros-direitos]`
+- [x] contrato-de-experiencia-rescisao-antecipada — arts. 479/480/481 da CLT, indenização de metade dos dias restantes e multa de 40% do FGTS na rescisão antecipada `[rescisao]`
 
 ## FGTS (categoria: fgts)
 
