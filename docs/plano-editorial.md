@@ -72,6 +72,8 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] jornada-12x36-como-funciona — regras da escala 12x36, DSR embutido e adicional noturno na escala `[outros-direitos]`
 - [x] equiparacao-salarial-quando-tenho-direito — regra do art. 461 da CLT, mesma função e mesmo salário, quadro de carreira `[outros-direitos]`
 - [x] contrato-de-experiencia-rescisao-antecipada — arts. 479/480/481 da CLT, indenização de metade dos dias restantes e multa de 40% do FGTS na rescisão antecipada `[rescisao]`
+- [x] estabilidade-da-gestante — art. 10 do ADCT, Súmula 244 do TST, estabilidade mesmo em contrato por tempo determinado e o que fazer se demitida `[rescisao]`
+- [ ] estabilidade-acidente-trabalho — garantia de emprego de 12 meses após o fim do auxílio-doença acidentário (Lei 8.213/91, art. 118) `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
@@ -82,6 +84,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] como-sacar-fgts — em quais situações dá para sacar o FGTS
 - [x] fgts-rende-quanto — rendimento anual do FGTS
 - [x] fgts-conta-inativa — como sacar FGTS de conta antiga/inativa
+- [ ] fgts-comprar-imovel — como usar o saldo do FGTS para comprar, construir ou abater a casa própria (Lei 8.036/1990, art. 20)
 
 ## INSS e aposentadoria (categoria: inss)
 
