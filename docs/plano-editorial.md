@@ -73,7 +73,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] equiparacao-salarial-quando-tenho-direito — regra do art. 461 da CLT, mesma função e mesmo salário, quadro de carreira `[outros-direitos]`
 - [x] contrato-de-experiencia-rescisao-antecipada — arts. 479/480/481 da CLT, indenização de metade dos dias restantes e multa de 40% do FGTS na rescisão antecipada `[rescisao]`
 - [x] estabilidade-da-gestante — art. 10 do ADCT, Súmula 244 do TST, estabilidade mesmo em contrato por tempo determinado e o que fazer se demitida `[rescisao]`
-- [ ] estabilidade-acidente-trabalho — garantia de emprego de 12 meses após o fim do auxílio-doença acidentário (Lei 8.213/91, art. 118) `[outros-direitos]`
+- [x] estabilidade-acidente-trabalho — garantia de emprego de 12 meses após o fim do auxílio-doença acidentário (Lei 8.213/91, art. 118) `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
