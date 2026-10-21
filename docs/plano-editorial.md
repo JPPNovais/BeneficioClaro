@@ -84,7 +84,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] como-sacar-fgts — em quais situações dá para sacar o FGTS
 - [x] fgts-rende-quanto — rendimento anual do FGTS
 - [x] fgts-conta-inativa — como sacar FGTS de conta antiga/inativa
-- [ ] fgts-comprar-imovel — como usar o saldo do FGTS para comprar, construir ou abater a casa própria (Lei 8.036/1990, art. 20)
+- [x] fgts-comprar-imovel — como usar o saldo do FGTS para comprar, construir ou abater a casa própria (Lei 8.036/1990, art. 20)
 
 ## INSS e aposentadoria (categoria: inss)
 
