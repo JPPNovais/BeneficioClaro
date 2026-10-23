@@ -101,7 +101,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] calendario-pagamento-inss — lógica do calendário por final do benefício (até/acima do mínimo), com as datas de outubro/novembro de 2026 (evergreen, atualizar mensalmente)
 - [x] salario-maternidade-quem-tem-direito — quem tem direito (CLT, MEI, autônoma, doméstica, rural, desempregada), carência, 120 dias e valor por categoria
 - [x] auxilio-acidente-quem-tem-direito — benefício indenizatório por sequela permanente após acidente, 50% do salário de benefício, sem carência, compatível com o trabalho `[inss]`
-- [ ] aposentadoria-por-incapacidade-permanente-regras — a antiga aposentadoria por invalidez: diferença do auxílio-doença e do auxílio-acidente, perícia, conversão automática e revisão `[inss]`
+- [x] aposentadoria-por-incapacidade-permanente-regras — a antiga aposentadoria por invalidez: diferença do auxílio-doença e do auxílio-acidente, perícia, conversão automática e revisão `[inss]`
 
 ## Finanças do dia a dia (categoria: financas)
 
