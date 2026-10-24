@@ -114,7 +114,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] conta-digital-sem-tarifa — como abrir conta digital gratuita
 - [x] como-comecar-a-investir-com-pouco — Tesouro Direto e poupança
 - [x] pe-de-meia-poupanca-estudante — como funciona a poupança do estudante
-- [ ] score-de-credito-como-funciona — o que é o score (Serasa/SPC), como consultar de graça e o que realmente melhora a nota, com base na Lei do Cadastro Positivo
+- [x] score-de-credito-como-funciona — o que é o score (Serasa/SPC), como consultar de graça e o que realmente melhora a nota, com base na Lei do Cadastro Positivo
 
 ## MEI e renda extra (categoria: renda-extra)
 
