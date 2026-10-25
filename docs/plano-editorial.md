@@ -102,6 +102,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] salario-maternidade-quem-tem-direito — quem tem direito (CLT, MEI, autônoma, doméstica, rural, desempregada), carência, 120 dias e valor por categoria
 - [x] auxilio-acidente-quem-tem-direito — benefício indenizatório por sequela permanente após acidente, 50% do salário de benefício, sem carência, compatível com o trabalho `[inss]`
 - [x] aposentadoria-por-incapacidade-permanente-regras — a antiga aposentadoria por invalidez: diferença do auxílio-doença e do auxílio-acidente, perícia, conversão automática e revisão `[inss]`
+- [x] aposentadoria-especial-quem-tem-direito — exposição a agentes nocivos (15/20/25 anos), regra de pontos pós-EC 103/2019, PPP/LTCAT como prova e valor do benefício `[inss]`
 
 ## Finanças do dia a dia (categoria: financas)
 
