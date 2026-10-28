@@ -117,7 +117,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] pe-de-meia-poupanca-estudante — como funciona a poupança do estudante
 - [x] score-de-credito-como-funciona — o que é o score (Serasa/SPC), como consultar de graça e o que realmente melhora a nota, com base na Lei do Cadastro Positivo
 - [x] pis-pasep-antigo-como-sacar-cotas — cotas esquecidas do antigo Fundo PIS/Pasep (contribuições de 1971 a 1988), como consultar e sacar pelo Repis Cidadão ou app FGTS
-- [ ] consignado-clt-como-funciona — margem de 35% do salário para empréstimo consignado de quem tem carteira assinada, Lei 10.820/2003, diferença do consignado do INSS
+- [x] consignado-clt-como-funciona — margem de 35% do salário para empréstimo consignado de quem tem carteira assinada, Lei 10.820/2003, diferença do consignado do INSS
 - [ ] portabilidade-emprestimo-consignado — como trocar o consignado de banco sem perder o desconto em folha, regra do Banco Central e o que comparar antes de portar
 
 ## MEI e renda extra (categoria: renda-extra)
