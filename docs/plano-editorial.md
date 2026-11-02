@@ -76,7 +76,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] estabilidade-acidente-trabalho — garantia de emprego de 12 meses após o fim do auxílio-doença acidentário (Lei 8.213/91, art. 118) `[outros-direitos]`
 - [x] rescisao-indireta-o-que-e-quando-pedir — "justa causa do empregador" (art. 483 da CLT), hipóteses, Tema 70 do TST sobre FGTS, e as verbas devidas `[rescisao]`
 - [x] ferias-vencidas-pagamento-em-dobro — período concessivo (art. 134/137 da CLT), quando a dobra se aplica, fim da Súmula 450 do TST pela ADPF 501 do STF, e exemplo numérico `[ferias-decimo]`
-- [ ] participacao-nos-lucros-plr-como-funciona — Lei 10.101/2000, tributação exclusiva na fonte e como declarar no IR `[outros-direitos]`
+- [x] participacao-nos-lucros-plr-como-funciona — Lei 10.101/2000, tributação exclusiva na fonte e como declarar no IR `[outros-direitos]`
 - [ ] decimo-terceiro-adiantado-na-ferias — como pedir a 1ª parcela do 13º junto com as férias e o que isso muda no fluxo de caixa `[ferias-decimo]`
 
 ## FGTS (categoria: fgts)
