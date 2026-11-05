@@ -78,6 +78,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] ferias-vencidas-pagamento-em-dobro — período concessivo (art. 134/137 da CLT), quando a dobra se aplica, fim da Súmula 450 do TST pela ADPF 501 do STF, e exemplo numérico `[ferias-decimo]`
 - [x] participacao-nos-lucros-plr-como-funciona — Lei 10.101/2000, tributação exclusiva na fonte e como declarar no IR `[outros-direitos]`
 - [x] decimo-terceiro-adiantado-na-ferias — como pedir a 1ª parcela do 13º junto com as férias e o que isso muda no fluxo de caixa `[ferias-decimo]`
+- [x] adicional-de-transferencia-como-funciona — os 25% do art. 469 da CLT quando a transferência é provisória, cargo de confiança/cláusula contratual não excluem o direito (OJ 113 da SBDI-1), e quem paga a mudança (art. 470) `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
