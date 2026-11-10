@@ -92,6 +92,9 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] fgts-rende-quanto — rendimento anual do FGTS
 - [x] fgts-conta-inativa — como sacar FGTS de conta antiga/inativa
 - [x] fgts-comprar-imovel — como usar o saldo do FGTS para comprar, construir ou abater a casa própria (Lei 8.036/1990, art. 20)
+- [x] empresa-nao-depositou-fgts-o-que-fazer — prazo de recolhimento (dia 20, Lei 14.438/2022 + FGTS Digital), como provar pelo extrato, denúncia no 158/gov.br e prazo prescricional na Justiça do Trabalho
+- [ ] fgts-trabalhador-domestico — regras específicas do FGTS de quem trabalha em casa (LC 150/2015): alíquota de 8%+3,2%, movimentação e saque sem precisar de motivo
+- [ ] fgts-pode-usar-para-financiamento-estudantil — hipóteses de uso do saldo do FGTS fora da casa própria e da aposentadoria (quando a lei permite)
 
 ## INSS e aposentadoria (categoria: inss)
 
