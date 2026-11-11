@@ -81,6 +81,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] adicional-de-transferencia-como-funciona — os 25% do art. 469 da CLT quando a transferência é provisória, cargo de confiança/cláusula contratual não excluem o direito (OJ 113 da SBDI-1), e quem paga a mudança (art. 470) `[outros-direitos]`
 - [x] direitos-empregado-domestico — LC 150/2015: jornada de 44h, FGTS de 8%+3,2%, 13º, férias, vale-transporte, aviso prévio e seguro-desemprego de quem trabalha com carteira assinada em casa `[outros-direitos]`
 - [x] trabalho-intermitente-como-funciona — art. 452-A da CLT: convocação com 3 dias, resposta em 1 dia útil, multa de 50%, pagamento imediato de férias/13º/DSR proporcionais, FGTS e INSS `[outros-direitos]`
+- [x] atraso-pagamento-rescisao-multa-artigo-477 — prazo de 10 dias do art. 477 da CLT, multa de 1 salário por atraso (§8º), diferença da multa de 40% do FGTS e da multa administrativa, e o que fazer `[rescisao]`
 
 ## FGTS (categoria: fgts)
 
