@@ -83,6 +83,9 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] trabalho-intermitente-como-funciona — art. 452-A da CLT: convocação com 3 dias, resposta em 1 dia útil, multa de 50%, pagamento imediato de férias/13º/DSR proporcionais, FGTS e INSS `[outros-direitos]`
 - [x] atraso-pagamento-rescisao-multa-artigo-477 — prazo de 10 dias do art. 477 da CLT, multa de 1 salário por atraso (§8º), diferença da multa de 40% do FGTS e da multa administrativa, e o que fazer `[rescisao]`
 - [x] salario-atrasado-o-que-fazer — prazo do art. 459 da CLT (5º dia útil do mês seguinte), correção monetária, a divergência sobre a multa do PN 72/TST e quando o atraso recorrente abre caminho para a rescisão indireta `[salario]`
+- [x] teletrabalho-home-office-direitos — arts. 75-A a 75-F da CLT (Lei 14.442/2022): contrato escrito, quem paga internet/equipamentos, prazo de 15 dias para voltar ao presencial, hora extra e prioridade para PCD/pais de crianças pequenas `[outros-direitos]`
+- [ ] vale-alimentacao-vale-refeicao-desconto — é obrigatório, limite de desconto de até 20% e as regras da Lei do PAT (Lei 6.321/1976, Decreto 10.854/2021) sobre cartões de marca própria `[outros-direitos]`
+- [ ] contribuicao-sindical-desconto-obrigatorio — desde a reforma trabalhista (Lei 13.467/2017), o desconto da contribuição sindical só pode ocorrer com autorização prévia e expressa do empregado `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
