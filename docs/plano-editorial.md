@@ -146,6 +146,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] trabalhos-em-casa-para-ganhar-dinheiro — opções de trabalho remoto
 - [x] como-vender-online — marketplaces e redes sociais
 - [x] renda-extra-para-aposentados — o que a lei permite
+- [x] mei-e-carteira-assinada-ao-mesmo-tempo — pode ser MEI e ter carteira assinada ao mesmo tempo? INSS pago nos dois vínculos, FGTS/férias/13º só vêm da CLT, e o que a Lei 7.998/1990 (art. 3º, §4º) diz sobre o seguro-desemprego de quem tem MEI ativo
 
 ---
 
