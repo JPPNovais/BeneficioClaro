@@ -87,7 +87,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] vale-alimentacao-vale-refeicao-desconto — é obrigatório, limite de desconto de até 20% e as regras da Lei do PAT (Lei 6.321/1976, Decreto 10.854/2021) sobre cartões de marca própria `[outros-direitos]`
 - [x] contribuicao-sindical-desconto-obrigatorio — desde a reforma trabalhista (Lei 13.467/2017), o desconto da contribuição sindical só pode ocorrer com autorização prévia e expressa do empregado `[outros-direitos]`
 - [x] imposto-de-renda-na-rescisao — o que é isento (aviso prévio indenizado, férias, FGTS e multa de 40%, Lei 7.713/1988 art. 6º, V) e o que é tributado (saldo de salário, 13º proporcional) na rescisão, com exemplo `[rescisao]`
-- [ ] desconto-de-pensao-alimenticia-no-salario — como é calculado o desconto de pensão alimentícia no holerite e na rescisão, limites e base de cálculo `[salario]`
+- [x] desconto-de-pensao-alimenticia-no-salario — como é calculado o desconto de pensão alimentícia no holerite e na rescisão, limites e base de cálculo `[salario]`
 - [ ] abono-pecuniario-ferias-ir-inss — tributação do abono pecuniário (venda de 1/3 das férias): é isento ou tributado, diferença do terço constitucional normal `[ferias-decimo]`
 
 ## FGTS (categoria: fgts)
