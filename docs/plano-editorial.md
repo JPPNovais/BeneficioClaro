@@ -103,6 +103,7 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] empresa-nao-depositou-fgts-o-que-fazer — prazo de recolhimento (dia 20, Lei 14.438/2022 + FGTS Digital), como provar pelo extrato, denúncia no 158/gov.br e prazo prescricional na Justiça do Trabalho
 - [x] fgts-trabalhador-domestico — regras específicas do FGTS de quem trabalha em casa (LC 150/2015): alíquota de 8%+3,2%, movimentação e saque sem precisar de motivo
 - [x] fgts-pode-usar-para-financiamento-estudantil — hipóteses de uso do saldo do FGTS fora da casa própria e da aposentadoria (quando a lei permite)
+- [x] fgts-correcao-pela-inflacao-stf — decisão do STF (ADI 5090) que garante correção mínima do FGTS pela inflação (IPCA), desde 17/06/2024, sem retroatividade
 
 ## INSS e aposentadoria (categoria: inss)
 
