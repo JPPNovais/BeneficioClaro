@@ -89,6 +89,9 @@ de `src/config/ferramentas.ts`); siga a "Estrutura do artigo de cálculo" do
 - [x] imposto-de-renda-na-rescisao — o que é isento (aviso prévio indenizado, férias, FGTS e multa de 40%, Lei 7.713/1988 art. 6º, V) e o que é tributado (saldo de salário, 13º proporcional) na rescisão, com exemplo `[rescisao]`
 - [x] desconto-de-pensao-alimenticia-no-salario — como é calculado o desconto de pensão alimentícia no holerite e na rescisão, limites e base de cálculo `[salario]`
 - [x] abono-pecuniario-ferias-ir-inss — tributação do abono pecuniário (venda de 1/3 das férias): é isento ou tributado, diferença do terço constitucional normal `[ferias-decimo]`
+- [x] intervalo-intrajornada-regras-e-pagamento — quanto tempo de intervalo por lei (15 min ou 1h-2h conforme a jornada), redução para 30 min por acordo coletivo (art. 611-A, Tema 1046 do STF) e o pagamento indenizatório pós-reforma (art. 71, §4º) x Súmula 437 do TST para contratos anteriores a 11/11/2017 `[outros-direitos]`
+- [ ] feriado-trabalhado-direitos — trabalhar em domingo ou feriado sem escala de revezamento: folga compensatória x pagamento em dobro (Súmula 146 do TST), diferença para quem já tem DSR aos domingos `[outros-direitos]`
+- [ ] registro-de-ponto-obrigatorio-regras — quem é obrigado a bater ponto (empresas com mais de 20 empregados, art. 74 da CLT), ponto eletrônico x manual x por exceção, e o que fazer se a empresa não registra ou registra errado `[outros-direitos]`
 
 ## FGTS (categoria: fgts)
 
